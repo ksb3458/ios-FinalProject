@@ -18,6 +18,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
     }
     
+    private func loadMovieFromCSV() {
+        let path = Bundle.main.path(forResource: "movies_metadata2", ofType: "csv")!
+        parseCSVAt(url: URL(fileURLWithPath: path))
+    }
+    
     private func parseCSVAt(url: URL) {
         do {
             let data = try Data(contentsOf: url)
@@ -73,13 +78,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             movieList[i].remove(at: 14)
         }
         movieList.remove(at: 100)
+        movieList = movieList.sorted(by: {$0[17] > $1[17] })
     }
     
+    private func makeAlert()
+    {
+        let alert = UIAlertController(title:"검색어를 입력해주세요!",message: "",preferredStyle: UIAlertController.Style.alert)
+        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(ok)
+        present(alert,animated: true,completion: nil)
+    }
     
     @IBAction func searchBtn(_ sender: UIButton) {
         searchField.removeAll()
+        
         if searchName == 0 {
-            if((textField.text?.isEmpty) == nil) { print("검색어 입력") }
+            if(textField.text == " " || (textField.text?.count) == 0) { makeAlert() }
             else {
                 let tfText: String? = textField.text
                 for i in 0 ..< movieList.count {
@@ -90,13 +104,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         }
                     }
                 }
+                tableView.reloadData()
             }
         }
         
         if searchName == 1 {
             if((textField.text?.isEmpty) == nil) { print("검색어 입력") }
             else {
-                var tfText: String? = textField.text
+                let tfText: String? = textField.text
                 for i in 0 ..< movieList.count {
                     if let text = tfText {
                         if movieList[i][0].contains(text) {
@@ -106,6 +121,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         }
                     }
                 }
+                tableView.reloadData()
             }
         }
     }
@@ -126,21 +142,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         dropButton.showsMenuAsPrimaryAction = true
     }
     
-    
-    private func loadMovieFromCSV() {
-        let path = Bundle.main.path(forResource: "movies_metadata2", ofType: "csv")!
-        parseCSVAt(url: URL(fileURLWithPath: path))
-        //self.tableView.reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.count
+        return searchField.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
-        cell.textLabel?.text = movieList[indexPath.row][0]
-        cell.detailTextLabel?.text = movieList[indexPath.row][1]
+        cell.textLabel?.text = movieList[searchField[indexPath.row]][0]
+        cell.detailTextLabel?.text = movieList[searchField[indexPath.row]][1]
         return cell
     }
 }
