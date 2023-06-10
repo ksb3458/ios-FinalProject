@@ -17,7 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.setupPopUpButton()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 100
+        tableView.rowHeight = 150
     }
     
     private func loadMovieFromCSV() {
@@ -153,7 +153,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.Poster?.image = image
         cell.Name?.text = movieList[searchField[indexPath.row]][0]
-        cell.Overview?.text = movieList[searchField[indexPath.row]][1]
+        var firstOverview = movieList[searchField[indexPath.row]][6].components(separatedBy: ".")
+        cell.Overview?.text = firstOverview[0]
         cell.Id?.text = "#" + movieList[searchField[indexPath.row]][3]
         return cell
     }
