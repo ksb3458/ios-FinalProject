@@ -1,12 +1,11 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
+class ViewController: UIViewController, UIScrollViewDelegate{
    
     var movieList: [[String]] = []
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     var imageViews = [UIImageView]()
     
-    //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var dropButton: UIButton!
@@ -21,8 +20,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupPopUpButton()
         
         scrollView.delegate = self
-        //tableView.delegate = self
-        //tableView.dataSource = self
     }
     
     func setupPopUpButton() {
@@ -126,17 +123,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let path = Bundle.main.path(forResource: "movies_metadata2", ofType: "csv")!
         parseCSVAt(url: URL(fileURLWithPath: path))
         //self.tableView.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CSVTableViewCell") as! CSVTableViewCell
-        cell.textLabel?.text = movieList[indexPath.row][0]
-        cell.detailTextLabel?.text = movieList[indexPath.row][1]
-        return cell
     }
     
     private func addContentScrollView() {

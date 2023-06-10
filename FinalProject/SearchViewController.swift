@@ -5,6 +5,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var movieList: [[String]] = []
     var searchName = 0 //0:영화 1:배우
     var searchField = [Int]()
+    var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     
     @IBOutlet weak var dropButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -16,6 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.setupPopUpButton()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 100
     }
     
     private func loadMovieFromCSV() {
@@ -148,8 +150,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell") as! SearchTableViewCell
-        cell.textLabel?.text = movieList[searchField[indexPath.row]][0]
-        cell.detailTextLabel?.text = movieList[searchField[indexPath.row]][1]
+        
+        cell.Poster?.image = image
+        cell.Name?.text = movieList[searchField[indexPath.row]][0]
+        cell.Overview?.text = movieList[searchField[indexPath.row]][1]
+        cell.Id?.text = "#" + movieList[searchField[indexPath.row]][3]
         return cell
     }
 }
