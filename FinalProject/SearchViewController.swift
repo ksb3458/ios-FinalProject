@@ -3,6 +3,8 @@ import UIKit
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var movieList: [[String]] = []
+    var searchName = 0 //0:영화 1:배우
+    var searchField = [Int]()
     
     @IBOutlet weak var dropButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -75,16 +77,46 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBAction func searchBtn(_ sender: UIButton) {
-        print("btn")
+        searchField.removeAll()
+        if searchName == 0 {
+            if((textField.text?.isEmpty) == nil) { print("검색어 입력") }
+            else {
+                let tfText: String? = textField.text
+                for i in 0 ..< movieList.count {
+                    if let text = tfText {
+                        if movieList[i][0].lowercased().contains(text.lowercased()) {
+                            print(movieList[i][0])
+                            searchField.append(i)
+                        }
+                    }
+                }
+            }
+        }
+        
+        if searchName == 1 {
+            if((textField.text?.isEmpty) == nil) { print("검색어 입력") }
+            else {
+                var tfText: String? = textField.text
+                for i in 0 ..< movieList.count {
+                    if let text = tfText {
+                        if movieList[i][0].contains(text) {
+                            print(text)
+                            print(movieList[i][0])
+                            searchField.append(i)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func setupPopUpButton() {
-        let movieName = { (action: UIAction) in
-            print("movie")
+        let movieName = { [self] (action: UIAction) in
+            searchName = 0
         }
         
-        let actorName = { (action: UIAction) in
-            print("actor")
+        let actorName = { [self] (action: UIAction) in
+            searchName = 1
         }
 
         dropButton.menu = UIMenu(children: [

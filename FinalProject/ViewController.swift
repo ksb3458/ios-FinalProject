@@ -6,9 +6,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     var imageViews = [UIImageView]()
     
-    var top20ImageView = [UIImageView]()
-    var top20Label = [UILabel]()
-    
     //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
