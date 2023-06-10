@@ -47,7 +47,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         do {
             let data = try Data(contentsOf: url)
             let dataEncoded = String(data: data, encoding: .utf8)
-            if let dataArr = dataEncoded?.components(separatedBy: "\n").map({$0.components(separatedBy: "\"")}) {
+            if let dataArr = dataEncoded?.components(separatedBy: "\n").map({$0.components(separatedBy: "\"[")}) {
                 for item in dataArr {
                     movieList.append(item)
                 }
@@ -63,7 +63,26 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             movieList[0].insert(item, at: 0)
         }
         
-        for i in 1..<3{
+        for i in 1..<movieList.count {
+            for j in 0..<10 {
+                if(j == 1 || j==5 || j==7 || j==9) {
+                    let data = String(movieList[i][j])
+                    let dataArr = data.components(separatedBy: "]\"")
+                    movieList[i].remove(at: j)
+                    for item in dataArr.reversed() {
+                        movieList[i].insert(item, at: j)
+                    }
+                }
+                if(j == 2) {
+                    let data = String(movieList[i][j])
+                    let dataArr = data.components(separatedBy: "\"")
+                    movieList[i].remove(at: j)
+                    for item in dataArr.reversed() {
+                        movieList[i].insert(item, at: j)
+                    }
+                }
+            }
+            
             for j in 0..<23 {
                 if(j == 0 || j == 4 || j == 10 || j == 16 || j == 22) {
                     let data = String(movieList[i][j])
@@ -74,6 +93,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
                     }
                 }
             }
+            
             movieList[i].remove(at: 2)
             movieList[i].remove(at: 3)
             movieList[i].remove(at: 6)
@@ -83,16 +103,6 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             movieList[i].remove(at: 10)
             movieList[i].remove(at: 13)
             movieList[i].remove(at: 14)
-        }
-        
-        for i in 0..<movieList[0].count {
-            print(String(i)+" "+movieList[0][i] + "\n")
-        }
-        for i in 0..<movieList[1].count {
-            print(String(i)+" "+movieList[1][i] + "\n")
-        }
-        for i in 0..<movieList[2].count {
-            print(String(i)+" "+movieList[2][i] + "\n")
         }
     }
     
