@@ -26,19 +26,28 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     }
     
     func setupPopUpButton() {
-        let popUpButtonClosure = { (action: UIAction) in
-            print("Pop-up action")
+        let sortNum = { [self] (action: UIAction) in
+            movieList = movieList.sorted(by: {$0[18] > $1[18] })
+            var chk = 0
+            for i in 0 ..< movieList.count {
+                if movieList[i][18].count == 6 {
+                    movieList.insert(movieList[i], at: chk)
+                    movieList.remove(at: i + 1)
+                    chk += 1
+                }
+            }
+            
+            self.addContentScrollView()
         }
         
-        //let indices = movieList[0].indices.sorted { movieList[0][$0] < movieList[0][$1] }
+        let sortScore = { [self] (action: UIAction) in
+            movieList = movieList.sorted(by: {$0[17] > $1[17] })
+            self.addContentScrollView()
+        }
 
-        //let sorted = movieList.map { collection in
-        //    indices.map { collection[$0] }
-        //}
-        
         dropButton.menu = UIMenu(children: [
-            UIAction(title: "평가개수", handler: popUpButtonClosure),
-            UIAction(title: "평균평점", handler: popUpButtonClosure)
+            UIAction(title: "평가개수", handler: sortNum),
+            UIAction(title: "평균평점", handler: sortScore)
         ])
         dropButton.showsMenuAsPrimaryAction = true
     }
@@ -56,14 +65,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             print("Error reading CSV file")
         }
         
-        let data = String(movieList[0][0])
-        let dataArr = data.components(separatedBy: ",")
-        movieList[0].remove(at: 0)
-        for item in dataArr.reversed() {
-            movieList[0].insert(item, at: 0)
-        }
-        
-        for i in 1..<movieList.count - 1 {
+        for i in 0..<movieList.count - 1 {
             for j in 0..<10 {
                 if(j == 1 || j==5 || j==7 || j==9) {
                     let data = String(movieList[i][j])
@@ -104,6 +106,21 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             movieList[i].remove(at: 13)
             movieList[i].remove(at: 14)
         }
+        movieList.remove(at: 100)
+        
+        movieListInitSet()
+    }
+    
+    private func movieListInitSet() {
+        movieList = movieList.sorted(by: {$0[18] > $1[18] })
+        var chk = 0
+        for i in 0 ..< movieList.count {
+            if movieList[i][18].count == 6 {
+                movieList.insert(movieList[i], at: chk)
+                movieList.remove(at: i + 1)
+                chk += 1
+            }
+        }
     }
     
     private func loadMovieFromCSV() {
@@ -133,7 +150,10 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
                 imageView.image = image
                 let textView = UITextView()
                 textView.frame = CGRect(x: xPos + scrollView.bounds.width / 4, y: yPos, width: scrollView.bounds.width / 2, height: scrollView.bounds.height / 5)
-                textView.text = String(i*5 + j + 1)+". "+movieList[i*5 + j + 1][0]
+                
+                var num = i*5 + j
+                if num >= 99 {num = 99}
+                textView.text = String(i*5 + j + 1)+". "+movieList[num][0]
                 scrollView.addSubview(imageView)
                 scrollView.addSubview(textView)
                 scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 2
