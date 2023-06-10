@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
    
     var movieList: [[String]] = []
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
