@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  FinalProject
-//
-//  Created by 컴퓨터공학부 on 2023/06/05.
-//
-
 import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
@@ -37,6 +30,12 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             print("Pop-up action")
         }
         
+        //let indices = movieList[0].indices.sorted { movieList[0][$0] < movieList[0][$1] }
+
+        //let sorted = movieList.map { collection in
+        //    indices.map { collection[$0] }
+        //}
+        
         dropButton.menu = UIMenu(children: [
             UIAction(title: "평가개수", handler: popUpButtonClosure),
             UIAction(title: "평균평점", handler: popUpButtonClosure)
@@ -48,13 +47,52 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         do {
             let data = try Data(contentsOf: url)
             let dataEncoded = String(data: data, encoding: .utf8)
-            if let dataArr = dataEncoded?.components(separatedBy: "\n").map({$0.components(separatedBy: ",")}) {
+            if let dataArr = dataEncoded?.components(separatedBy: "\n").map({$0.components(separatedBy: "\"")}) {
                 for item in dataArr {
                     movieList.append(item)
                 }
             }
         } catch {
             print("Error reading CSV file")
+        }
+        
+        let data = String(movieList[0][0])
+        let dataArr = data.components(separatedBy: ",")
+        movieList[0].remove(at: 0)
+        for item in dataArr.reversed() {
+            movieList[0].insert(item, at: 0)
+        }
+        
+        for i in 1..<3{
+            for j in 0..<23 {
+                if(j == 0 || j == 4 || j == 10 || j == 16 || j == 22) {
+                    let data = String(movieList[i][j])
+                    let dataArr = data.components(separatedBy: ",")
+                    movieList[i].remove(at: j)
+                    for item in dataArr.reversed() {
+                        movieList[i].insert(item, at: j)
+                    }
+                }
+            }
+            movieList[i].remove(at: 2)
+            movieList[i].remove(at: 3)
+            movieList[i].remove(at: 6)
+            movieList[i].remove(at: 7)
+            movieList[i].remove(at: 8)
+            movieList[i].remove(at: 9)
+            movieList[i].remove(at: 10)
+            movieList[i].remove(at: 13)
+            movieList[i].remove(at: 14)
+        }
+        
+        for i in 0..<movieList[0].count {
+            print(String(i)+" "+movieList[0][i] + "\n")
+        }
+        for i in 0..<movieList[1].count {
+            print(String(i)+" "+movieList[1][i] + "\n")
+        }
+        for i in 0..<movieList[2].count {
+            print(String(i)+" "+movieList[2][i] + "\n")
         }
     }
     
@@ -85,7 +123,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
                 imageView.image = image
                 let textView = UITextView()
                 textView.frame = CGRect(x: xPos + scrollView.bounds.width / 4, y: yPos, width: scrollView.bounds.width / 2, height: scrollView.bounds.height / 5)
-                textView.text = movieList[i*5 + j][0]
+                textView.text = String(i*5 + j + 1)+". "+movieList[i*5 + j + 1][0]
                 scrollView.addSubview(imageView)
                 scrollView.addSubview(textView)
                 scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 2
