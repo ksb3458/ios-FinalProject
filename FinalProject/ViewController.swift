@@ -6,6 +6,9 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     var imageViews = [UIImageView]()
     
+    var top20ImageView = [UIImageView]()
+    var top20Label = [UILabel]()
+    
     //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -36,7 +39,6 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
                     chk += 1
                 }
             }
-            
             self.addContentScrollView()
         }
         
@@ -141,30 +143,31 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     }
     
     private func addContentScrollView() {
-        for i in 0..<movieList.count / 5 {
+        for  subview in self.scrollView.subviews
+        {
+            subview.removeFromSuperview()
+        }
+        
+        for i in 0 ... 4 {
             for j in 0 ... 5 {
                 let imageView = UIImageView()
                 let xPos = scrollView.frame.width * CGFloat(i)
                 let yPos = scrollView.bounds.height / 5 * CGFloat(j)
                 imageView.frame = CGRect(x: xPos, y: yPos, width: scrollView.bounds.width / 4, height: scrollView.bounds.height / 5)
                 imageView.image = image
-                let textView = UITextView()
-                textView.frame = CGRect(x: xPos + scrollView.bounds.width / 4, y: yPos, width: scrollView.bounds.width / 2, height: scrollView.bounds.height / 5)
+                let label = UILabel()
+                label.frame = CGRect(x: xPos + scrollView.bounds.width / 4, y: yPos, width: scrollView.bounds.width, height: scrollView.bounds.height / 5)
+                label.text = String(i*5 + j + 1)+". "+movieList[i*5 + j][0]
                 
-                var num = i*5 + j
-                if num >= 99 {num = 99}
-                textView.text = String(i*5 + j + 1)+". "+movieList[num][0]
                 scrollView.addSubview(imageView)
-                scrollView.addSubview(textView)
-                scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 2
+                scrollView.addSubview(label)
+                scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 3.2
             }
         }
-        
     }
     
     private func setPageControl() {
-        pageControl.numberOfPages = movieList.count / 20
-        
+        pageControl.numberOfPages = 4
     }
     
     private func setPageControlSelectedPage(currentPage:Int) {
