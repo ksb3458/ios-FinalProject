@@ -63,7 +63,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
             movieList[0].insert(item, at: 0)
         }
         
-        for i in 1..<movieList.count {
+        for i in 1..<movieList.count - 1 {
             for j in 0..<10 {
                 if(j == 1 || j==5 || j==7 || j==9) {
                     let data = String(movieList[i][j])
