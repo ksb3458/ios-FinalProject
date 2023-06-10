@@ -16,6 +16,7 @@
 		58914DF82A31B67F007965F1 /* CSVTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */; };
 		58914E002A31D2C1007965F1 /* movies_metadata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58914DFF2A31D2C1007965F1 /* movies_metadata.csv */; };
 		58914E022A31E5E2007965F1 /* poster_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58914E012A31E5E2007965F1 /* poster_sample.jpg */; };
+		589E6A112A344AC800640ACE /* movies_metadata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 589E6A102A344AC800640ACE /* movies_metadata2.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVTableViewCell.swift; sourceTree = "<group>"; };
 		58914DFF2A31D2C1007965F1 /* movies_metadata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = movies_metadata.csv; path = ../../../Downloads/movies_metadata.csv; sourceTree = "<group>"; };
 		58914E012A31E5E2007965F1 /* poster_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = poster_sample.jpg; path = ../../../Downloads/poster_sample.jpg; sourceTree = "<group>"; };
+		589E6A102A344AC800640ACE /* movies_metadata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = movies_metadata2.csv; path = ../../../Downloads/movies_metadata2.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				5873FB772A2D05A300E1E637 /* Info.plist */,
 				58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */,
 				58914DFF2A31D2C1007965F1 /* movies_metadata.csv */,
+				589E6A102A344AC800640ACE /* movies_metadata2.csv */,
 				58914E012A31E5E2007965F1 /* poster_sample.jpg */,
 			);
 			path = FinalProject;
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58914E022A31E5E2007965F1 /* poster_sample.jpg in Resources */,
+				589E6A112A344AC800640ACE /* movies_metadata2.csv in Resources */,
 				58914E002A31D2C1007965F1 /* movies_metadata.csv in Resources */,
 				5873FB762A2D05A300E1E637 /* LaunchScreen.storyboard in Resources */,
 				5873FB732A2D05A300E1E637 /* Assets.xcassets in Resources */,

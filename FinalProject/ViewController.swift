@@ -44,7 +44,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     }
     
     private func loadMovieFromCSV() {
-        let path = Bundle.main.path(forResource: "movies_metadata", ofType: "csv")!
+        let path = Bundle.main.path(forResource: "movies_metadata2", ofType: "csv")!
         parseCSVAt(url: URL(fileURLWithPath: path))
         self.tableView.reloadData()
     }
@@ -55,22 +55,22 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CSVTableViewCell") as! CSVTableViewCell
-        cell.textLabel?.text = movieList[indexPath.row][8]
-        cell.detailTextLabel?.text = movieList[indexPath.row][9]
+        cell.textLabel?.text = movieList[indexPath.row][0]
+        cell.detailTextLabel?.text = movieList[indexPath.row][1]
         return cell
     }
     
     private func addContentScrollView() {
-        for i in 0..<movieList.count / 10000 {
+        for i in 0..<movieList.count / 5 {
             for j in 0 ... 5 {
                 let imageView = UIImageView()
                 let xPos = scrollView.frame.width * CGFloat(i)
                 let yPos = scrollView.bounds.height / 5 * CGFloat(j)
-                imageView.frame = CGRect(x: xPos, y: yPos, width: scrollView.bounds.width / 2, height: scrollView.bounds.height / 5)
+                imageView.frame = CGRect(x: xPos, y: yPos, width: scrollView.bounds.width / 4, height: scrollView.bounds.height / 5)
                 imageView.image = image
                 let textView = UITextView()
-                textView.frame = CGRect(x: xPos + scrollView.bounds.width / 2, y: yPos, width: scrollView.bounds.width / 2, height: scrollView.bounds.height / 5)
-                textView.text = String(i) + ", " + String(j)
+                textView.frame = CGRect(x: xPos + scrollView.bounds.width / 4, y: yPos, width: scrollView.bounds.width / 2, height: scrollView.bounds.height / 5)
+                textView.text = movieList[i*5 + j][0]
                 scrollView.addSubview(imageView)
                 scrollView.addSubview(textView)
                 scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 2
@@ -80,7 +80,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     }
     
     private func setPageControl() {
-        pageControl.numberOfPages = movieList.count / 10000
+        pageControl.numberOfPages = movieList.count / 20
         
     }
     
