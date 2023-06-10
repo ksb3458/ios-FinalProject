@@ -9,24 +9,39 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
    
-
     var movieList: [[String]] = []
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     var imageViews = [UIImageView]()
     
-    @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var dropButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovieFromCSV()
         self.addContentScrollView()
         self.setPageControl()
+        pageControl.pageIndicatorTintColor = UIColor.gray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        setupPopUpButton()
         
         scrollView.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
+        //tableView.delegate = self
+        //tableView.dataSource = self
+    }
+    
+    func setupPopUpButton() {
+        let popUpButtonClosure = { (action: UIAction) in
+            print("Pop-up action")
+        }
+        
+        dropButton.menu = UIMenu(children: [
+            UIAction(title: "평가개수", handler: popUpButtonClosure),
+            UIAction(title: "평균평점", handler: popUpButtonClosure)
+        ])
+        dropButton.showsMenuAsPrimaryAction = true
     }
 
     private func parseCSVAt(url: URL) {
@@ -46,7 +61,7 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
     private func loadMovieFromCSV() {
         let path = Bundle.main.path(forResource: "movies_metadata2", ofType: "csv")!
         parseCSVAt(url: URL(fileURLWithPath: path))
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
