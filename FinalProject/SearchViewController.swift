@@ -182,8 +182,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            //클릭한 셀의 이벤트 처리
-            tableView.deselectRow(at: indexPath, animated: true)
-            print("Click Cell Number: " + String(indexPath.row))
+        //클릭한 셀의 이벤트 처리
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? DetailViewController {
+            if let selectdeIndex =
+                self.tableView.indexPathForSelectedRow?.row {
+                    viewController.name = movieList[searchField[selectdeIndex]][0]
+            }
+        }
     }
 }

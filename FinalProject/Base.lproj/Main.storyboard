@@ -457,10 +457,16 @@
         <!--Detail View Controller-->
         <scene sceneID="3OQ-eP-bOK">
             <objects>
-                <viewController id="CUb-82-xpB" customClass="DetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="CUb-82-xpB" customClass="DetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nzK-gJ-j8S">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="left" fixedFrame="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sug-ET-wCD">
+                                <rect key="frame" x="73" y="389" width="247" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="YcO-pC-q7h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
