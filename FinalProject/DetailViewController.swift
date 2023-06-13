@@ -3,8 +3,10 @@ import UIKit
 class DetailViewController: UIViewController {
 
     var movieName : String?
+    var movieStar : Float?
     var starImageViews : [UIImageView] = []
     var movieList: [[String]] = []
+    var starList: [[String]] = []
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var stackView: UIStackView!
@@ -12,17 +14,22 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovieFromCSV()
+        self.loadStarDataFromCSV()
         self.setStackView()
         self.setSlider()
         self.findMovieData()
     }
     
-    private func loadMovieFromCSV() {
-        let path = Bundle.main.path(forResource: "movies_metadata2", ofType: "csv")!
-        parseCSVAt(url: URL(fileURLWithPath: path))
+    override func viewDidDisappear(_ animated: Bool) {
+        self.saveStarData()
     }
     
-    private func parseCSVAt(url: URL) {
+    private func loadMovieFromCSV() {
+        let path = Bundle.main.path(forResource: "movies_metadata2", ofType: "csv")!
+        parseMovieDataAt(url: URL(fileURLWithPath: path))
+    }
+    
+    private func parseMovieDataAt(url: URL) {
         do {
             let data = try Data(contentsOf: url)
             let dataEncoded = String(data: data, encoding: .utf8)
@@ -80,30 +87,82 @@ class DetailViewController: UIViewController {
         movieList = movieList.sorted(by: {$0[17] > $1[17] })
     }
     
-    func findMovieData() {
+    private func loadStarDataFromCSV() {
+        let path = Bundle.main.path(forResource: "starData", ofType: "csv")!
+        parseStarDataAt(url: URL(fileURLWithPath: path))
+    }
+    
+    private func parseStarDataAt(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            if let dataArr = dataEncoded?.components(separatedBy: "\n").map({$0.components(separatedBy: ",")}) {
+                for item in dataArr {
+                    starList.append(item)
+                }
+            }
+        } catch {
+            print("Error reading CSV file")
+        }
+        starList.remove(at: 100)
+        print(starList)
+    }
+    
+    func findMovieData() { //정보 가져오기
         for i in 0 ..< movieList.count {
             if(movieList[i][0] == movieName) {
-                //movieList[i][1] = String(slider.value)
-                do {
-                    let path = Bundle.main.path(forResource: "starData", ofType: "txt")!
-                    //try "test".write(to: URL(fileURLWithPath: path), atomically: true, encoding: .utf8)
-                    print((URL(fileURLWithPath: path)))
-                    let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                    let dataEncoded = String(data: data, encoding: .utf8)
-                    print(dataEncoded as Any)
-                    let text = NSString(string: "Hello world")
-                    try text.write(to: URL(fileURLWithPath: path), atomically: true, encoding: String.Encoding.utf8.rawValue)
-                    let data2 = try Data(contentsOf: URL(fileURLWithPath: path))
-                    let dataEncoded2 = String(data: data2, encoding: .utf8)
-                    print(dataEncoded2 as Any)
-                } catch(_) {
-                    print("error")
-                }
+                //label 바꾸고 .. 등등
+                print(movieList[i][0])
                 break
             }
             if(i==movieList.count - 1) {
                 print("error - no name")
             }
+        }
+        
+        for i in 0 ..< starList.count {
+            if(starList[i][0] == movieName) {
+                print(starList[i][1])
+                slider.value = Float(starList[i][1])!
+                var value = slider.value
+                for i in 0..<5 {
+                    if value > 0.5 {
+                        value -= 1
+                        starImageViews[i].image = UIImage(named: "star_full")
+                    }
+                    else if 0 < value && value < 0.5 {
+                        value -= 0.5
+                        starImageViews[i].image = UIImage(named: "star_half")
+                    }
+                    else {
+                        starImageViews[i].image = UIImage(named: "star_empty")
+                    }
+                }
+                break
+            }
+            if(i==starList.count - 1) {
+                print("error - no star data")
+            }
+        }
+    }
+    
+    func saveStarData() {
+        var newData : String?
+        for i in 0 ..< starList.count {
+            if(starList[i][0] == movieName) {
+                starList[i][1] = String(slider.value)
+            }
+            newData?.append("\(starList[i][0]),\(starList[i][1])")
+        }
+        
+        do {
+            let path = Bundle.main.path(forResource: "starData", ofType: "csv")!
+            try newData?.write(to: URL(fileURLWithPath: path), atomically: true, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+            let data = try Data(contentsOf: URL(fileURLWithPath: path))
+            let dataEncoded = String(data: data, encoding: .utf8)
+            print(dataEncoded as Any)
+        } catch(_) {
+            print("error")
         }
     }
     
