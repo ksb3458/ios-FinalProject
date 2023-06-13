@@ -19,7 +19,7 @@
 		589B40AE2A381076006DB5E1 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40AD2A381076006DB5E1 /* star_full.png */; };
 		589B40B02A381081006DB5E1 /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40AF2A381081006DB5E1 /* star_half.png */; };
 		589B40B22A381092006DB5E1 /* star_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40B12A381092006DB5E1 /* star_empty.png */; };
-		589B40B62A381607006DB5E1 /* star_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40B52A381607006DB5E1 /* star_small.png */; };
+		589B40B82A3820CE006DB5E1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589B40B72A3820CE006DB5E1 /* DetailViewController.swift */; };
 		58AC51BA2A34CE1200768E53 /* movies_metadata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58AC51B92A34CE1200768E53 /* movies_metadata2.csv */; };
 		58AC51BC2A34D03700768E53 /* CSVTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */; };
 		58AC51BE2A35020500768E53 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC51BD2A35020500768E53 /* SearchViewController.swift */; };
@@ -41,7 +41,7 @@
 		589B40AD2A381076006DB5E1 /* star_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_full.png; sourceTree = "<group>"; };
 		589B40AF2A381081006DB5E1 /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_half.png; sourceTree = "<group>"; };
 		589B40B12A381092006DB5E1 /* star_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_empty.png; sourceTree = "<group>"; };
-		589B40B52A381607006DB5E1 /* star_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_small.png; sourceTree = "<group>"; };
+		589B40B72A3820CE006DB5E1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		58AC51B92A34CE1200768E53 /* movies_metadata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = movies_metadata2.csv; sourceTree = "<group>"; };
 		58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVTableViewController.swift; sourceTree = "<group>"; };
 		58AC51BD2A35020500768E53 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 				5873FB6D2A2D05A200E1E637 /* ViewController.swift */,
 				58AC51BD2A35020500768E53 /* SearchViewController.swift */,
 				58AC51C82A350E5600768E53 /* SearchTableViewCell.swift */,
+				589B40B72A3820CE006DB5E1 /* DetailViewController.swift */,
 				5873FB6F2A2D05A200E1E637 /* Main.storyboard */,
 				5873FB722A2D05A300E1E637 /* Assets.xcassets */,
 				5873FB742A2D05A300E1E637 /* LaunchScreen.storyboard */,
@@ -92,7 +93,6 @@
 				58914E012A31E5E2007965F1 /* poster_sample.jpg */,
 				589B40AD2A381076006DB5E1 /* star_full.png */,
 				589B40AF2A381081006DB5E1 /* star_half.png */,
-				589B40B52A381607006DB5E1 /* star_small.png */,
 				589B40B12A381092006DB5E1 /* star_empty.png */,
 				58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */,
 				58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */,
@@ -165,7 +165,6 @@
 				589B40B02A381081006DB5E1 /* star_half.png in Resources */,
 				5873FB762A2D05A300E1E637 /* LaunchScreen.storyboard in Resources */,
 				589B40B22A381092006DB5E1 /* star_empty.png in Resources */,
-				589B40B62A381607006DB5E1 /* star_small.png in Resources */,
 				5873FB732A2D05A300E1E637 /* Assets.xcassets in Resources */,
 				5873FB712A2D05A200E1E637 /* Main.storyboard in Resources */,
 			);
@@ -185,6 +184,7 @@
 				5873FB6A2A2D05A200E1E637 /* AppDelegate.swift in Sources */,
 				5873FB6C2A2D05A200E1E637 /* SceneDelegate.swift in Sources */,
 				58AC51C92A350E5600768E53 /* SearchTableViewCell.swift in Sources */,
+				589B40B82A3820CE006DB5E1 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

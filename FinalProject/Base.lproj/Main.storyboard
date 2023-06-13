@@ -238,7 +238,7 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ljN-BA-yM3"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bSw-CR-Xlb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOP 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPV-aR-Y4m">
@@ -321,6 +321,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Logo">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="wcf-Xb-RbU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Es-nF-HTO">
                                 <rect key="frame" x="139" y="67" width="115" height="42"/>
@@ -426,6 +429,7 @@
                                             <outlet property="Name" destination="9MX-MN-wdw" id="lYd-vd-A1c"/>
                                             <outlet property="Overview" destination="pru-Iq-tfH" id="c1B-4g-GM5"/>
                                             <outlet property="Poster" destination="VCN-Y7-qpb" id="rib-M4-3bR"/>
+                                            <segue destination="CUb-82-xpB" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="jYu-r9-8C4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -450,9 +454,25 @@
             </objects>
             <point key="canvasLocation" x="-379.38931297709922" y="498.59154929577466"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="3OQ-eP-bOK">
+            <objects>
+                <viewController id="CUb-82-xpB" customClass="DetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nzK-gJ-j8S">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YcO-pC-q7h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TwF-r2-stO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOW-Hm-IRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="288" y="499"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6no-EQ-uYX"/>
+        <segue reference="wcf-Xb-RbU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>

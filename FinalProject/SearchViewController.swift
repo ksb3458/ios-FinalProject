@@ -104,7 +104,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 for i in 0 ..< movieList.count {
                     if let text = tfText {
                         if movieList[i][0].lowercased().contains(text.lowercased()) {
-                            print(movieList[i][0])
                             searchField.append(i)
                         }
                     }
@@ -114,7 +113,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         if searchName == 1 {
-            if((textField.text?.isEmpty) == nil) { print("검색어 입력") }
+            if((textField.text?.isEmpty) == nil) { makeAlert() }
             else {
                 let tfText: String? = textField.text
                 for i in 0 ..< movieList.count {
@@ -145,8 +144,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             imageView.tag = i
             let xPos = stackView.frame.width / 5 * CGFloat(i)
             let yPos = 0 * CGFloat(i)
-            print(stackView.bounds.width)
-            print(imageView.image?.size as Any)
             imageView.frame = CGRect(x: xPos, y: yPos, width: (imageView.image?.size.width)! / 10, height: (imageView.image?.size.height)! / 10)
             stackView.addSubview(imageView)
             starImageViews.append(stackView.subviews[i] as? UIImageView ?? UIImageView())
@@ -178,9 +175,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.Poster?.image = image
         cell.Name?.text = movieList[searchField[indexPath.row]][0]
-        var firstOverview = movieList[searchField[indexPath.row]][6].components(separatedBy: ".")
+        let firstOverview = movieList[searchField[indexPath.row]][6].components(separatedBy: ".")
         cell.Overview?.text = firstOverview[0]
         cell.Id?.text = "#" + movieList[searchField[indexPath.row]][3]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            //클릭한 셀의 이벤트 처리
+            tableView.deselectRow(at: indexPath, animated: true)
+            print("Click Cell Number: " + String(indexPath.row))
     }
 }
