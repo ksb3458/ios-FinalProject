@@ -20,6 +20,7 @@
 		589B40B02A381081006DB5E1 /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40AF2A381081006DB5E1 /* star_half.png */; };
 		589B40B22A381092006DB5E1 /* star_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40B12A381092006DB5E1 /* star_empty.png */; };
 		589B40B82A3820CE006DB5E1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589B40B72A3820CE006DB5E1 /* DetailViewController.swift */; };
+		589B40BA2A384688006DB5E1 /* starData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 589B40B92A384688006DB5E1 /* starData.txt */; };
 		58AC51BA2A34CE1200768E53 /* movies_metadata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58AC51B92A34CE1200768E53 /* movies_metadata2.csv */; };
 		58AC51BC2A34D03700768E53 /* CSVTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */; };
 		58AC51BE2A35020500768E53 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC51BD2A35020500768E53 /* SearchViewController.swift */; };
@@ -42,6 +43,7 @@
 		589B40AF2A381081006DB5E1 /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_half.png; sourceTree = "<group>"; };
 		589B40B12A381092006DB5E1 /* star_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_empty.png; sourceTree = "<group>"; };
 		589B40B72A3820CE006DB5E1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		589B40B92A384688006DB5E1 /* starData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starData.txt; sourceTree = "<group>"; };
 		58AC51B92A34CE1200768E53 /* movies_metadata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = movies_metadata2.csv; sourceTree = "<group>"; };
 		58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVTableViewController.swift; sourceTree = "<group>"; };
 		58AC51BD2A35020500768E53 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				5873FB772A2D05A300E1E637 /* Info.plist */,
 				58914DFF2A31D2C1007965F1 /* movies_metadata.csv */,
 				58AC51B92A34CE1200768E53 /* movies_metadata2.csv */,
+				589B40B92A384688006DB5E1 /* starData.txt */,
 				58914E012A31E5E2007965F1 /* poster_sample.jpg */,
 				589B40AD2A381076006DB5E1 /* star_full.png */,
 				589B40AF2A381081006DB5E1 /* star_half.png */,
@@ -166,6 +169,7 @@
 				5873FB762A2D05A300E1E637 /* LaunchScreen.storyboard in Resources */,
 				589B40B22A381092006DB5E1 /* star_empty.png in Resources */,
 				5873FB732A2D05A300E1E637 /* Assets.xcassets in Resources */,
+				589B40BA2A384688006DB5E1 /* starData.txt in Resources */,
 				5873FB712A2D05A200E1E637 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

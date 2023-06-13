@@ -12,7 +12,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var dropButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovieFromCSV()
