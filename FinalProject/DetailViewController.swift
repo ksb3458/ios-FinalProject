@@ -105,7 +105,6 @@ class DetailViewController: UIViewController {
             print("Error reading CSV file")
         }
         starList.remove(at: 100)
-        print(starList)
     }
     
     func findMovieData() { //정보 가져오기
@@ -122,7 +121,6 @@ class DetailViewController: UIViewController {
         
         for i in 0 ..< starList.count {
             if(starList[i][0] == movieName) {
-                print(starList[i][1])
                 slider.value = Float(starList[i][1])!
                 var value = slider.value
                 for i in 0..<5 {
@@ -147,20 +145,20 @@ class DetailViewController: UIViewController {
     }
     
     func saveStarData() {
-        var newData : String?
+        var newData : String = "0"
         for i in 0 ..< starList.count {
             if(starList[i][0] == movieName) {
                 starList[i][1] = String(slider.value)
             }
-            newData?.append("\(starList[i][0]),\(starList[i][1])")
+            let data = starList[i].joined(separator: ",")
+            if(i == 0) { newData = data }
+            else { newData.append(data) }
+            newData.append("\n")
         }
         
         do {
             let path = Bundle.main.path(forResource: "starData", ofType: "csv")!
-            try newData?.write(to: URL(fileURLWithPath: path), atomically: true, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
-            let data = try Data(contentsOf: URL(fileURLWithPath: path))
-            let dataEncoded = String(data: data, encoding: .utf8)
-            print(dataEncoded as Any)
+            try newData.write(to: URL(fileURLWithPath: path), atomically: true, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
         } catch(_) {
             print("error")
         }
