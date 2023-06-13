@@ -430,6 +430,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="left" fixedFrame="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fBb-8R-09f">
+                                <rect key="frame" x="16" y="745" width="247" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5cD-52-prI"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
@@ -437,6 +441,7 @@
                     <navigationItem key="navigationItem" id="2SD-nU-b61"/>
                     <connections>
                         <outlet property="dropButton" destination="b1l-Ag-gg7" id="vb2-e4-tzE"/>
+                        <outlet property="stackView" destination="fBb-8R-09f" id="VQ8-fR-tZ1"/>
                         <outlet property="tableView" destination="RZ6-jk-Eau" id="kpo-1O-SQz"/>
                         <outlet property="textField" destination="USt-PP-3WN" id="P2O-v5-aRC"/>
                     </connections>

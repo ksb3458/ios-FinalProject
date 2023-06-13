@@ -6,7 +6,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var searchName = 0 //0:영화 1:배우
     var searchField = [Int]()
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
+    var starImageViews: [UIImageView] = []
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var dropButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
@@ -15,6 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         self.loadMovieFromCSV()
         self.setupPopUpButton()
+        self.setStackView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 150
@@ -125,6 +128,28 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 tableView.reloadData()
             }
+        }
+    }
+    
+    func setStackView() {
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        setRatingImageView()
+    }
+
+    // 반복문을 이용하여 Stack View에 별 Image View 추가
+    func setRatingImageView() {
+        for i in 0..<5 {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: "star_empty")
+            imageView.tag = i
+            let xPos = stackView.frame.width / 5 * CGFloat(i)
+            let yPos = 0 * CGFloat(i)
+            print(stackView.bounds.width)
+            print(imageView.image?.size as Any)
+            imageView.frame = CGRect(x: xPos, y: yPos, width: (imageView.image?.size.width)! / 10, height: (imageView.image?.size.height)! / 10)
+            stackView.addSubview(imageView)
+            starImageViews.append(stackView.subviews[i] as? UIImageView ?? UIImageView())
         }
     }
     
