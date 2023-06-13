@@ -110,11 +110,11 @@
                                 </items>
                             </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-YR-9hz">
-                                <rect key="frame" x="26" y="329" width="330" height="41"/>
+                                <rect key="frame" x="26" y="329" width="340" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="SEARCH                                           &gt;">
+                                <buttonConfiguration key="configuration" style="plain" title="SEARCH                                             &gt;">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -466,15 +466,23 @@
                                 <rect key="frame" x="73" y="389" width="247" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yi4-3c-F4i">
+                                <rect key="frame" x="71" y="411" width="247" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YcO-pC-q7h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="TwF-r2-stO"/>
+                    <connections>
+                        <outlet property="slider" destination="yi4-3c-F4i" id="vr6-Kn-9To"/>
+                        <outlet property="stackView" destination="sug-ET-wCD" id="QwB-ur-YzW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOW-Hm-IRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288" y="499"/>
+            <point key="canvasLocation" x="287.78625954198475" y="498.59154929577466"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

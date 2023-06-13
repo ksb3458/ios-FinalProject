@@ -17,7 +17,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         self.loadMovieFromCSV()
         self.setupPopUpButton()
-        self.setStackView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 150
@@ -130,26 +129,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func setStackView() {
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        setRatingImageView()
-    }
-
-    // 반복문을 이용하여 Stack View에 별 Image View 추가
-    func setRatingImageView() {
-        for i in 0..<5 {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "star_empty")
-            imageView.tag = i
-            let xPos = stackView.frame.width / 5 * CGFloat(i)
-            let yPos = 0 * CGFloat(i)
-            imageView.frame = CGRect(x: xPos, y: yPos, width: (imageView.image?.size.width)! / 10, height: (imageView.image?.size.height)! / 10)
-            stackView.addSubview(imageView)
-            starImageViews.append(stackView.subviews[i] as? UIImageView ?? UIImageView())
-        }
-    }
-    
     func setupPopUpButton() {
         let movieName = { [self] (action: UIAction) in
             searchName = 0
@@ -182,7 +161,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //클릭한 셀의 이벤트 처리
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -190,7 +168,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let viewController = segue.destination as? DetailViewController {
             if let selectdeIndex =
                 self.tableView.indexPathForSelectedRow?.row {
-                    viewController.name = movieList[searchField[selectdeIndex]][0]
+                    viewController.movieName = movieList[searchField[selectdeIndex]][0]
             }
         }
     }
