@@ -13,21 +13,21 @@ class ViewController: UIViewController, UIScrollViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovieFromCSV()
-        //self.addContentScrollView()
-        //self.setPageControl()
-        //pageControl.pageIndicatorTintColor = UIColor.gray
-        //pageControl.currentPageIndicatorTintColor = UIColor.black
-        //setupPopUpButton()
+        self.addContentScrollView()
+        self.setPageControl()
+        pageControl.pageIndicatorTintColor = UIColor.gray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        setupPopUpButton()
         
         scrollView.delegate = self
     }
     
     func setupPopUpButton() {
         let sortNum = { [self] (action: UIAction) in
-            movieList = movieList.sorted(by: {$0[18] > $1[18] })
+            movieList = movieList.sorted(by: {$0[21] > $1[21] })
             var chk = 0
             for i in 0 ..< movieList.count {
-                if movieList[i][18].count == 6 {
+                if movieList[i][21].count == 6 {
                     movieList.insert(movieList[i], at: chk)
                     movieList.remove(at: i + 1)
                     chk += 1
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         }
         
         let sortScore = { [self] (action: UIAction) in
-            movieList = movieList.sorted(by: {$0[17] > $1[17] })
+            movieList = movieList.sorted(by: {$0[20] > $1[20] })
             self.addContentScrollView()
         }
 
@@ -62,9 +62,9 @@ class ViewController: UIViewController, UIScrollViewDelegate{
             print("Error reading CSV file")
         }
         
-        for i in 0..<movieList.count - 1 {
-            for j in 0..<12 {
-                if(j == 3 || j == 9 || j == 11) {
+        for i in 0..<movieList.count - 1{
+            for j in 0..<17 {
+                if(j == 3 || j == 9 || j == 11 || j == 16) {
                     let data = String(movieList[i][j])
                     let dataArr = data.components(separatedBy: "##\",")
                     movieList[i].remove(at: j)
@@ -73,16 +73,17 @@ class ViewController: UIViewController, UIScrollViewDelegate{
                     }
                 }
             }
+            //print("\(String(i)) : \(String(movieList[i].count))")
         }
-        movieList.remove(at: 101)
+        movieList.remove(at: 100)
         movieListInitSet()
     }
     
     private func movieListInitSet() {
-        movieList = movieList.sorted(by: {$0[18] > $1[18] })
+        movieList = movieList.sorted(by: {$0[21] > $1[21] })
         var chk = 0
         for i in 0 ..< movieList.count {
-            if movieList[i][18].count == 6 {
+            if movieList[i][21].count == 6 {
                 movieList.insert(movieList[i], at: chk)
                 movieList.remove(at: i + 1)
                 chk += 1
@@ -111,7 +112,7 @@ class ViewController: UIViewController, UIScrollViewDelegate{
                 imageView.image = image
                 let label = UILabel()
                 label.frame = CGRect(x: xPos + scrollView.bounds.width / 4, y: yPos, width: scrollView.bounds.width, height: scrollView.bounds.height / 5)
-                label.text = String(i*5 + j + 1)+". "+movieList[i*5 + j][0]
+                label.text = String(i*5 + j + 1)+". "+movieList[i*5 + j][1]
                 
                 scrollView.addSubview(imageView)
                 scrollView.addSubview(label)
