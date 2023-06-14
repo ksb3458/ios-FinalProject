@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
         self.setStackView()
         self.setSlider()
         self.findMovieData()
+        self.getReview()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -179,5 +180,22 @@ class DetailViewController: UIViewController {
                 starImageViews[i].image = UIImage(named: "star_empty")
             }
         }
+    }
+    
+    func getReview() {
+        var imdbID = "tt1298650"
+        let urlPath = "https://www.imdb.com/title/\(imdbID)/reviews?ref_=tt_urv"
+        let url = NSURL(string: urlPath)
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: url! as URL, completionHandler: {(data, response, error) -> Void in
+            if error == nil {
+                let urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print(urlContent ?? "No contents found")
+            } else {
+                print("error occurred")
+            }
+        })
+        task.resume()
     }
 }
