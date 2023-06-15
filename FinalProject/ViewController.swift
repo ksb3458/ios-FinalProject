@@ -133,5 +133,11 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         let value = scrollView.contentOffset.x/scrollView.frame.size.width
         setPageControlSelectedPage(currentPage: Int(round(value)))
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? SortViewController {
+            viewController.viewTitle = segue.identifier!
+        }
+    }
 }
 
