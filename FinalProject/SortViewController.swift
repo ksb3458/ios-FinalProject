@@ -4,6 +4,7 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var viewTitle : String = ""
     var movieList: [[String]] = []
+    var collectionList: [[String]] = []
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     
     @IBOutlet weak var dropButton: UIButton!
@@ -21,26 +22,31 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func setTitle() {
         switch(viewTitle) {
-            case "Hot" : titleLabel.text = "Hot & New"
-            default: titleLabel.text = viewTitle
+        case "Hot" : titleLabel.text = "Hot & New"
+        default:
+            titleLabel.text = viewTitle
+            getCollectionData()
+            collectionView.reloadData()
         }
     }
     
     func setupPopUpButton() {
         let sortNum = { [self] (action: UIAction) in
-            movieList = movieList.sorted(by: {$0[21] > $1[21] })
+            collectionList = collectionList.sorted(by: {$0[21] > $1[21] })
             var chk = 0
-            for i in 0 ..< movieList.count {
-                if movieList[i][21].count == 6 {
-                    movieList.insert(movieList[i], at: chk)
-                    movieList.remove(at: i + 1)
+            for i in 0 ..< collectionList.count {
+                if collectionList[i][21].count == 6 {
+                    collectionList.insert(movieList[i], at: chk)
+                    collectionList.remove(at: i + 1)
                     chk += 1
                 }
             }
+            collectionView.reloadData()
         }
         
         let sortScore = { [self] (action: UIAction) in
-            movieList = movieList.sorted(by: {$0[20] > $1[20] })
+            collectionList = collectionList.sorted(by: {$0[20] > $1[20] })
+            collectionView.reloadData()
         }
 
         dropButton.menu = UIMenu(children: [
@@ -48,6 +54,14 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
             UIAction(title: "평균평점", handler: sortScore)
         ])
         dropButton.showsMenuAsPrimaryAction = true
+    }
+    
+    func getCollectionData() {
+        for i in 0..<movieList.count {
+            if(movieList[i][3].contains(viewTitle)) {
+                collectionList.append(movieList[i])
+            }
+        }
     }
 
     private func parseCSVAt(url: URL) {
@@ -75,7 +89,6 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
                     }
                 }
             }
-            //print("\(String(i)) : \(String(movieList[i].count))")
         }
         movieList.remove(at: 100)
         movieListInitSet()
@@ -99,7 +112,7 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return collectionList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -108,7 +121,7 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
                 return UICollectionViewCell()
         }
         cell.imageView?.image = image
-        cell.label?.text = movieList[indexPath.row][1]
+        cell.label?.text = collectionList[indexPath.row][1]
         return cell
     }
 }
