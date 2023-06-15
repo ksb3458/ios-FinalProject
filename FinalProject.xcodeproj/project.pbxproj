@@ -117,6 +117,7 @@
 				5873FB6D2A2D05A200E1E637 /* ViewController.swift */,
 				58AC51BD2A35020500768E53 /* SearchViewController.swift */,
 				58AC51C82A350E5600768E53 /* SearchTableViewCell.swift */,
+				5869CA342A3AFE3300A920E3 /* SortViewController.swift */,
 				589B40B72A3820CE006DB5E1 /* DetailViewController.swift */,
 				5869CA302A3AEEEA00A920E3 /* LoadingView.swift */,
 				5873FB6F2A2D05A200E1E637 /* Main.storyboard */,
@@ -134,7 +135,6 @@
 				588626E52A3AB3430019DBCE /* poster_sample.jpg */,
 				58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */,
 				58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */,
-				5869CA342A3AFE3300A920E3 /* SortViewController.swift */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
