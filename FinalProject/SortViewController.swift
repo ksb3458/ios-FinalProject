@@ -1,17 +1,22 @@
 import UIKit
 
-class SortViewController: UIViewController {
+class SortViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     var viewTitle : String = ""
     var movieList: [[String]] = []
+    var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     
     @IBOutlet weak var dropButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovieFromCSV()
         self.setupPopUpButton()
         self.setTitle()
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     func setTitle() {
@@ -91,5 +96,28 @@ class SortViewController: UIViewController {
     private func loadMovieFromCSV() {
         let path = Bundle.main.path(forResource: "movies_metadata3", ofType: "csv")!
         parseCSVAt(url: URL(fileURLWithPath: path))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectCell", for: indexPath) as? SortCollectionViewCell else {
+                return UICollectionViewCell()
+        }
+        cell.imageView?.image = image
+        cell.label?.text = movieList[indexPath.row][1]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let itemSpacing: CGFloat = 10 // 가로에서 cell과 cell 사이의 거리
+            let textAreaHeight: CGFloat = 65 // textLabel이 차지하는 높이
+            let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2 // 셀 하나의 너비
+            let height: CGFloat = width * 10/7 + textAreaHeight //셀 하나의 높이
+
+            return CGSize(width: width, height: height)
     }
 }

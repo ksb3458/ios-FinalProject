@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5869CA312A3AEEEA00A920E3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5869CA302A3AEEEA00A920E3 /* LoadingView.swift */; };
 		5869CA352A3AFE3300A920E3 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5869CA342A3AFE3300A920E3 /* SortViewController.swift */; };
+		5869CA3B2A3B19DD00A920E3 /* SortCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5869CA3A2A3B19DD00A920E3 /* SortCollectionViewCell.swift */; };
 		586B16FC2A3A02D2004BF51C /* movies_metadata4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 586B16FB2A3A02D2004BF51C /* movies_metadata4.csv */; };
 		586B16FE2A3A0910004BF51C /* movies_metadata3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 586B16FD2A3A0910004BF51C /* movies_metadata3.csv */; };
 		5873FB6A2A2D05A200E1E637 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873FB692A2D05A200E1E637 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		2F9BDD3C822D4810B932F6EA /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5869CA302A3AEEEA00A920E3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		5869CA342A3AFE3300A920E3 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
+		5869CA3A2A3B19DD00A920E3 /* SortCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCollectionViewCell.swift; sourceTree = "<group>"; };
 		586B16FB2A3A02D2004BF51C /* movies_metadata4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = movies_metadata4.csv; sourceTree = "<group>"; };
 		586B16FD2A3A0910004BF51C /* movies_metadata3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = movies_metadata3.csv; sourceTree = "<group>"; };
 		5873FB662A2D05A200E1E637 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				58AC51BD2A35020500768E53 /* SearchViewController.swift */,
 				58AC51C82A350E5600768E53 /* SearchTableViewCell.swift */,
 				5869CA342A3AFE3300A920E3 /* SortViewController.swift */,
+				5869CA3A2A3B19DD00A920E3 /* SortCollectionViewCell.swift */,
 				589B40B72A3820CE006DB5E1 /* DetailViewController.swift */,
 				5869CA302A3AEEEA00A920E3 /* LoadingView.swift */,
 				5873FB6F2A2D05A200E1E637 /* Main.storyboard */,
@@ -273,6 +276,7 @@
 				58AC51C92A350E5600768E53 /* SearchTableViewCell.swift in Sources */,
 				589B40B82A3820CE006DB5E1 /* DetailViewController.swift in Sources */,
 				5869CA312A3AEEEA00A920E3 /* LoadingView.swift in Sources */,
+				5869CA3B2A3B19DD00A920E3 /* SortCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
