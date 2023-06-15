@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     
     override func viewDidLoad() {
+        LoadingView.showLoading()
         super.viewDidLoad()
         self.loadMovieFromCSV()
         self.loadStarDataFromCSV()
@@ -21,6 +22,10 @@ class DetailViewController: UIViewController {
         self.setSlider()
         self.findMovieData()
         self.getReview()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            LoadingView.hideLoading()
+            //print(self.reviewList)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -136,7 +141,6 @@ class DetailViewController: UIViewController {
         } catch(_) {
             print("error")
         }
-        print(reviewList)
     }
     
     func setStackView() {
