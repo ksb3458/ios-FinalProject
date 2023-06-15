@@ -1,4 +1,5 @@
 import UIKit
+import SwiftSoup
 
 class DetailViewController: UIViewController {
 
@@ -183,15 +184,29 @@ class DetailViewController: UIViewController {
     }
     
     func getReview() {
-        var imdbID = "tt1298650"
+        let imdbID = "tt1298650"
         let urlPath = "https://www.imdb.com/title/\(imdbID)/reviews?ref_=tt_urv"
         let url = NSURL(string: urlPath)
-        
+        //let titleClassPath = "#main > section > div.lister > div.lister-list > div:nth-child(1) > div.review-container > div.lister-item-content > a"
+        //let contentClassPath = "#main > section > div.lister > div.lister-list > div:nth-child(1) > div.review-container > div.lister-item-content > div.content > div"
         let session = URLSession.shared
         let task = session.dataTask(with: url! as URL, completionHandler: {(data, response, error) -> Void in
             if error == nil {
-                let urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print(urlContent ?? "No contents found")
+                let urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!
+                //print(urlContent)
+                
+                do {
+                    let doc: Document = try SwiftSoup.parse(urlContent as String)
+                    let elements: Elements = try doc.select("#main > section > div.lister > div.lister-list > div")
+                    for element in elements {
+                        print(try element.select("div.review-container > div.lister-item-content > a").text())
+                        print(try element.select("div.review-container > div.lister-item-content > div.content > div").text())
+                    }
+
+                } catch {
+                    print(error)
+                }
+                
             } else {
                 print("error occurred")
             }
