@@ -8,6 +8,7 @@ class DetailViewController: UIViewController {
     var starImageViews : [UIImageView] = []
     var movieList: [[String]] = []
     var starList: [[String]] = []
+    var reviewList: [[String]] = []
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var stackView: UIStackView!
@@ -135,6 +136,7 @@ class DetailViewController: UIViewController {
         } catch(_) {
             print("error")
         }
+        print(reviewList)
     }
     
     func setStackView() {
@@ -199,8 +201,9 @@ class DetailViewController: UIViewController {
                     let doc: Document = try SwiftSoup.parse(urlContent as String)
                     let elements: Elements = try doc.select("#main > section > div.lister > div.lister-list > div")
                     for element in elements {
-                        print(try element.select("div.review-container > div.lister-item-content > a").text())
-                        print(try element.select("div.review-container > div.lister-item-content > div.content > div").text())
+                        let title = try element.select("div.review-container > div.lister-item-content > a").text()
+                        let contents = try element.select("div.review-container > div.lister-item-content > div.content > div").text()
+                        self.reviewList.append([title, contents])
                     }
 
                 } catch {
