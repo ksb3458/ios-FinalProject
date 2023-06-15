@@ -111,13 +111,4 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.label?.text = movieList[indexPath.row][1]
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let itemSpacing: CGFloat = 10 // 가로에서 cell과 cell 사이의 거리
-            let textAreaHeight: CGFloat = 65 // textLabel이 차지하는 높이
-            let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2 // 셀 하나의 너비
-            let height: CGFloat = width * 10/7 + textAreaHeight //셀 하나의 높이
-
-            return CGSize(width: width, height: height)
-    }
 }
