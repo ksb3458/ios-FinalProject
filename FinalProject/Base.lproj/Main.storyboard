@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wP1-Mc-nrH">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
@@ -15,7 +15,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" userLabel="View Controller" customClass="ViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI0-jK-uKF">
-                                <rect key="frame" x="26" y="355" width="341" height="41"/>
+                                <rect key="frame" x="26" y="329" width="341" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -57,19 +57,19 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="xew-Hs-La2"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCJ-UQ-tUg" userLabel="Top20 Scroll View">
-                                <rect key="frame" x="37" y="413" width="323" height="376"/>
+                                <rect key="frame" x="37" y="389" width="323" height="376"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.91764706370000004" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="nbk-oK-3Ox"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="O9h-KV-agl"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="rnQ-pu-ffd">
-                                <rect key="frame" x="119" y="730" width="158" height="26"/>
+                                <rect key="frame" x="119" y="739" width="158" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-dk-yyt">
-                                <rect key="frame" x="296" y="387" width="64" height="30"/>
+                                <rect key="frame" x="296" y="358" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="tintColor" name="AccentColor"/>
@@ -84,41 +84,12 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="▼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxJ-aK-Kjg">
-                                <rect key="frame" x="347" y="393" width="12" height="18"/>
+                                <rect key="frame" x="347" y="364" width="12" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hnu-eB-uhA">
-                                <rect key="frame" x="0.0" y="803" width="393" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                <items>
-                                    <tabBarItem title="영화" id="YTr-oX-g7x" userLabel="Movie">
-                                        <imageReference key="image" image="popcorn" catalog="system" symbolScale="large"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="홈" id="WIy-s1-CZm" userLabel="Home">
-                                        <imageReference key="image" image="house" catalog="system" symbolScale="large"/>
-                                        <color key="badgeColor" systemColor="tintColor"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="검색" id="pve-K4-ibz" userLabel="Search">
-                                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
-                                    </tabBarItem>
-                                </items>
-                            </tabBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-YR-9hz">
-                                <rect key="frame" x="26" y="329" width="340" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="SEARCH                                             &gt;">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="Pny-jF-vm7" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Cs1-en-Bjo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zik-OS-P3Z">
                                 <rect key="frame" x="158" y="96" width="124" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -159,6 +130,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.19805090206185572" green="0.19805090206185572" blue="0.19805090206185572" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="n22-Ig-ZSm">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-29"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="4gj-2o-puh"/>
                     <connections>
                         <outlet property="dropButton" destination="iJO-dk-yyt" id="nc8-Kg-16x"/>
@@ -168,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-379.38931297709922" y="-199.29577464788733"/>
+            <point key="canvasLocation" x="547.32824427480909" y="-199.29577464788733"/>
         </scene>
         <!--Sort View Controller-->
         <scene sceneID="AOX-fW-pLS">
@@ -283,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvd-ws-nud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287.78625954198475" y="-199.29577464788733"/>
+            <point key="canvasLocation" x="1257.2519083969464" y="-199.29577464788733"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="ZAR-wB-Ke7">
@@ -423,6 +397,7 @@
                         <viewLayoutGuide key="safeArea" id="5cD-52-prI"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="n5m-9M-9vK"/>
                     <navigationItem key="navigationItem" id="2SD-nU-b61"/>
                     <connections>
                         <outlet property="dropButton" destination="b1l-Ag-gg7" id="vb2-e4-tzE"/>
@@ -433,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOa-Wo-L5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-379.38931297709922" y="498.59154929577466"/>
+            <point key="canvasLocation" x="547.32824427480909" y="534.50704225352115"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="3OQ-eP-bOK">
@@ -509,19 +484,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOW-Hm-IRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287.78625954198475" y="498.59154929577466"/>
+            <point key="canvasLocation" x="1220.6106870229007" y="534.50704225352115"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Wc1-xJ-1et">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="wP1-Mc-nrH" customClass="TabBarController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" restorationIdentifier="TabBar" insetsLayoutMarginsFromSafeArea="NO" id="2yt-F8-trr" customClass="TabBar" customModule="FinalProject" customModuleProvider="target">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="height">
+                                <real key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="UT7-QF-54c"/>
+                        <segue destination="Pny-jF-vm7" kind="relationship" relationship="viewControllers" id="dcb-gg-84h"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hwy-bt-plC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-379.38931297709922" y="167.6056338028169"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YLs-6U-f6k"/>
-        <segue reference="vmQ-Bg-9Ym"/>
+        <segue reference="gW4-jR-lSb"/>
+        <segue reference="UT7-QF-54c"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="line.diagonal" catalog="system" width="128" height="113"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
-        <image name="popcorn" catalog="system" width="102" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -533,9 +530,6 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
