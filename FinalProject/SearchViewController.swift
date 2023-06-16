@@ -4,7 +4,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var movieList: [[String]] = []
     var actorList: [[String]] = []
-    var actorListParse: [[String]] = []
     var searchName = 0 //0:영화 1:배우
     var searchField = [Int]()
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
@@ -82,17 +81,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         actorList.remove(at: 0)
         for i in 0..<actorList.count {
-            //var actorStr : [String] = [movieList[i][1]]
-            print("-----------------\(i)------------------")
             for j in stride(from: 5, to: actorList[i].count, by: 8) {
                 var str : [String]
                 str = actorList[i][j].components(separatedBy: ": ")
-                print(str[1])
                 movieList[i].append(str[1])
-                //actorStr.append(str[1])
-                //print(str[1])
             }
-            //actorListParse.append(actorStr)
         }
         movieList = movieList.sorted(by: {$0[20] > $1[20] })
     }
@@ -129,10 +122,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let tfText: String? = textField.text
                 for i in 0 ..< movieList.count {
                     if let text = tfText {
-                        if movieList[i][1].contains(text) {
-                            print(text)
-                            print(movieList[i][1])
-                            searchField.append(i)
+                        for j in 22 ..< movieList[i].count {
+                            if movieList[i][j].lowercased().contains(text.lowercased()) {
+                                print(movieList[i][j])
+                                print(movieList[i][1])
+                                searchField.append(i)
+                                break
+                            }
                         }
                     }
                 }
