@@ -8,7 +8,6 @@ class TabBar : UITabBar {
         if height > 0.0 {
             sizeThatFits.height = height
         }
-        sizeThatFits.height = 10
         return sizeThatFits
     }
 }
