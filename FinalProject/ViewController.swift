@@ -3,23 +3,26 @@ import UIKit
 class ViewController: UIViewController, UIScrollViewDelegate{
    
     var movieList: [[String]] = []
+    var hotMovieList: [[String]] = []
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
-    var imageViews = [UIImageView]()
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var hotScrollView: UIScrollView!
     @IBOutlet weak var dropButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovieFromCSV()
-        self.addContentScrollView()
+        self.getHotMovieList()
+        self.addTopContentScrollView()
         self.setPageControl()
         pageControl.pageIndicatorTintColor = UIColor.gray
         pageControl.currentPageIndicatorTintColor = UIColor.black
         setupPopUpButton()
         
         scrollView.delegate = self
+        hotScrollView.delegate = self
     }
     
     func setupPopUpButton() {
@@ -33,12 +36,12 @@ class ViewController: UIViewController, UIScrollViewDelegate{
                     chk += 1
                 }
             }
-            self.addContentScrollView()
+            self.addTopContentScrollView()
         }
         
         let sortScore = { [self] (action: UIAction) in
             movieList = movieList.sorted(by: {$0[20] > $1[20] })
-            self.addContentScrollView()
+            self.addTopContentScrollView()
         }
 
         dropButton.menu = UIMenu(children: [
@@ -76,7 +79,7 @@ class ViewController: UIViewController, UIScrollViewDelegate{
             //print("\(String(i)) : \(String(movieList[i].count))")
         }
         movieList.remove(at: 100)
-        movieListInitSet()
+        //movieListInitSet()
     }
     
     private func movieListInitSet() {
@@ -94,10 +97,9 @@ class ViewController: UIViewController, UIScrollViewDelegate{
     private func loadMovieFromCSV() {
         let path = Bundle.main.path(forResource: "movies_metadata3", ofType: "csv")!
         parseCSVAt(url: URL(fileURLWithPath: path))
-        //self.tableView.reloadData()
     }
     
-    private func addContentScrollView() {
+    private func addTopContentScrollView() {
         for  subview in self.scrollView.subviews
         {
             subview.removeFromSuperview()
@@ -118,6 +120,38 @@ class ViewController: UIViewController, UIScrollViewDelegate{
                 scrollView.addSubview(label)
                 scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 3.2
             }
+        }
+    }
+    
+    private func getHotMovieList() {
+        
+        movieList = movieList.sorted(by: {$0[13] > $1[13] })
+        for i in 0...20 {
+            hotMovieList.append(movieList[i])
+            print(hotMovieList[i][13])
+        }
+        movieListInitSet()
+        addHotContentScrollView()
+    }
+    
+    
+    private func addHotContentScrollView() {
+        for  subview in self.hotScrollView.subviews
+        {
+            subview.removeFromSuperview()
+        }
+        
+        for i in 0 ... 20 {
+                let imageView = UIImageView()
+                imageView.frame = CGRect(x: CGFloat(i) * 120, y: 0, width: hotScrollView.bounds.width / 3, height: hotScrollView.bounds.height / 8 * 7)
+                imageView.image = image
+                let label = UILabel()
+                label.frame = CGRect(x: CGFloat(i) * 120, y: 136, width: imageView.bounds.width - 10, height: hotScrollView.bounds.height / 5)
+                label.text = hotMovieList[i][1]
+                
+                hotScrollView.addSubview(imageView)
+                hotScrollView.addSubview(label)
+                hotScrollView.contentSize.width = imageView.frame.width * CGFloat(i)
         }
     }
     
