@@ -3,6 +3,8 @@ import UIKit
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var movieList: [[String]] = []
+    var actorList: [[String]] = []
+    var actorListParse: [[String]] = []
     var searchName = 0 //0:영화 1:배우
     var searchField = [Int]()
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
@@ -16,6 +18,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovieFromCSV()
+        self.loadActorFromCSV()
         self.setupPopUpButton()
         tableView.delegate = self
         tableView.dataSource = self
@@ -55,6 +58,42 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //print("\(String(i)) : \(String(movieList[i].count))")
         }
         movieList.remove(at: 100)
+        //movieList = movieList.sorted(by: {$0[20] > $1[20] })
+    }
+    
+    private func loadActorFromCSV() {
+        let path = Bundle.main.path(forResource: "actor_metadata", ofType: "csv")!
+        parseActorCSVAt(url: URL(fileURLWithPath: path))
+    }
+    
+    private func parseActorCSVAt(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            
+            if let dataArr = dataEncoded?.components(separatedBy: "\"[").map({$0.components(separatedBy: ",")}) {
+                for item in dataArr {
+                    actorList.append(item)
+                }
+            }
+        } catch {
+            print("Error reading CSV file")
+        }
+        
+        actorList.remove(at: 0)
+        for i in 0..<actorList.count {
+            //var actorStr : [String] = [movieList[i][1]]
+            print("-----------------\(i)------------------")
+            for j in stride(from: 5, to: actorList[i].count, by: 8) {
+                var str : [String]
+                str = actorList[i][j].components(separatedBy: ": ")
+                print(str[1])
+                movieList[i].append(str[1])
+                //actorStr.append(str[1])
+                //print(str[1])
+            }
+            //actorListParse.append(actorStr)
+        }
         movieList = movieList.sorted(by: {$0[20] > $1[20] })
     }
 
