@@ -443,27 +443,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="left" fixedFrame="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sug-ET-wCD">
-                                <rect key="frame" x="73" y="389" width="247" height="75"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hO8-3z-mpr">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yi4-3c-F4i">
-                                <rect key="frame" x="71" y="411" width="247" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="hotShow" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sic-OI-hKW">
-                                <rect key="frame" x="16" y="65" width="58" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Logo">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="vmQ-Bg-9Ym"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhs-6J-iwh">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1500"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="left" fixedFrame="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sug-ET-wCD">
+                                                <rect key="frame" x="76" y="330" width="247" height="75"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </stackView>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yi4-3c-F4i">
+                                                <rect key="frame" x="78" y="354" width="247" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스크롤 성공" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJw-Ny-VTz">
+                                                <rect key="frame" x="73" y="1440.3333333333333" width="250" height="39.666666666666742"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="hotShow" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sic-OI-hKW">
+                                                <rect key="frame" x="24" y="59" width="58" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Logo">
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="vmQ-Bg-9Ym"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="XJw-Ny-VTz" secondAttribute="bottom" constant="20" id="58f-Yx-zD9"/>
+                                            <constraint firstAttribute="height" constant="1500" id="HKG-4x-zK8"/>
+                                            <constraint firstItem="XJw-Ny-VTz" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="73" id="jd9-nh-0ne"/>
+                                            <constraint firstAttribute="trailing" secondItem="XJw-Ny-VTz" secondAttribute="trailing" constant="70" id="m2p-Lh-x87"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nhs-6J-iwh" firstAttribute="width" secondItem="IXM-pQ-aDk" secondAttribute="width" id="7Xz-WE-wkR"/>
+                                    <constraint firstItem="nhs-6J-iwh" firstAttribute="top" secondItem="hwx-Wa-ckh" secondAttribute="top" id="BCo-aq-byd"/>
+                                    <constraint firstItem="nhs-6J-iwh" firstAttribute="trailing" secondItem="hwx-Wa-ckh" secondAttribute="trailing" id="ldS-JE-LN2"/>
+                                    <constraint firstItem="nhs-6J-iwh" firstAttribute="leading" secondItem="hwx-Wa-ckh" secondAttribute="leading" id="p3X-zb-UMT"/>
+                                    <constraint firstItem="nhs-6J-iwh" firstAttribute="bottom" secondItem="hwx-Wa-ckh" secondAttribute="bottom" id="vJk-cp-s9o"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="hwx-Wa-ckh"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="IXM-pQ-aDk"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YcO-pC-q7h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -481,7 +514,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="YLs-6U-f6k"/>
-        <segue reference="hts-jZ-ebk"/>
+        <segue reference="vmQ-Bg-9Ym"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
