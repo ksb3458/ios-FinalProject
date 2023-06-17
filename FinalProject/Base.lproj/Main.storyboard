@@ -953,6 +953,35 @@
                                                 <viewLayoutGuide key="contentLayoutGuide" id="wek-aa-Ssg"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="5h1-8v-nnA"/>
                                             </scrollView>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEg-2D-IYB">
+                                                <rect key="frame" x="23" y="1439" width="348" height="208"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-ly-tHJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="348" height="208"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="348" id="KqN-Hn-oPf"/>
+                                                    <constraint firstAttribute="height" constant="201" id="OSv-ca-xlJ"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="contentLayoutGuide" id="gzC-vK-ARd"/>
+                                                <viewLayoutGuide key="frameLayoutGuide" id="R9u-3K-tv8"/>
+                                            </scrollView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="줄거리 유사 영화" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJh-5f-Vzj">
+                                                <rect key="frame" x="20" y="1392" width="371" height="39"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="371" id="b3Z-o5-l48"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="c2I-Mi-lav"/>
+                                                    <constraint firstAttribute="width" constant="371" id="j5i-Ox-8ZN"/>
+                                                    <constraint firstAttribute="height" constant="39" id="skY-Eu-8c3"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -969,6 +998,7 @@
                                             <constraint firstItem="yId-yR-obU" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="23" id="5KT-4p-5VI"/>
                                             <constraint firstItem="6oC-46-9eS" firstAttribute="top" secondItem="Och-EW-9gf" secondAttribute="bottom" constant="18" id="6Mr-B3-lrL"/>
                                             <constraint firstItem="Bkt-Yc-eAf" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="7NW-Yl-38v"/>
+                                            <constraint firstItem="IEg-2D-IYB" firstAttribute="top" secondItem="mJh-5f-Vzj" secondAttribute="bottom" id="7vW-lK-D1L"/>
                                             <constraint firstItem="ToD-lo-dgb" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="81e-Cn-aNc"/>
                                             <constraint firstItem="nLu-z9-taZ" firstAttribute="top" secondItem="83v-d5-owW" secondAttribute="bottom" id="8k3-uc-GCL"/>
                                             <constraint firstAttribute="trailing" secondItem="mEi-2w-sAm" secondAttribute="trailing" constant="8" id="AgH-V3-ois"/>
@@ -987,6 +1017,7 @@
                                             <constraint firstItem="sug-ET-wCD" firstAttribute="top" secondItem="UGP-by-NDV" secondAttribute="bottom" constant="18" id="OPH-6T-r7m"/>
                                             <constraint firstItem="AZ9-B4-Iij" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="QzQ-N4-4Cd"/>
                                             <constraint firstItem="yi4-3c-F4i" firstAttribute="top" secondItem="UGP-by-NDV" secondAttribute="bottom" constant="18" id="RDZ-9W-KqK"/>
+                                            <constraint firstItem="IEg-2D-IYB" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="23" id="TWI-Cn-lbl"/>
                                             <constraint firstItem="qzY-Qh-hlN" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="V5E-Pr-Wh5"/>
                                             <constraint firstItem="6k1-3a-tbo" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="WJw-bQ-5Kh"/>
                                             <constraint firstItem="83v-d5-owW" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="Z9c-gs-Mir"/>
@@ -999,6 +1030,7 @@
                                             <constraint firstItem="jaU-YV-7Eh" firstAttribute="top" secondItem="zkX-PW-oD3" secondAttribute="bottom" constant="16" id="dOX-gt-a4H"/>
                                             <constraint firstItem="nLu-z9-taZ" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" id="eTo-PR-peM"/>
                                             <constraint firstItem="UAs-F5-dDB" firstAttribute="trailing" secondItem="6oC-46-9eS" secondAttribute="trailing" id="eVX-y0-fnD"/>
+                                            <constraint firstItem="mJh-5f-Vzj" firstAttribute="top" secondItem="4OF-JC-4qS" secondAttribute="bottom" id="fVy-IM-SGc"/>
                                             <constraint firstAttribute="trailing" secondItem="nLu-z9-taZ" secondAttribute="trailing" id="hbS-Mf-2Jj"/>
                                             <constraint firstItem="6k1-3a-tbo" firstAttribute="top" secondItem="AVg-o1-xI0" secondAttribute="bottom" constant="6" id="hja-l9-imj"/>
                                             <constraint firstItem="A0w-ua-KFK" firstAttribute="top" secondItem="WWT-fk-rHH" secondAttribute="bottom" constant="16" id="iGE-LO-dni"/>
@@ -1018,6 +1050,7 @@
                                             <constraint firstItem="UAs-F5-dDB" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="23" id="t7N-nn-3r4"/>
                                             <constraint firstItem="jaU-YV-7Eh" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="23.670000000000002" id="uCl-Pa-meB"/>
                                             <constraint firstItem="mEi-2w-sAm" firstAttribute="top" secondItem="6oC-46-9eS" secondAttribute="bottom" constant="41.329999999999998" id="ufU-VW-bGh"/>
+                                            <constraint firstItem="mJh-5f-Vzj" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="wMa-mw-TZF"/>
                                             <constraint firstItem="v1T-7R-aVS" firstAttribute="leading" secondItem="yId-yR-obU" secondAttribute="trailing" constant="13" id="wT2-xf-m5I"/>
                                             <constraint firstItem="Q9x-gE-Q0F" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="xYN-vo-sVa"/>
                                             <constraint firstItem="4OF-JC-4qS" firstAttribute="top" secondItem="mru-35-8IA" secondAttribute="bottom" constant="5" id="xaZ-C9-Fpw"/>

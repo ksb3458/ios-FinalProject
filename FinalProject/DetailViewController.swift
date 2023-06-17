@@ -1,5 +1,7 @@
 import UIKit
 import SwiftSoup
+import NaturalLanguage
+import simd
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
 
@@ -12,6 +14,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var reviewList: [[String]] = []
     var actorList: [[String]] = []
     var crewList: [[String]] = []
+    var similarList: [[String]] = []
     var actorAnotherList: [[String]] = []
     var directorAnotherList: [[String]] = []
     var extraBtnNum : Int = 0
@@ -231,6 +234,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 setActorStack()
                 getActorAnotherData()
                 getDirectorAnotherData()
+                getSimilarity()
                 break
             }
             if(i==movieList.count - 1) {
@@ -646,4 +650,56 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             directorScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
         }
     }
+
+    func cosineSimilarity(string1: String, string2: String) -> Double {
+        let tokenizer = NLTokenizer(unit: .word)
+        tokenizer.string = string1
+        let tokens1 = tokenizer.tokens(for: string1.startIndex..<string1.endIndex)
+        tokenizer.string = string2
+        let tokens2 = tokenizer.tokens(for: string2.startIndex..<string2.endIndex)
+
+        let set1 = Set(tokens1)
+        let set2 = Set(tokens2)
+        let intersection = set1.intersection(set2)
+        let union = set1.union(set2)
+        
+        return Double(intersection.count) / Double(union.count)
+    }
+    
+    private func getSimilarity() {
+        let string = movieInfo[9]
+        for i in 0..<movieList.count {
+            var data : [String] = []
+            let similarity = cosineSimilarity(string1: string, string2: movieList[i][9])
+            data.append(movieList[i][1])
+            data.append(String(similarity))
+            similarList.append(data)
+            print(similarity)
+        }
+        similarList = similarList.sorted(by: {$0[1] > $1[1] })
+        addSimilarityScrollView()
+    }
+    
+    private func addSimilarityScrollView() {
+        for i in 1 ..< 10 {
+            let imageView = UIImageView()
+            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: directorAnotherView.bounds.width / 4, height: directorAnotherView.bounds.height / 4 * 3)
+            imageView.image = image
+            let label = UILabel()
+            label.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: directorAnotherView.bounds.height / 4)
+            label.text = directorAnotherList[i][1]
+            
+            imageView.tag = i
+            imageView.isUserInteractionEnabled = true
+            //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
+            label.tag = i
+            label.isUserInteractionEnabled = true
+            //label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
+            
+            directorAnotherView.addSubview(imageView)
+            directorAnotherView.addSubview(label)
+            directorScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+        }
+    }
+
 }
