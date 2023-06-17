@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var overviewText: UITextView!
+    @IBOutlet weak var labelLine: UILabel!
     @IBOutlet weak var overviewBtn: UIButton!
     
     override func viewDidLoad() {
@@ -243,18 +244,26 @@ class DetailViewController: UIViewController {
     
     @IBAction func touchExpandButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        let constraint = labelLine.topAnchor.constraint(equalTo: overviewText.bottomAnchor, constant: 10)
+        
         if sender.isSelected {
             overviewText.textContainer.maximumNumberOfLines = 0
             overviewText.invalidateIntrinsicContentSize()
             overviewText.translatesAutoresizingMaskIntoConstraints = true
             overviewText.sizeToFit()
             overviewText.isScrollEnabled = false
+            labelLine.translatesAutoresizingMaskIntoConstraints = false
+            constraint.isActive = true
+            view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
         } else {
             // 접기
             overviewText.textContainer.maximumNumberOfLines = 3
             overviewText.invalidateIntrinsicContentSize()
             overviewText.translatesAutoresizingMaskIntoConstraints = false
             overviewText.isScrollEnabled = true
+            labelLine.translatesAutoresizingMaskIntoConstraints = false
+            constraint.isActive = false
+            view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
         }
     }
 }
