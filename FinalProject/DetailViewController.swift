@@ -208,6 +208,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 movieInfo = movieList[i]
                 posterImageView.image = image
                 titleLabel.text = movieList[i][1]
+                titleLabel.adjustsFontSizeToFitWidth = true
                 dateLabel.text = movieList[i][13]
                 let time = Int(movieList[i][15])
                 timeLabel.text = "\(time!/60)H \(time!%60)M"
@@ -586,7 +587,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     private func addActorScrollView() {
         for i in 0 ..< actorAnotherList.count {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: actorAnotherView.bounds.width / 6, height: actorAnotherView.bounds.height / 4 * 3)
+            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: actorAnotherView.bounds.width / 6.3, height: actorAnotherView.bounds.height / 4 * 3)
             imageView.image = image
             let label = UILabel()
             label.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: actorAnotherView.bounds.height / 4)
@@ -627,7 +628,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         for i in 0 ..< directorAnotherList.count {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: directorAnotherView.bounds.width / 6, height: directorAnotherView.bounds.height / 4 * 3)
+            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: directorAnotherView.bounds.width / 4, height: directorAnotherView.bounds.height / 4 * 3)
             imageView.image = image
             let label = UILabel()
             label.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: directorAnotherView.bounds.height / 4)
