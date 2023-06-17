@@ -13,6 +13,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var actorList: [[String]] = []
     var crewList: [[String]] = []
     var actorAnotherList: [[String]] = []
+    var directorAnotherList: [[String]] = []
     var extraBtnNum : Int = 0
     var review1Num : Int = 0
     var review2Num : Int = 0
@@ -48,6 +49,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var actorAnotherView: UIView!
     @IBOutlet weak var actorScrollView: UIScrollView!
+    @IBOutlet weak var directorAnotherView: UIView!
+    @IBOutlet weak var directorScrollView: UIScrollView!
+    @IBOutlet weak var directorAnotherLabel: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -225,6 +229,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 directorLabel.text = String(director)
                 setActorStack()
                 getActorAnotherData()
+                getDirectorAnotherData()
                 break
             }
             if(i==movieList.count - 1) {
@@ -597,6 +602,47 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             actorAnotherView.addSubview(imageView)
             actorAnotherView.addSubview(label)
             actorScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+        }
+    }
+    
+    private func getDirectorAnotherData() {
+        let director = movieInfo[22]
+        for i in 0 ..< movieList.count {
+            if movieList[i][22] == director {
+                if movieList[i][1] != movieInfo[1] {
+                    directorAnotherList.append(movieList[i])
+                }
+                break
+            }
+        }
+        addDirectorScrollView()
+    }
+    
+    private func addDirectorScrollView() {
+        if directorAnotherList.count == 0 {
+            directorAnotherLabel.isHidden = true
+            directorScrollView.isHidden = true
+            directorAnotherView.isHidden = true
+        }
+        
+        for i in 0 ..< directorAnotherList.count {
+            let imageView = UIImageView()
+            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: directorAnotherView.bounds.width / 6, height: directorAnotherView.bounds.height / 4 * 3)
+            imageView.image = image
+            let label = UILabel()
+            label.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: directorAnotherView.bounds.height / 4)
+            label.text = directorAnotherList[i][1]
+            
+            imageView.tag = i
+            imageView.isUserInteractionEnabled = true
+            //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
+            label.tag = i
+            label.isUserInteractionEnabled = true
+            //label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
+            
+            directorAnotherView.addSubview(imageView)
+            directorAnotherView.addSubview(label)
+            directorScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
         }
     }
 }

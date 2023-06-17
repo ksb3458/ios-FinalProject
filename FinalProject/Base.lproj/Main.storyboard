@@ -751,7 +751,7 @@
                                                 <viewLayoutGuide key="contentLayoutGuide" id="cdo-Tr-Ekm"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="VUa-i8-Upw"/>
                                             </scrollView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qzY-Qh-hlN">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzY-Qh-hlN">
                                                 <rect key="frame" x="20" y="391.66666666666669" width="348" height="59"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -809,7 +809,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="추가 정보       V" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q9x-gE-Q0F">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="추가 정보       V" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9x-gE-Q0F">
                                                 <rect key="frame" x="20" y="487" width="371" height="39"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -820,7 +820,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="사용자 리뷰" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AZ9-B4-Iij">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="사용자 리뷰" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ9-B4-Iij">
                                                 <rect key="frame" x="20" y="560" width="371" height="39"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -842,7 +842,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="title1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ToD-lo-dgb">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="title1" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToD-lo-dgb">
                                                 <rect key="frame" x="20" y="607" width="370" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -853,7 +853,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="title2" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AVg-o1-xI0">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="title2" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVg-o1-xI0">
                                                 <rect key="frame" x="20" y="663" width="370" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -864,7 +864,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="title3" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6k1-3a-tbo">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="title3" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6k1-3a-tbo">
                                                 <rect key="frame" x="20" y="719" width="370" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -875,7 +875,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="title4" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Chq-I3-aHB">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="title4" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chq-I3-aHB">
                                                 <rect key="frame" x="20" y="775" width="370" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -919,6 +919,40 @@
                                                 <viewLayoutGuide key="contentLayoutGuide" id="aO3-0Y-p3T"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="m7Q-sm-C7s"/>
                                             </scrollView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="감독의 다른 영화" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mru-35-8IA">
+                                                <rect key="frame" x="20" y="1147" width="371" height="39"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="39" id="MZ1-ug-O7o"/>
+                                                    <constraint firstAttribute="width" constant="371" id="zsh-Za-M4Y"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4OF-JC-4qS">
+                                                <rect key="frame" x="23" y="1191" width="348" height="201"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OM-KK-WXJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="500" height="201"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="500" id="02k-op-NOi"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="201" id="3u4-bR-80c"/>
+                                                    <constraint firstItem="0OM-KK-WXJ" firstAttribute="height" secondItem="5h1-8v-nnA" secondAttribute="height" id="YfP-ml-OZr"/>
+                                                    <constraint firstItem="0OM-KK-WXJ" firstAttribute="bottom" secondItem="wek-aa-Ssg" secondAttribute="bottom" id="gm4-39-EkX"/>
+                                                    <constraint firstItem="0OM-KK-WXJ" firstAttribute="trailing" secondItem="wek-aa-Ssg" secondAttribute="trailing" id="qBh-Uh-1Xl"/>
+                                                    <constraint firstAttribute="width" constant="348" id="qlQ-zV-Jn5"/>
+                                                    <constraint firstItem="0OM-KK-WXJ" firstAttribute="top" secondItem="wek-aa-Ssg" secondAttribute="top" id="s88-pG-4WO"/>
+                                                    <constraint firstItem="0OM-KK-WXJ" firstAttribute="leading" secondItem="wek-aa-Ssg" secondAttribute="leading" id="szv-hi-5KN"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="contentLayoutGuide" id="wek-aa-Ssg"/>
+                                                <viewLayoutGuide key="frameLayoutGuide" id="5h1-8v-nnA"/>
+                                            </scrollView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -946,6 +980,7 @@
                                             <constraint firstItem="VEt-Pb-r13" firstAttribute="top" secondItem="WWT-fk-rHH" secondAttribute="bottom" constant="16" id="GwU-v9-ueE"/>
                                             <constraint firstAttribute="height" constant="1500" id="HKG-4x-zK8"/>
                                             <constraint firstItem="AZ9-B4-Iij" firstAttribute="top" secondItem="V5s-Nu-2Bb" secondAttribute="bottom" constant="14" id="HdF-5g-fOa"/>
+                                            <constraint firstItem="mru-35-8IA" firstAttribute="top" secondItem="UAs-F5-dDB" secondAttribute="bottom" id="KZH-bh-Q2s"/>
                                             <constraint firstItem="5Cr-yU-OjC" firstAttribute="top" secondItem="UGP-by-NDV" secondAttribute="bottom" constant="19" id="Lic-Ov-srj"/>
                                             <constraint firstItem="83v-d5-owW" firstAttribute="top" secondItem="Chq-I3-aHB" secondAttribute="bottom" constant="6" id="Nfd-nl-acY"/>
                                             <constraint firstAttribute="trailing" secondItem="6oC-46-9eS" secondAttribute="trailing" constant="22" id="ON6-HA-d7q"/>
@@ -971,6 +1006,7 @@
                                             <constraint firstItem="V5s-Nu-2Bb" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" id="kB2-p2-wLr"/>
                                             <constraint firstItem="2SA-4k-8hk" firstAttribute="leading" secondItem="5Cr-yU-OjC" secondAttribute="trailing" constant="10" id="l6l-mZ-fI6"/>
                                             <constraint firstItem="5Cr-yU-OjC" firstAttribute="leading" secondItem="sug-ET-wCD" secondAttribute="trailing" constant="10" id="mIo-DC-DZu"/>
+                                            <constraint firstItem="mru-35-8IA" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="me3-S0-VQ3"/>
                                             <constraint firstItem="UAs-F5-dDB" firstAttribute="top" secondItem="Bkt-Yc-eAf" secondAttribute="bottom" constant="5" id="nFB-gB-55Z"/>
                                             <constraint firstItem="v1T-7R-aVS" firstAttribute="top" secondItem="WWT-fk-rHH" secondAttribute="bottom" constant="16" id="nu2-7a-Mud"/>
                                             <constraint firstItem="AVg-o1-xI0" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="pkR-PY-qoV"/>
@@ -984,7 +1020,9 @@
                                             <constraint firstItem="mEi-2w-sAm" firstAttribute="top" secondItem="6oC-46-9eS" secondAttribute="bottom" constant="41.329999999999998" id="ufU-VW-bGh"/>
                                             <constraint firstItem="v1T-7R-aVS" firstAttribute="leading" secondItem="yId-yR-obU" secondAttribute="trailing" constant="13" id="wT2-xf-m5I"/>
                                             <constraint firstItem="Q9x-gE-Q0F" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="20" id="xYN-vo-sVa"/>
+                                            <constraint firstItem="4OF-JC-4qS" firstAttribute="top" secondItem="mru-35-8IA" secondAttribute="bottom" constant="5" id="xaZ-C9-Fpw"/>
                                             <constraint firstItem="Och-EW-9gf" firstAttribute="leading" secondItem="zkX-PW-oD3" secondAttribute="trailing" constant="13" id="xg3-Wa-SbZ"/>
+                                            <constraint firstItem="4OF-JC-4qS" firstAttribute="leading" secondItem="nhs-6J-iwh" secondAttribute="leading" constant="23" id="xt6-o4-9NZ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1010,7 +1048,10 @@
                         <outlet property="actorStackView" destination="VLE-Ae-HGv" id="4oS-tD-AEV"/>
                         <outlet property="avgLabel" destination="2SA-4k-8hk" id="USE-3j-HQ0"/>
                         <outlet property="dateLabel" destination="v1T-7R-aVS" id="ihm-2e-tJX"/>
+                        <outlet property="directorAnotherLabel" destination="mru-35-8IA" id="KP4-3v-Tgs"/>
+                        <outlet property="directorAnotherView" destination="0OM-KK-WXJ" id="Rq0-nD-VS0"/>
                         <outlet property="directorLabel" destination="Och-EW-9gf" id="EUD-tk-5Oz"/>
+                        <outlet property="directorScrollView" destination="4OF-JC-4qS" id="BeI-yS-ddf"/>
                         <outlet property="extraText" destination="Q9x-gE-Q0F" id="pJd-xE-tb0"/>
                         <outlet property="genreLabel" destination="UGP-by-NDV" id="ZMa-8V-wh2"/>
                         <outlet property="labelLine" destination="86t-Yg-ueq" id="Avc-6l-nrk"/>
