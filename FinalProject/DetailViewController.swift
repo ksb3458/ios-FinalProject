@@ -12,6 +12,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var overviewText: UITextView!
+    @IBOutlet weak var overviewBtn: UIButton!
     
     override func viewDidLoad() {
         LoadingView.showLoading()
@@ -26,6 +28,11 @@ class DetailViewController: UIViewController {
             LoadingView.hideLoading()
             //print(self.reviewList)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.initOverviewText()
+        self.initExpandButton()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -219,5 +226,35 @@ class DetailViewController: UIViewController {
             }
         })
         task.resume()
+    }
+    
+    private func initOverviewText() {
+        overviewText.textContainer.maximumNumberOfLines = 3
+        overviewText.textContainer.lineBreakMode = .byTruncatingTail
+    }
+    
+    private func initExpandButton() {
+        let lineCount = (overviewText.contentSize.height - overviewText.textContainerInset.top - overviewText.textContainerInset.bottom) / overviewText.font!.lineHeight
+        print(lineCount)
+        if lineCount <= 3 {
+            overviewBtn.isHidden = true
+        }
+    }
+    
+    @IBAction func touchExpandButton(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            overviewText.textContainer.maximumNumberOfLines = 0
+            overviewText.invalidateIntrinsicContentSize()
+            overviewText.translatesAutoresizingMaskIntoConstraints = true
+            overviewText.sizeToFit()
+            overviewText.isScrollEnabled = false
+        } else {
+            // 접기
+            overviewText.textContainer.maximumNumberOfLines = 3
+            overviewText.invalidateIntrinsicContentSize()
+            overviewText.translatesAutoresizingMaskIntoConstraints = false
+            overviewText.isScrollEnabled = true
+        }
     }
 }
