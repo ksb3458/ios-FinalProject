@@ -4,13 +4,15 @@ import SwiftSoup
 class DetailViewController: UIViewController {
 
     var movieName : String?
+    var movieInfo : [String] = []
     var movieStar : Float?
     var starImageViews : [UIImageView] = []
     var movieList: [[String]] = []
     var starList: [[String]] = []
     var reviewList: [[String]] = []
     var extraBtnNum : Int = 0
-    var str : String = "Captain Jack Sparrow crosses paths with a woman from his past, and he's not sure if it's love -- or if she's a ruthless con artist who's using him to find the fabled Fountain of Youth. When she forces him aboard the Queen Anne's Revenge, the ship of the formidable pirate Blackbeard, Jack finds himself on an unexpected adventure in which he doesn't know who to fear more: Blackbeard or the woman from his past.Captain Jack Sparrow crosses paths with a woman from his past, and he's not sure if it's love -- or if she's a ruthless con artist who's using him to find the fabled Fountain of Youth. When she forces him aboard the Queen Anne's Revenge, the ship of the formidable pirate Blackbeard, Jack finds himself on an unexpected adventure in which he doesn't know who to fear more: Blackbeard or the woman from his past."
+    var str : String?
+    var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var stackView: UIStackView!
@@ -20,6 +22,17 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var overviewBtn: UIButton!
     @IBOutlet weak var extraText: UITextView!
     
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var avgLabel: UILabel!
+    @IBOutlet weak var directorLabel: UILabel!
+    @IBOutlet weak var actorStackView: UIStackView!
+    @IBOutlet weak var actorLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingView.showLoading()
@@ -27,9 +40,9 @@ class DetailViewController: UIViewController {
         self.loadStarDataFromCSV()
         self.setStackView()
         self.setSlider()
+        self.findMovieData()
         self.extraText.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.extraTextTapped)))
         self.overviewText.text = str
-        self.findMovieData()
         self.getReview()
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             LoadingView.hideLoading()
@@ -103,8 +116,27 @@ class DetailViewController: UIViewController {
     func findMovieData() { //정보 가져오기
         for i in 0 ..< movieList.count {
             if(movieList[i][1] == movieName) {
-                //label 바꾸고 .. 등등
-                print(movieList[i][1])
+                movieInfo = movieList[i]
+                posterImageView.image = image
+                titleLabel.text = movieList[i][1]
+                dateLabel.text = movieList[i][13]
+                let time = Int(movieList[i][15])
+                timeLabel.text = "\(time!/60)H \(time!%60)M"
+                var genreData : [String] = []
+                var genre : [String] = []
+                let dataArr = movieList[i][3].components(separatedBy: "\"[").map({$0.components(separatedBy: ",")})
+                for item in dataArr {
+                    genreData.append(contentsOf: item)
+                }
+                print(genreData)
+                for i in stride(from: 2, to: genreData.count, by: 2) {
+                    var str : [String]
+                    str = genreData[i].components(separatedBy: ": ")
+                    genre.append(String(str[1].dropLast(1)))
+                }
+                genreLabel.text = "\(genre[0]), \(genre[1]), \(genre[2])"
+                avgLabel.text = movieList[i][20]
+                str = movieList[i][9] + "\""
                 break
             }
             if(i==movieList.count - 1) {
@@ -210,7 +242,7 @@ class DetailViewController: UIViewController {
     }
     
     func getReview() {
-        let imdbID = "tt1298650"
+        let imdbID = movieInfo[6]
         let urlPath = "https://www.imdb.com/title/\(imdbID)/reviews?ref_=tt_urv"
         let url = NSURL(string: urlPath)
         //let titleClassPath = "#main > section > div.lister > div.lister-list > div:nth-child(1) > div.review-container > div.lister-item-content > a"
@@ -268,6 +300,8 @@ class DetailViewController: UIViewController {
             // 접기
             overviewText.text = str
             overviewText.textContainer.maximumNumberOfLines = 3
+            overviewText.invalidateIntrinsicContentSize()
+            overviewText.translatesAutoresizingMaskIntoConstraints = false
             overviewText.sizeToFit()
             overviewText.isScrollEnabled = true
 
