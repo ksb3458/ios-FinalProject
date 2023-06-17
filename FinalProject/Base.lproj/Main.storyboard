@@ -953,18 +953,25 @@
                                                 <viewLayoutGuide key="contentLayoutGuide" id="wek-aa-Ssg"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="5h1-8v-nnA"/>
                                             </scrollView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEg-2D-IYB">
-                                                <rect key="frame" x="23" y="1439" width="348" height="208"/>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEg-2D-IYB">
+                                                <rect key="frame" x="23" y="1431" width="348" height="201"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-ly-tHJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="348" height="208"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-ly-tHJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="500" height="201"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="500" id="ws7-AS-pMy"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="348" id="KqN-Hn-oPf"/>
-                                                    <constraint firstAttribute="height" constant="201" id="OSv-ca-xlJ"/>
+                                                    <constraint firstItem="z2a-ly-tHJ" firstAttribute="trailing" secondItem="gzC-vK-ARd" secondAttribute="trailing" id="CBV-4R-8um"/>
+                                                    <constraint firstAttribute="width" constant="348" id="DSZ-Rw-Kmz"/>
+                                                    <constraint firstAttribute="height" constant="201" id="Od5-gi-YX8"/>
+                                                    <constraint firstItem="z2a-ly-tHJ" firstAttribute="height" secondItem="R9u-3K-tv8" secondAttribute="height" id="Rpe-pm-mBn"/>
+                                                    <constraint firstItem="z2a-ly-tHJ" firstAttribute="leading" secondItem="gzC-vK-ARd" secondAttribute="leading" id="VVX-cY-PZj"/>
+                                                    <constraint firstItem="z2a-ly-tHJ" firstAttribute="bottom" secondItem="gzC-vK-ARd" secondAttribute="bottom" id="XMu-6m-zNt"/>
+                                                    <constraint firstItem="z2a-ly-tHJ" firstAttribute="top" secondItem="gzC-vK-ARd" secondAttribute="top" id="izG-au-3dq"/>
                                                 </constraints>
                                                 <viewLayoutGuide key="contentLayoutGuide" id="gzC-vK-ARd"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="R9u-3K-tv8"/>
@@ -1097,6 +1104,8 @@
                         <outlet property="review3" destination="6k1-3a-tbo" id="x3P-dC-cAk"/>
                         <outlet property="review4" destination="Chq-I3-aHB" id="BVr-ID-pjR"/>
                         <outlet property="review5" destination="83v-d5-owW" id="dbT-UK-Y48"/>
+                        <outlet property="similarScrollView" destination="IEg-2D-IYB" id="1xe-bO-U3I"/>
+                        <outlet property="similarView" destination="z2a-ly-tHJ" id="7Lp-ue-hnb"/>
                         <outlet property="slider" destination="yi4-3c-F4i" id="vr6-Kn-9To"/>
                         <outlet property="stackView" destination="sug-ET-wCD" id="QwB-ur-YzW"/>
                         <outlet property="timeLabel" destination="A0w-ua-KFK" id="UfS-pi-3cG"/>

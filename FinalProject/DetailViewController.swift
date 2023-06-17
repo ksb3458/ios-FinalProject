@@ -55,6 +55,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var directorAnotherView: UIView!
     @IBOutlet weak var directorScrollView: UIScrollView!
     @IBOutlet weak var directorAnotherLabel: UITextView!
+    @IBOutlet weak var similarScrollView: UIScrollView!
+    @IBOutlet weak var similarView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -683,22 +685,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     private func addSimilarityScrollView() {
         for i in 1 ..< 10 {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: directorAnotherView.bounds.width / 4, height: directorAnotherView.bounds.height / 4 * 3)
+            imageView.frame = CGRect(x: CGFloat(i - 1) * 120 + CGFloat(10*(i-1)), y: 0, width: similarView.bounds.width / 4, height: similarView.bounds.height / 4 * 3)
             imageView.image = image
             let label = UILabel()
-            label.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: directorAnotherView.bounds.height / 4)
-            label.text = directorAnotherList[i][1]
+            label.frame = CGRect(x: CGFloat(i - 1) * 120 + CGFloat(10*(i-1)), y: 136, width: imageView.bounds.width - 10, height: similarView.bounds.height / 4)
+            label.text = similarList[i][0]
             
-            imageView.tag = i
+            imageView.tag = i - 1
             imageView.isUserInteractionEnabled = true
             //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
-            label.tag = i
+            label.tag = i - 1
             label.isUserInteractionEnabled = true
             //label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
             
-            directorAnotherView.addSubview(imageView)
-            directorAnotherView.addSubview(label)
-            directorScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+            similarView.addSubview(imageView)
+            similarView.addSubview(label)
+            similarScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
         }
     }
 
