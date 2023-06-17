@@ -264,33 +264,24 @@ class DetailViewController: UIViewController {
             overviewText.translatesAutoresizingMaskIntoConstraints = true
             overviewText.sizeToFit()
             overviewText.isScrollEnabled = false
-            //labelLine.translatesAutoresizingMaskIntoConstraints = false
-            //constraint.isActive = true
-            //view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
         } else {
             // 접기
             overviewText.text = str
             overviewText.textContainer.maximumNumberOfLines = 3
             overviewText.sizeToFit()
-            //overviewText.invalidateIntrinsicContentSize()
-            //overviewText.translatesAutoresizingMaskIntoConstraints = false
             overviewText.isScrollEnabled = true
-            //labelLine.translatesAutoresizingMaskIntoConstraints = false
-            //constraint.isActive = false
-            //view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
+
         }
     }
     
     @objc func extraTextTapped(_ sender: UITapGestureRecognizer) {
         if extraBtnNum % 2 == 0 {
-            extraText.text = "추가 정보>\n원제\n상태\n원어\n제작비\n수익\n"
+            extraText.text = "추가 정보    >\n원제\n상태\n원어\n제작비\n수익\n"
             extraText.textContainer.maximumNumberOfLines = 0
             extraText.invalidateIntrinsicContentSize()
             extraText.translatesAutoresizingMaskIntoConstraints = true
             extraText.sizeToFit()
             extraText.isScrollEnabled = false
-            //labelLine2.translatesAutoresizingMaskIntoConstraints = false
-            view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
         }
         if extraBtnNum % 2 == 1 {
             extraText.text = "추가 정보    V"
