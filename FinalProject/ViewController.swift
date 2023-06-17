@@ -127,7 +127,7 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         movieList = movieList.sorted(by: {$0[13] > $1[13] })
         for i in 0...20 {
             hotMovieList.append(movieList[i])
-            print(hotMovieList[i][13])
+            //print(hotMovieList[i][13])
         }
         movieListInitSet()
         addHotContentScrollView()
@@ -171,5 +171,45 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         if let viewController = segue.destination as? SortViewController {
             viewController.viewTitle = segue.identifier!
         }
+    }
+    
+    @IBAction func top20Btn(_ sender: Any) {
+        goToViewController(controller: "TopViewController")
+    }
+    @IBAction func animationBtn(_ sender: Any) {
+        goToSortViewController(controller: "SortViewController", id: "Animation")
+    }
+    @IBAction func actionBtn(_ sender: Any) {
+        goToSortViewController(controller: "SortViewController", id: "Action")
+    }
+    @IBAction func adventureBtn(_ sender: Any) {
+        goToSortViewController(controller: "SortViewController", id: "Adventure")
+    }
+    @IBAction func thrillerBtn(_ sender: Any) {
+        goToSortViewController(controller: "SortViewController", id: "Thriller")
+    }
+    @IBAction func fantasyBtn(_ sender: Any) {
+        goToSortViewController(controller: "SortViewController", id: "Fantasy")
+    }
+    @IBAction func familyBtn(_ sender: Any) {
+        goToSortViewController(controller: "SortViewController", id: "Family")
+    }
+    @IBAction func dramaBtn(_ sender: Any) {
+        goToSortViewController(controller: "SortViewController", id: "Drama")
+    }
+    @IBAction func hotBtn(_ sender: Any) {
+        goToViewController(controller: "HotViewController")
+    }
+    
+    func goToViewController(controller: String) {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: controller)
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
+    
+    func goToSortViewController(controller: String, id: String) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "SortViewController")
+        as? SortViewController else {return}
+        viewController.viewTitle = id
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -124,4 +124,18 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.label?.text = collectionList[indexPath.row][1]
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? DetailViewController {
+            if let selectdeIndex =
+                self.collectionView.indexPathsForSelectedItems?.last {
+                    viewController.movieName = collectionList[selectdeIndex.item][1]
+            }
+        }
+    }
 }
