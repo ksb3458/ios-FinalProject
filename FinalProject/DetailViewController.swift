@@ -244,7 +244,8 @@ class DetailViewController: UIViewController {
     
     @IBAction func touchExpandButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        let constraint = labelLine.topAnchor.constraint(equalTo: overviewText.bottomAnchor, constant: 10)
+        let lineCount = (overviewText.contentSize.height - overviewText.textContainerInset.top - overviewText.textContainerInset.bottom) / overviewText.font!.lineHeight
+        let constraint = labelLine.topAnchor.constraint(equalTo: overviewText.bottomAnchor, constant: lineCount + 1)
         
         if sender.isSelected {
             overviewText.textContainer.maximumNumberOfLines = 0
