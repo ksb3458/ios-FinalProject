@@ -48,6 +48,7 @@ class DetailViewController: UIViewController {
         self.findMovieData()
         self.extraText.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.extraTextTapped)))
         self.overviewText.text = str
+        self.shrinkExtraText()
         self.getReview()
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             LoadingView.hideLoading()
@@ -280,17 +281,10 @@ class DetailViewController: UIViewController {
     }
     
     func setActorStack() {
-        //actorStackView.axis = .horizontal
-        //actorStackView.alignment = .center
         for i in 23..<movieInfo.count {
             let label = UILabel()
             if i == 23 {label.text = String(movieInfo[i].dropFirst(1).dropLast(1))}
             else { label.text = ", " + String(movieInfo[i].dropFirst(1).dropLast(1))}
-            //print(label.text)
-            //label.tag = i
-            //let xPos = CGFloat(i + 1) + 100
-            //let yPos = 0 * CGFloat(i)
-            //label.frame = CGRect(x: xPos, y: yPos, width: label.bounds.width, height: label.bounds.height)
             actorStackView.addArrangedSubview(label)
         }
     }
@@ -389,21 +383,67 @@ class DetailViewController: UIViewController {
         }
     }
     
+    private func expandExtraText() {
+        let originalString = "추가 정보    >\n원제         \(movieInfo[8])\n상태         \(movieInfo[15])\n원어          \(movieInfo[7])\n제작비     \(movieInfo[2])\n수익         \(movieInfo[14])\n"
+        let attributedString = NSMutableAttributedString(string: originalString)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 8
+        let paragraphStyle2 = NSMutableParagraphStyle()
+        paragraphStyle2.lineSpacing = 15
+        
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .regular), range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+        let range0 = (originalString as NSString).range(of: "추가 정보")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: range0)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 21, weight: .semibold), range: range0)
+        attributedString.addAttribute(.paragraphStyle, value: paragraphStyle2, range: range0)
+        let range1 = (originalString as NSString).range(of: "원제")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range1)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range1)
+        let range2 = (originalString as NSString).range(of: "상태")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range2)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range2)
+        let range3 = (originalString as NSString).range(of: "원어")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range3)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range3)
+        let range4 = (originalString as NSString).range(of: "제작비")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range4)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range4)
+        let range5 = (originalString as NSString).range(of: "수익")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range5)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range5)
+        
+        extraText.attributedText = attributedString
+        extraText.textContainer.maximumNumberOfLines = 0
+        extraText.invalidateIntrinsicContentSize()
+        extraText.translatesAutoresizingMaskIntoConstraints = true
+        extraText.sizeToFit()
+        extraText.isScrollEnabled = false
+    }
+    
+    private func shrinkExtraText() {
+        let originalString = "추가 정보    V"
+        let attributedString = NSMutableAttributedString(string: originalString)
+        let range0 = (originalString as NSString).range(of: "추가 정보")
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .regular), range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: range0)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 21, weight: .semibold), range: range0)
+        
+        extraText.attributedText = attributedString
+        extraText.textContainer.maximumNumberOfLines = 1
+        extraText.invalidateIntrinsicContentSize()
+        extraText.translatesAutoresizingMaskIntoConstraints = false
+        extraText.sizeToFit()
+    }
+    
     @objc func extraTextTapped(_ sender: UITapGestureRecognizer) {
         if extraBtnNum % 2 == 0 {
-            extraText.text = "추가 정보    >\n원제\n상태\n원어\n제작비\n수익\n"
-            extraText.textContainer.maximumNumberOfLines = 0
-            extraText.invalidateIntrinsicContentSize()
-            extraText.translatesAutoresizingMaskIntoConstraints = true
-            extraText.sizeToFit()
-            extraText.isScrollEnabled = false
+            expandExtraText()
         }
         if extraBtnNum % 2 == 1 {
-            extraText.text = "추가 정보    V"
-            extraText.textContainer.maximumNumberOfLines = 1
-            extraText.invalidateIntrinsicContentSize()
-            extraText.translatesAutoresizingMaskIntoConstraints = false
-            extraText.sizeToFit()
+            shrinkExtraText()
         }
         extraBtnNum += 1
     }
