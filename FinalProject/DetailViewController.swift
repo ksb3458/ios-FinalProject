@@ -685,7 +685,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     private func addSimilarityScrollView() {
         for i in 1 ..< 10 {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i - 1) * 120 + CGFloat(10*(i-1)), y: 0, width: similarView.bounds.width / 4, height: similarView.bounds.height / 4 * 3)
+            imageView.frame = CGRect(x: CGFloat(i - 1) * 120 + CGFloat(10*(i-1)), y: 0, width: similarView.bounds.width / 6.3, height: similarView.bounds.height / 4 * 3)
             imageView.image = image
             let label = UILabel()
             label.frame = CGRect(x: CGFloat(i - 1) * 120 + CGFloat(10*(i-1)), y: 136, width: imageView.bounds.width - 10, height: similarView.bounds.height / 4)
