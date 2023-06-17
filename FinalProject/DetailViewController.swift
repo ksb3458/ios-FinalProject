@@ -1,7 +1,7 @@
 import UIKit
 import SwiftSoup
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate {
 
     var movieName : String?
     var movieInfo : [String] = []
@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     var reviewList: [[String]] = []
     var actorList: [[String]] = []
     var crewList: [[String]] = []
+    var actorAnotherList: [[String]] = []
     var extraBtnNum : Int = 0
     var review1Num : Int = 0
     var review2Num : Int = 0
@@ -45,6 +46,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var review4: UITextView!
     @IBOutlet weak var review5: UITextView!
     
+    @IBOutlet weak var actorAnotherView: UIView!
+    @IBOutlet weak var actorScrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingView.showLoading()
@@ -60,6 +64,7 @@ class DetailViewController: UIViewController {
         self.overviewText.text = str
         self.shrinkExtraText()
         self.getReview()
+        actorScrollView.delegate = self
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             LoadingView.hideLoading()
             self.initReviewState()
@@ -219,6 +224,7 @@ class DetailViewController: UIViewController {
                 let director = movieList[i][22].dropLast(1).dropFirst(1)
                 directorLabel.text = String(director)
                 setActorStack()
+                getActorAnotherData()
                 break
             }
             if(i==movieList.count - 1) {
@@ -552,5 +558,45 @@ class DetailViewController: UIViewController {
             shrinkReview(review: review5, index: 4)
         }
         review5Num += 1
+    }
+    
+    private func getActorAnotherData() {
+        let actor1 = movieInfo[23]
+        let actor2 = movieInfo[24]
+        let actor3 = movieInfo[25]
+        
+        for i in 0 ..< movieList.count {
+            for j in 23 ..< movieList[i].count {
+                if movieList[i][j] == actor1 || movieList[i][j] == actor2 || movieList[i][j] == actor3 {
+                    if movieList[i][1] != movieInfo[1] {
+                        actorAnotherList.append(movieList[i])
+                    }
+                    break
+                }
+            }
+        }
+        addActorScrollView()
+    }
+    
+    private func addActorScrollView() {
+        for i in 0 ..< actorAnotherList.count {
+            let imageView = UIImageView()
+            imageView.frame = CGRect(x: CGFloat(i) * 120, y: 0, width: actorAnotherView.bounds.width / 3, height: actorAnotherView.bounds.height / 8 * 7)
+            imageView.image = image
+            let label = UILabel()
+            label.frame = CGRect(x: CGFloat(i) * 120, y: 136, width: imageView.bounds.width - 10, height: actorAnotherView.bounds.height / 5)
+            label.text = actorAnotherList[i][1]
+            
+            imageView.tag = i
+            imageView.isUserInteractionEnabled = true
+            //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
+            label.tag = i
+            label.isUserInteractionEnabled = true
+            //label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
+            
+            actorAnotherView.addSubview(imageView)
+            actorAnotherView.addSubview(label)
+            actorScrollView.contentSize.width = imageView.frame.width * CGFloat(i)
+        }
     }
 }
