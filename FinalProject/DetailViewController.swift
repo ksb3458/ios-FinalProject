@@ -581,10 +581,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     private func addActorScrollView() {
         for i in 0 ..< actorAnotherList.count {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i) * 120, y: 0, width: actorAnotherView.bounds.width / 3, height: actorAnotherView.bounds.height / 8 * 7)
+            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: actorAnotherView.bounds.width / 6, height: actorAnotherView.bounds.height / 4 * 3)
             imageView.image = image
             let label = UILabel()
-            label.frame = CGRect(x: CGFloat(i) * 120, y: 136, width: imageView.bounds.width - 10, height: actorAnotherView.bounds.height / 5)
+            label.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: actorAnotherView.bounds.height / 4)
             label.text = actorAnotherList[i][1]
             
             imageView.tag = i
@@ -596,7 +596,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             
             actorAnotherView.addSubview(imageView)
             actorAnotherView.addSubview(label)
-            actorScrollView.contentSize.width = imageView.frame.width * CGFloat(i)
+            actorScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
         }
     }
 }
