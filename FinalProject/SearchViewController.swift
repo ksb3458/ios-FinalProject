@@ -4,6 +4,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var movieList: [[String]] = []
     var actorList: [[String]] = []
+    var crewList: [[String]] = []
     var searchName = 0 //0:영화 1:배우
     var searchField = [Int]()
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
@@ -17,7 +18,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovieFromCSV()
-        self.loadActorFromCSV()
+        self.loadCrewFromCSV()
         self.setupPopUpButton()
         tableView.delegate = self
         tableView.dataSource = self
@@ -89,6 +90,41 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         movieList = movieList.sorted(by: {$0[20] > $1[20] })
     }
+    
+    private func loadCrewFromCSV() {
+        let path = Bundle.main.path(forResource: "crewData", ofType: "csv")!
+        parseCrewCSVAt(url: URL(fileURLWithPath: path))
+    }
+    
+    private func parseCrewCSVAt(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            
+            if let dataArr = dataEncoded?.components(separatedBy: "\"[").map({$0.components(separatedBy: ",")}) {
+                for item in dataArr {
+                    crewList.append(item)
+                }
+            }
+        } catch {
+            print("Error reading CSV file")
+        }
+        
+        crewList.remove(at: 0)
+        for i in 0..<crewList.count {
+            for j in stride(from: 4, to: crewList[i].count, by: 7) {
+                var str : [String]
+                str = crewList[i][j].components(separatedBy: ": ")
+                if str[1] == "'Director'" {
+                    var str : [String]
+                    str = crewList[i][j+1].components(separatedBy: ": ")
+                    movieList[i].append(str[1])
+                    break
+                }
+            }
+        }
+        loadActorFromCSV()
+    }
 
     private func makeAlert()
     {
@@ -117,18 +153,33 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         if searchName == 1 {
-            if((textField.text?.isEmpty) == nil) { makeAlert() }
+            if(textField.text == " " || (textField.text?.count) == 0) { makeAlert() }
             else {
                 let tfText: String? = textField.text
                 for i in 0 ..< movieList.count {
                     if let text = tfText {
-                        for j in 22 ..< movieList[i].count {
+                        for j in 23 ..< movieList[i].count {
                             if movieList[i][j].lowercased().contains(text.lowercased()) {
                                 print(movieList[i][j])
                                 print(movieList[i][1])
                                 searchField.append(i)
                                 break
                             }
+                        }
+                    }
+                }
+                tableView.reloadData()
+            }
+        }
+        
+        if searchName == 2 {
+            if(textField.text == " " || (textField.text?.count) == 0) { makeAlert() }
+            else {
+                let tfText: String? = textField.text
+                for i in 0 ..< movieList.count {
+                    if let text = tfText {
+                        if movieList[i][22].lowercased().contains(text.lowercased()) {
+                            searchField.append(i)
                         }
                     }
                 }
@@ -145,10 +196,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let actorName = { [self] (action: UIAction) in
             searchName = 1
         }
+        
+        let directorName = { [self] (action: UIAction) in
+            searchName = 2
+        }
 
         dropButton.menu = UIMenu(children: [
             UIAction(title: "영화명", handler: movieName),
-            UIAction(title: "배우명", handler: actorName)
+            UIAction(title: "배우명", handler: actorName),
+            UIAction(title: "감독명", handler: directorName)
         ])
         dropButton.showsMenuAsPrimaryAction = true
     }

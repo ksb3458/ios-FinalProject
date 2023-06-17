@@ -511,6 +511,7 @@
                                             <children>
                                                 <command title="영화명" menuElementState="on" id="6Ib-6v-lMV"/>
                                                 <command title="배우명" id="mh2-FJ-IHk"/>
+                                                <command title="배우명" id="W6c-S7-2Qg" userLabel="감독명"/>
                                             </children>
                                         </menu>
                                         <state key="normal" title="Button">
@@ -1302,7 +1303,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hX0-7s-J4B"/>
+        <segue reference="jYu-r9-8C4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
