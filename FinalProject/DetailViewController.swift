@@ -9,20 +9,26 @@ class DetailViewController: UIViewController {
     var movieList: [[String]] = []
     var starList: [[String]] = []
     var reviewList: [[String]] = []
+    var extraBtnNum : Int = 0
+    var str : String = "Captain Jack Sparrow crosses paths with a woman from his past, and he's not sure if it's love -- or if she's a ruthless con artist who's using him to find the fabled Fountain of Youth. When she forces him aboard the Queen Anne's Revenge, the ship of the formidable pirate Blackbeard, Jack finds himself on an unexpected adventure in which he doesn't know who to fear more: Blackbeard or the woman from his past.Captain Jack Sparrow crosses paths with a woman from his past, and he's not sure if it's love -- or if she's a ruthless con artist who's using him to find the fabled Fountain of Youth. When she forces him aboard the Queen Anne's Revenge, the ship of the formidable pirate Blackbeard, Jack finds himself on an unexpected adventure in which he doesn't know who to fear more: Blackbeard or the woman from his past."
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var overviewText: UITextView!
     @IBOutlet weak var labelLine: UILabel!
+    @IBOutlet weak var labelLine2: UIView!
     @IBOutlet weak var overviewBtn: UIButton!
+    @IBOutlet weak var extraText: UITextView!
     
     override func viewDidLoad() {
-        LoadingView.showLoading()
         super.viewDidLoad()
+        LoadingView.showLoading()
         self.loadMovieFromCSV()
         self.loadStarDataFromCSV()
         self.setStackView()
         self.setSlider()
+        self.extraText.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.extraTextTapped)))
+        self.overviewText.text = str
         self.findMovieData()
         self.getReview()
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
@@ -244,27 +250,49 @@ class DetailViewController: UIViewController {
     
     @IBAction func touchExpandButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        let lineCount = (overviewText.contentSize.height - overviewText.textContainerInset.top - overviewText.textContainerInset.bottom) / overviewText.font!.lineHeight
-        let constraint = labelLine.topAnchor.constraint(equalTo: overviewText.bottomAnchor, constant: lineCount + 1)
+        //let lineCount = (overviewText.contentSize.height - overviewText.textContainerInset.top - overviewText.textContainerInset.bottom) / overviewText.font!.lineHeight
+        //let constraint = labelLine.topAnchor.constraint(equalTo: overviewText.bottomAnchor, constant: lineCount + 1)
         
         if sender.isSelected {
+            overviewText.text = str
             overviewText.textContainer.maximumNumberOfLines = 0
             overviewText.invalidateIntrinsicContentSize()
             overviewText.translatesAutoresizingMaskIntoConstraints = true
             overviewText.sizeToFit()
             overviewText.isScrollEnabled = false
-            labelLine.translatesAutoresizingMaskIntoConstraints = false
-            constraint.isActive = true
-            view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
+            //labelLine.translatesAutoresizingMaskIntoConstraints = false
+            //constraint.isActive = true
+            //view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
         } else {
             // 접기
+            overviewText.text = str
             overviewText.textContainer.maximumNumberOfLines = 3
-            overviewText.invalidateIntrinsicContentSize()
-            overviewText.translatesAutoresizingMaskIntoConstraints = false
+            overviewText.sizeToFit()
+            //overviewText.invalidateIntrinsicContentSize()
+            //overviewText.translatesAutoresizingMaskIntoConstraints = false
             overviewText.isScrollEnabled = true
-            labelLine.translatesAutoresizingMaskIntoConstraints = false
-            constraint.isActive = false
+            //labelLine.translatesAutoresizingMaskIntoConstraints = false
+            //constraint.isActive = false
+            //view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
+        }
+    }
+    
+    @objc func extraTextTapped(_ sender: UITapGestureRecognizer) {
+        if extraBtnNum % 2 == 0 {
+            extraText.text = "추가 정보 >\n원제\n상태\n원어\n제작비\n수익\n"
+            extraText.textContainer.maximumNumberOfLines = 0
+            extraText.invalidateIntrinsicContentSize()
+            extraText.translatesAutoresizingMaskIntoConstraints = true
+            extraText.sizeToFit()
+            extraText.isScrollEnabled = false
+            //labelLine2.translatesAutoresizingMaskIntoConstraints = false
             view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
         }
+        if extraBtnNum % 2 == 1 {
+            extraText.text = "추가 정보     V"
+            extraText.textContainer.maximumNumberOfLines = 1
+            extraText.sizeToFit()
+        }
+        extraBtnNum += 1
     }
 }
