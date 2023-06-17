@@ -116,11 +116,23 @@ class ViewController: UIViewController, UIScrollViewDelegate{
                 label.frame = CGRect(x: xPos + scrollView.bounds.width / 4, y: yPos, width: scrollView.bounds.width, height: scrollView.bounds.height / 5)
                 label.text = String(i*5 + j + 1)+". "+movieList[i*5 + j][1]
                 
+                imageView.tag = i*5 + j
+                imageView.isUserInteractionEnabled = true
+                imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewTopTapped)))
+                label.tag = i*5 + j
+                label.isUserInteractionEnabled = true
+                label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewTopTapped)))
+                
                 scrollView.addSubview(imageView)
                 scrollView.addSubview(label)
                 scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 3.2
             }
         }
+    }
+    
+    @objc func viewTopTapped(_ sender: UITapGestureRecognizer) {
+        let index = sender.view?.tag
+        goToDetailViewController(controller: "DetailViewController", title: movieList[index!][1])
     }
     
     private func getHotMovieList() {
@@ -141,19 +153,31 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         }
         
         for i in 0 ... 20 {
-                let imageView = UIImageView()
-                imageView.frame = CGRect(x: CGFloat(i) * 120, y: 0, width: hotScrollView.bounds.width / 3, height: hotScrollView.bounds.height / 8 * 7)
-                imageView.image = image
-                let label = UILabel()
-                label.frame = CGRect(x: CGFloat(i) * 120, y: 136, width: imageView.bounds.width - 10, height: hotScrollView.bounds.height / 5)
-                label.text = hotMovieList[i][1]
-                
-                hotScrollView.addSubview(imageView)
-                hotScrollView.addSubview(label)
-                hotScrollView.contentSize.width = imageView.frame.width * CGFloat(i)
+            let imageView = UIImageView()
+            imageView.frame = CGRect(x: CGFloat(i) * 120, y: 0, width: hotScrollView.bounds.width / 3, height: hotScrollView.bounds.height / 8 * 7)
+            imageView.image = image
+            let label = UILabel()
+            label.frame = CGRect(x: CGFloat(i) * 120, y: 136, width: imageView.bounds.width - 10, height: hotScrollView.bounds.height / 5)
+            label.text = hotMovieList[i][1]
+            
+            imageView.tag = i
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
+            label.tag = i
+            label.isUserInteractionEnabled = true
+            label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
+            
+            hotScrollView.addSubview(imageView)
+            hotScrollView.addSubview(label)
+            hotScrollView.contentSize.width = imageView.frame.width * CGFloat(i)
         }
     }
     
+    @objc func viewHotTapped(_ sender: UITapGestureRecognizer) {
+        let index = sender.view?.tag
+        goToDetailViewController(controller: "DetailViewController", title: hotMovieList[index!][1])
+    }
+ 
     private func setPageControl() {
         pageControl.numberOfPages = 4
     }
@@ -204,6 +228,13 @@ class ViewController: UIViewController, UIScrollViewDelegate{
     func goToViewController(controller: String) {
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: controller)
         self.navigationController?.pushViewController(viewController!, animated: true)
+    }
+    
+    func goToDetailViewController(controller: String, title: String) {
+        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController")
+        as? DetailViewController else {return}
+        viewController.movieName = title
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func goToSortViewController(controller: String, id: String) {

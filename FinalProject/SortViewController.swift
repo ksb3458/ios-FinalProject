@@ -129,7 +129,6 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.centeredHorizontally)
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? DetailViewController {
             if let selectdeIndex =

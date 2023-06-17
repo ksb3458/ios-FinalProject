@@ -410,12 +410,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvd-ws-nud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2182.4427480916029" y="-199.29577464788733"/>
+            <point key="canvasLocation" x="3109.1603053435115" y="-199.29577464788733"/>
         </scene>
         <!--Hot View Controller-->
         <scene sceneID="nm0-Aa-MwD">
             <objects>
-                <viewController storyboardIdentifier="HotViewController" id="nLN-zM-Ryb" customClass="HotViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HotViewController" hidesBottomBarWhenPushed="YES" id="nLN-zM-Ryb" customClass="HotViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1YP-tJ-MjZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -455,6 +455,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="tt8-lb-Uqj" id="RiD-fT-Ykc"/>
                                             <outlet property="label" destination="XCs-fl-wpa" id="za5-tL-T90"/>
+                                            <segue destination="CUb-82-xpB" kind="show" id="a2R-hc-BZ1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -480,7 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEW-1Q-e98" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2869.4656488549617" y="-199.29577464788733"/>
+            <point key="canvasLocation" x="3796.1832061068699" y="-199.29577464788733"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="ZAR-wB-Ke7">
@@ -594,7 +595,7 @@
                                             <outlet property="Name" destination="9MX-MN-wdw" id="lYd-vd-A1c"/>
                                             <outlet property="Overview" destination="pru-Iq-tfH" id="c1B-4g-GM5"/>
                                             <outlet property="Poster" destination="VCN-Y7-qpb" id="rib-M4-3bR"/>
-                                            <segue destination="CUb-82-xpB" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="jYu-r9-8C4"/>
+                                            <segue destination="CUb-82-xpB" kind="show" id="jYu-r9-8C4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -607,11 +608,6 @@
                         <viewLayoutGuide key="safeArea" id="5cD-52-prI"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="n5m-9M-9vK">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
-                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
-                    </tabBarItem>
                     <navigationItem key="navigationItem" id="2SD-nU-b61"/>
                     <connections>
                         <outlet property="dropButton" destination="b1l-Ag-gg7" id="vb2-e4-tzE"/>
@@ -622,12 +618,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOa-Wo-L5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="1048"/>
+            <point key="canvasLocation" x="1469.4656488549617" y="1047.8873239436621"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="3OQ-eP-bOK">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="CUb-82-xpB" customClass="DetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" hidesBottomBarWhenPushed="YES" id="CUb-82-xpB" customClass="DetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nzK-gJ-j8S">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -685,7 +681,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOW-Hm-IRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320" y="675"/>
+            <point key="canvasLocation" x="3173.2824427480914" y="674.64788732394368"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Wc1-xJ-1et">
@@ -703,16 +699,16 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="Pny-jF-vm7" kind="relationship" relationship="viewControllers" id="dcb-gg-84h"/>
+                        <segue destination="5Lp-e2-WKd" kind="relationship" relationship="viewControllers" id="dcb-gg-84h"/>
                         <segue destination="QMS-Lg-6Pe" kind="relationship" relationship="viewControllers" id="UT7-QF-54c"/>
-                        <segue destination="WUP-Ui-M9N" kind="relationship" relationship="viewControllers" id="xw1-dd-ij6"/>
+                        <segue destination="Yi0-Md-jZZ" kind="relationship" relationship="viewControllers" id="xw1-dd-ij6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hwy-bt-plC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-379.38931297709922" y="167.6056338028169"/>
+            <point key="canvasLocation" x="-422" y="-243"/>
         </scene>
-        <!--영화-->
+        <!--Top View Controller-->
         <scene sceneID="cx9-Qp-CVT">
             <objects>
                 <viewController storyboardIdentifier="TopViewController2" id="WUP-Ui-M9N" customClass="TopViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -784,7 +780,7 @@
                                         <connections>
                                             <outlet property="poster" destination="bMY-Ma-XjK" id="AyI-N5-dZM"/>
                                             <outlet property="title" destination="faz-Nk-Y7y" id="WkP-Hy-pNa"/>
-                                            <segue destination="CUb-82-xpB" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="hX0-7s-J4B"/>
+                                            <segue destination="CUb-82-xpB" kind="show" id="hX0-7s-J4B"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -793,9 +789,7 @@
                         <viewLayoutGuide key="safeArea" id="pcw-aK-7Xj"/>
                         <color key="backgroundColor" red="0.19607841970000001" green="0.19607841970000001" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="영화" image="popcorn" catalog="system" id="jEs-IB-JAT">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="Ja0-5S-cHl"/>
                     <connections>
                         <outlet property="dropButton" destination="PC0-Uo-ira" id="aWk-8h-7eL"/>
                         <outlet property="tableView" destination="iHb-Qb-uzk" id="wUn-3W-Y3Q"/>
@@ -803,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPn-Nx-NeH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="375"/>
+            <point key="canvasLocation" x="1469.4656488549617" y="374.64788732394368"/>
         </scene>
         <!--홈-->
         <scene sceneID="cbi-rE-5IJ">
@@ -826,11 +820,56 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPq-US-O6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="-295"/>
+            <point key="canvasLocation" x="543" y="-361"/>
+        </scene>
+        <!--영화-->
+        <scene sceneID="yhB-w8-iBD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yi0-Md-jZZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="영화" image="popcorn" catalog="system" id="jEs-IB-JAT">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="clV-Y5-cG8">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WUP-Ui-M9N" kind="relationship" relationship="rootViewController" id="d5W-NI-DOT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M4J-xJ-fQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542.74809160305347" y="374.64788732394368"/>
+        </scene>
+        <!--검색-->
+        <scene sceneID="mq7-nb-0VT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Lp-e2-WKd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="n5m-9M-9vK">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="FwC-BL-3wV"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Shg-Zg-atC">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pny-jF-vm7" kind="relationship" relationship="rootViewController" id="FlT-Dw-J5d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FTP-Qd-QZW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542.74809160305347" y="1047.8873239436621"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pi4-c7-8He"/>
+        <segue reference="a2R-hc-BZ1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
