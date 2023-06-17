@@ -164,13 +164,19 @@ class DetailViewController: UIViewController {
     }
 
     func setRatingImageView() {
+        //let originalImage = UIImage(named: "star_empty")
+        //let newSize = CGSize(width: 3, height: 3)
+        //UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        //originalImage?.draw(in: CGRect(origin: .zero, size: newSize))
+        //let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        //UIGraphicsEndImageContext()
         for i in 0..<5 {
             let imageView = UIImageView()
             imageView.image = UIImage(named: "star_empty")
             imageView.tag = i
             let xPos = stackView.frame.width / 5 * CGFloat(i)
             let yPos = 0 * CGFloat(i)
-            imageView.frame = CGRect(x: xPos, y: yPos, width: (imageView.image?.size.width)! / 10, height: (imageView.image?.size.height)! / 10)
+            imageView.frame = CGRect(x: xPos, y: yPos, width: (imageView.image?.size.width)! / 22, height: (imageView.image?.size.height)! / 22)
             stackView.addSubview(imageView)
             starImageViews.append(stackView.subviews[i] as? UIImageView ?? UIImageView())
         }
