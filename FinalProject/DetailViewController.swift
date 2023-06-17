@@ -13,6 +13,11 @@ class DetailViewController: UIViewController {
     var actorList: [[String]] = []
     var crewList: [[String]] = []
     var extraBtnNum : Int = 0
+    var review1Num : Int = 0
+    var review2Num : Int = 0
+    var review3Num : Int = 0
+    var review4Num : Int = 0
+    var review5Num : Int = 0
     var str : String?
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     
@@ -34,6 +39,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var actorStackView: UIStackView!
     @IBOutlet weak var actorLabel: UILabel!
     
+    @IBOutlet weak var review1: UITextView!
+    @IBOutlet weak var review2: UITextView!
+    @IBOutlet weak var review3: UITextView!
+    @IBOutlet weak var review4: UITextView!
+    @IBOutlet weak var review5: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +62,7 @@ class DetailViewController: UIViewController {
         self.getReview()
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             LoadingView.hideLoading()
-            //print(self.reviewList)
+            self.initReviewState()
         }
     }
     
@@ -446,5 +456,101 @@ class DetailViewController: UIViewController {
             shrinkExtraText()
         }
         extraBtnNum += 1
+    }
+    
+    private func initReviewState() {
+        self.review1.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.review1TextTapped)))
+        self.review2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.review2TextTapped)))
+        self.review3.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.review3TextTapped)))
+        self.review4.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.review4TextTapped)))
+        self.review5.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.review5TextTapped)))
+        
+        shrinkReview(review: review1, index: 0)
+        shrinkReview(review: review2, index: 1)
+        shrinkReview(review: review3, index: 2)
+        shrinkReview(review: review4, index: 3)
+        shrinkReview(review: review5, index: 4)
+    }
+    
+    private func expandReview(review : UITextView, index : Int) {
+        let originalString = reviewList[index][0] + "\n" + reviewList[index][1]
+        let attributedString = NSMutableAttributedString(string: originalString)
+        
+        attributedString.addAttribute(.foregroundColor, value: UIColor.systemGray, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .regular), range: NSRange(location: 0, length: attributedString.length))
+        let range0 = (originalString as NSString).range(of: reviewList[index][0])
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: range0)
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 17, weight: .semibold), range: range0)
+        
+        review.attributedText = attributedString
+        review.textContainer.maximumNumberOfLines = 0
+        review.invalidateIntrinsicContentSize()
+        review.translatesAutoresizingMaskIntoConstraints = true
+        review.sizeToFit()
+        review.isScrollEnabled = false
+    }
+    
+    private func shrinkReview(review : UITextView, index : Int) {
+        let originalString = reviewList[index][0]
+        let attributedString = NSMutableAttributedString(string: originalString)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 17, weight: .semibold), range: NSRange(location: 0, length: attributedString.length))
+        
+        review.attributedText = attributedString
+        review.textContainer.maximumNumberOfLines = 2
+        review.invalidateIntrinsicContentSize()
+        review.translatesAutoresizingMaskIntoConstraints = false
+        review.sizeToFit()
+        review.isScrollEnabled = true
+    }
+    
+    @objc func review1TextTapped(_ sender: UITapGestureRecognizer) {
+        if review1Num % 2 == 0 {
+            expandReview(review: review1, index: 0)
+        }
+        if review1Num % 2 == 1 {
+            shrinkReview(review: review1, index: 0)
+        }
+        review1Num += 1
+    }
+    
+    @objc func review2TextTapped(_ sender: UITapGestureRecognizer) {
+        if review2Num % 2 == 0 {
+            expandReview(review: review2, index: 1)
+        }
+        if review2Num % 2 == 1 {
+            shrinkReview(review: review2, index: 1)
+        }
+        review2Num += 1
+    }
+    
+    @objc func review3TextTapped(_ sender: UITapGestureRecognizer) {
+        if review3Num % 2 == 0 {
+            expandReview(review: review3, index: 2)
+        }
+        if review3Num % 2 == 1 {
+            shrinkReview(review: review3, index: 2)
+        }
+        review3Num += 1
+    }
+    
+    @objc func review4TextTapped(_ sender: UITapGestureRecognizer) {
+        if review4Num % 2 == 0 {
+            expandReview(review: review4, index: 3)
+        }
+        if review4Num % 2 == 1 {
+            shrinkReview(review: review4, index: 3)
+        }
+        review4Num += 1
+    }
+    
+    @objc func review5TextTapped(_ sender: UITapGestureRecognizer) {
+        if review5Num % 2 == 0 {
+            expandReview(review: review5, index: 4)
+        }
+        if review5Num % 2 == 1 {
+            shrinkReview(review: review5, index: 4)
+        }
+        review5Num += 1
     }
 }
