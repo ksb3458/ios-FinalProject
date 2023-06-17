@@ -256,8 +256,6 @@ class DetailViewController: UIViewController {
     
     @IBAction func touchExpandButton(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        //let lineCount = (overviewText.contentSize.height - overviewText.textContainerInset.top - overviewText.textContainerInset.bottom) / overviewText.font!.lineHeight
-        //let constraint = labelLine.topAnchor.constraint(equalTo: overviewText.bottomAnchor, constant: lineCount + 1)
         
         if sender.isSelected {
             overviewText.text = str
@@ -285,7 +283,7 @@ class DetailViewController: UIViewController {
     
     @objc func extraTextTapped(_ sender: UITapGestureRecognizer) {
         if extraBtnNum % 2 == 0 {
-            extraText.text = "추가 정보 >\n원제\n상태\n원어\n제작비\n수익\n"
+            extraText.text = "추가 정보>\n원제\n상태\n원어\n제작비\n수익\n"
             extraText.textContainer.maximumNumberOfLines = 0
             extraText.invalidateIntrinsicContentSize()
             extraText.translatesAutoresizingMaskIntoConstraints = true
@@ -295,8 +293,10 @@ class DetailViewController: UIViewController {
             view.layoutIfNeeded() // 변경된 제약 조건을 즉시 적용
         }
         if extraBtnNum % 2 == 1 {
-            extraText.text = "추가 정보     V"
+            extraText.text = "추가 정보    V"
             extraText.textContainer.maximumNumberOfLines = 1
+            extraText.invalidateIntrinsicContentSize()
+            extraText.translatesAutoresizingMaskIntoConstraints = false
             extraText.sizeToFit()
         }
         extraBtnNum += 1
