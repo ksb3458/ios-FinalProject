@@ -36,6 +36,7 @@
 		58AC51BC2A34D03700768E53 /* CSVTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */; };
 		58AC51BE2A35020500768E53 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC51BD2A35020500768E53 /* SearchViewController.swift */; };
 		58AC51C92A350E5600768E53 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC51C82A350E5600768E53 /* SearchTableViewCell.swift */; };
+		58B2C4DE2A3E1DD000642A63 /* crewData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58B2C4DD2A3E1DD000642A63 /* crewData.csv */; };
 		9507B56D4B25F55EE031EC6A /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BDD3C822D4810B932F6EA /* Pods_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVTableViewController.swift; sourceTree = "<group>"; };
 		58AC51BD2A35020500768E53 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		58AC51C82A350E5600768E53 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		58B2C4DD2A3E1DD000642A63 /* crewData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crewData.csv; sourceTree = "<group>"; };
 		687336E1412F8786B3F87AE0 /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		8F9B106952CFAEE91615AA94 /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				58AC51B92A34CE1200768E53 /* movies_metadata2.csv */,
 				586B16FD2A3A0910004BF51C /* movies_metadata3.csv */,
 				589B81572A3C25B40077E2F1 /* actor_metadata.csv */,
+				58B2C4DD2A3E1DD000642A63 /* crewData.csv */,
 				589B40B92A384688006DB5E1 /* starData.csv */,
 				589B40AD2A381076006DB5E1 /* star_full.png */,
 				589B40AF2A381081006DB5E1 /* star_half.png */,
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				588626E62A3AB3430019DBCE /* poster_sample.jpg in Resources */,
+				58B2C4DE2A3E1DD000642A63 /* crewData.csv in Resources */,
 				58AC51BA2A34CE1200768E53 /* movies_metadata2.csv in Resources */,
 				58914E002A31D2C1007965F1 /* movies_metadata.csv in Resources */,
 				586B16FE2A3A0910004BF51C /* movies_metadata3.csv in Resources */,

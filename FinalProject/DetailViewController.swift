@@ -10,6 +10,8 @@ class DetailViewController: UIViewController {
     var movieList: [[String]] = []
     var starList: [[String]] = []
     var reviewList: [[String]] = []
+    var actorList: [[String]] = []
+    var crewList: [[String]] = []
     var extraBtnNum : Int = 0
     var str : String?
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
@@ -36,7 +38,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingView.showLoading()
+        self.actorLabel.isHidden = true
         self.loadMovieFromCSV()
+        //self.loadActorFromCSV()
+        self.loadCrewFromCSV()
         self.loadStarDataFromCSV()
         self.setStackView()
         self.setSlider()
@@ -93,6 +98,70 @@ class DetailViewController: UIViewController {
         movieList.remove(at: 100)
     }
     
+    private func loadActorFromCSV() {
+        let path = Bundle.main.path(forResource: "actor_metadata", ofType: "csv")!
+        parseActorCSVAt(url: URL(fileURLWithPath: path))
+    }
+    
+    private func parseActorCSVAt(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            
+            if let dataArr = dataEncoded?.components(separatedBy: "\"[").map({$0.components(separatedBy: ",")}) {
+                for item in dataArr {
+                    actorList.append(item)
+                }
+            }
+        } catch {
+            print("Error reading CSV file")
+        }
+        
+        actorList.remove(at: 0)
+        for i in 0..<actorList.count {
+            for j in stride(from: 5, to: actorList[i].count, by: 8) {
+                var str : [String]
+                str = actorList[i][j].components(separatedBy: ": ")
+                movieList[i].append(str[1])
+            }
+        }
+    }
+    
+    private func loadCrewFromCSV() {
+        let path = Bundle.main.path(forResource: "crewData", ofType: "csv")!
+        parseCrewCSVAt(url: URL(fileURLWithPath: path))
+    }
+    
+    private func parseCrewCSVAt(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            
+            if let dataArr = dataEncoded?.components(separatedBy: "\"[").map({$0.components(separatedBy: ",")}) {
+                for item in dataArr {
+                    crewList.append(item)
+                }
+            }
+        } catch {
+            print("Error reading CSV file")
+        }
+        
+        crewList.remove(at: 0)
+        for i in 0..<crewList.count {
+            for j in stride(from: 4, to: crewList[i].count, by: 7) {
+                var str : [String]
+                str = crewList[i][j].components(separatedBy: ": ")
+                if str[1] == "'Director'" {
+                    var str : [String]
+                    str = crewList[i][j+1].components(separatedBy: ": ")
+                    movieList[i].append(str[1])
+                    break
+                }
+            }
+        }
+        loadActorFromCSV()
+    }
+    
     private func loadStarDataFromCSV() {
         let path = Bundle.main.path(forResource: "starData", ofType: "csv")!
         parseStarDataAt(url: URL(fileURLWithPath: path))
@@ -128,7 +197,6 @@ class DetailViewController: UIViewController {
                 for item in dataArr {
                     genreData.append(contentsOf: item)
                 }
-                print(genreData)
                 for i in stride(from: 2, to: genreData.count, by: 2) {
                     var str : [String]
                     str = genreData[i].components(separatedBy: ": ")
@@ -137,6 +205,9 @@ class DetailViewController: UIViewController {
                 genreLabel.text = "\(genre[0]), \(genre[1]), \(genre[2])"
                 avgLabel.text = movieList[i][20]
                 str = movieList[i][9] + "\""
+                let director = movieList[i][22].dropLast(1).dropFirst(1)
+                directorLabel.text = String(director)
+                setActorStack()
                 break
             }
             if(i==movieList.count - 1) {
@@ -196,12 +267,6 @@ class DetailViewController: UIViewController {
     }
 
     func setRatingImageView() {
-        //let originalImage = UIImage(named: "star_empty")
-        //let newSize = CGSize(width: 3, height: 3)
-        //UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        //originalImage?.draw(in: CGRect(origin: .zero, size: newSize))
-        //let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        //UIGraphicsEndImageContext()
         for i in 0..<5 {
             let imageView = UIImageView()
             imageView.image = UIImage(named: "star_empty")
@@ -211,6 +276,22 @@ class DetailViewController: UIViewController {
             imageView.frame = CGRect(x: xPos, y: yPos, width: (imageView.image?.size.width)! / 22, height: (imageView.image?.size.height)! / 22)
             stackView.addSubview(imageView)
             starImageViews.append(stackView.subviews[i] as? UIImageView ?? UIImageView())
+        }
+    }
+    
+    func setActorStack() {
+        //actorStackView.axis = .horizontal
+        //actorStackView.alignment = .center
+        for i in 23..<movieInfo.count {
+            let label = UILabel()
+            if i == 23 {label.text = String(movieInfo[i].dropFirst(1).dropLast(1))}
+            else { label.text = ", " + String(movieInfo[i].dropFirst(1).dropLast(1))}
+            //print(label.text)
+            //label.tag = i
+            //let xPos = CGFloat(i + 1) + 100
+            //let yPos = 0 * CGFloat(i)
+            //label.frame = CGRect(x: xPos, y: yPos, width: label.bounds.width, height: label.bounds.height)
+            actorStackView.addArrangedSubview(label)
         }
     }
     
