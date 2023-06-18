@@ -5,6 +5,7 @@ class ViewController: UIViewController, UIScrollViewDelegate{
     var movieList: [[String]] = []
     var hotMovieList: [[String]] = []
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
+    let bgColor = UIColor(red: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -23,6 +24,8 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         
         scrollView.delegate = self
         hotScrollView.delegate = self
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "")
+        navigationItem.titleView?.backgroundColor = bgColor
     }
     
     func setupPopUpButton() {

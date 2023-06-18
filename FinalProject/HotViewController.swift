@@ -15,6 +15,14 @@ class HotViewController: UIViewController, UICollectionViewDataSource, UICollect
         self.getCollectionData()
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        //navigationItem.title = "HOT & NEW"
+        let titleLabel = UILabel()
+        titleLabel.text = "HOT & NEW"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.sizeToFit()
+        navigationItem.titleView = titleLabel
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "")
     }
     
     func getCollectionData() {
