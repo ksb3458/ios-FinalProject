@@ -59,13 +59,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var directorAnotherLabel: UITextView!
     @IBOutlet weak var similarScrollView: UIScrollView!
     @IBOutlet weak var similarView: UIView!
+    @IBOutlet weak var UIIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingView.showLoading()
+        UIIndicator.startAnimating()
         self.actorLabel.isHidden = true
         self.loadMovieFromCSV()
-        //self.loadActorFromCSV()
         self.loadCrewFromCSV()
         self.loadStarDataFromCSV()
         self.setStackView()
@@ -77,8 +78,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.getReview()
         actorScrollView.delegate = self
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            LoadingView.hideLoading()
             self.loadingBlackView.isHidden = true
+            self.UIIndicator.isHidden = true
+            LoadingView.hideLoading()
             self.initReviewState()
         }
     }

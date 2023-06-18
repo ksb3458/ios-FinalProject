@@ -18,23 +18,23 @@ class LoadingView: UIView {
                 window = keyWindow
             }
 
-            let loadingIndicatorView: UIActivityIndicatorView
-            if let existedView = (window as AnyObject).subviews.first(where: { $0 is UIActivityIndicatorView } ) as? UIActivityIndicatorView {
-                loadingIndicatorView = existedView
-            } else {
-                loadingIndicatorView = UIActivityIndicatorView(style: .large)
-                loadingIndicatorView.frame = (window as AnyObject).frame
-                loadingIndicatorView.color = .white
-                (window as AnyObject).addSubview(loadingIndicatorView)
-            }
+            //let loadingIndicatorView: UIActivityIndicatorView
+            //if let existedView = (window as AnyObject).subviews.first(where: { $0 is UIActivityIndicatorView } ) as? UIActivityIndicatorView {
+            //    loadingIndicatorView = existedView
+            //} else {
+            //    loadingIndicatorView = UIActivityIndicatorView(style: .large)
+            //    loadingIndicatorView.frame = (window as AnyObject).frame
+            //    loadingIndicatorView.color = .white
+            //    (window as AnyObject).addSubview(loadingIndicatorView)
+            //}
 
-            loadingIndicatorView.startAnimating()
+            //loadingIndicatorView.startAnimating()
         }
     }
 
     static func hideLoading() {
         DispatchQueue.main.async {
-            guard let window = UIApplication.shared.windows.last else { return }
+            var window : UIWindow = UIApplication.shared.windows.last!
             window.backgroundColor = .clear
             window.subviews.filter({ $0 is UIActivityIndicatorView }).forEach { $0.removeFromSuperview() }
         }

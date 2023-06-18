@@ -1112,8 +1112,16 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="IXM-pQ-aDk"/>
                             </scrollView>
                             <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-Md-JU7">
-                                <rect key="frame" x="0.0" y="-48" width="393" height="890"/>
+                                <rect key="frame" x="0.0" y="-22" width="393" height="904"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="iCy-yt-bCh">
+                                        <rect key="frame" x="178" y="347" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -1123,6 +1131,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TwF-r2-stO"/>
                     <connections>
+                        <outlet property="UIIndicator" destination="iCy-yt-bCh" id="Ofr-15-deC"/>
                         <outlet property="actorAnotherView" destination="7wV-U1-Opz" id="gAG-Jm-CBF"/>
                         <outlet property="actorLabel" destination="oPX-19-dmh" id="UKl-cr-oD4"/>
                         <outlet property="actorScrollView" destination="UAs-F5-dDB" id="efQ-Zn-ViM"/>

@@ -26,8 +26,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.rowHeight = 150
         textField.delegate = self
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
+        //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        //view.addGestureRecognizer(tapGesture)
     }
     
     private func loadMovieFromCSV() {
@@ -237,13 +237,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    @objc func handleTap(sender: UITapGestureRecognizer) {
-        if sender.view != textField {
-            textField.resignFirstResponder()
-        } else {
-            textField.becomeFirstResponder()
-        }
-    }
+    //@objc func handleTap(sender: UITapGestureRecognizer) {
+    //    if sender.view != textField {
+    //        textField.resignFirstResponder()
+    //    } else {
+    //        textField.becomeFirstResponder()
+    //    }
+    //}
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             search()
