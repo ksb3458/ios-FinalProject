@@ -227,8 +227,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                     var str : [String]
                     str = genreData[i].components(separatedBy: ": ")
                     genre.append(String(str[1].dropLast(1)))
+                    if i == 2 { genreLabel.text = "\(genre[0])" }
+                    else { genreLabel.text = "\(genreLabel.text!), \(String(str[1].dropLast(1)))"}
                 }
-                genreLabel.text = "\(genre[0]), \(genre[1]), \(genre[2])"
                 avgLabel.text = movieList[i][20]
                 str = movieList[i][9] + "\""
                 let director = movieList[i][22].dropLast(1).dropFirst(1)
