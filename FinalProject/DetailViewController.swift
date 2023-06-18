@@ -210,7 +210,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         starList.remove(at: 100)
     }
     
-    func findMovieData() { //정보 가져오기
+    func findMovieData() {
         for i in 0 ..< movieList.count {
             if(movieList[i][1] == movieName) {
                 movieInfo = movieList[i]
@@ -359,7 +359,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let task = session.dataTask(with: url! as URL, completionHandler: {(data, response, error) -> Void in
             if error == nil {
                 let urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!
-                //print(urlContent)
                 
                 do {
                     let doc: Document = try SwiftSoup.parse(urlContent as String)
@@ -394,8 +393,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func touchExpandButton(_ sender: UIButton) {
-        //sender.isSelected = !sender.isSelected
-        
         if expandBtnClick % 2 == 0 {
             overviewText.text = str
             overviewText.textContainer.maximumNumberOfLines = 0
@@ -404,8 +401,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             overviewText.sizeToFit()
             overviewText.isScrollEnabled = false
         }
+        
         if expandBtnClick % 2 == 1 {
-            // 접기
             overviewText.text = str
             overviewText.textContainer.maximumNumberOfLines = 3
             overviewText.invalidateIntrinsicContentSize()

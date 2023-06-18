@@ -11,24 +11,16 @@ class LoadingView: UIView {
 
     static func showLoading() {
         DispatchQueue.main.async {
-            // 최상단에 있는 window 객체 획득
-            //guard let window = UIApplication.shared.windows.last else { return }
-            var window : UIWindow = UIApplication.shared.windows.last!
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let keyWindow = windowScene.windows.first {
-                   keyWindow.backgroundColor = .black
-                window = keyWindow
-            }
-            //window.backgroundColor = .white
+            guard let window = UIApplication.shared.windows.last else { return }
+            window.backgroundColor = .white
             let loadingIndicatorView: UIActivityIndicatorView
-            if let existedView = (window as AnyObject).subviews.first(where: { $0 is UIActivityIndicatorView } ) as? UIActivityIndicatorView {
+            if let existedView = window.subviews.first(where: { $0 is UIActivityIndicatorView } ) as? UIActivityIndicatorView {
                 loadingIndicatorView = existedView
             } else {
                 loadingIndicatorView = UIActivityIndicatorView(style: .large)
-                /// 다른 UI가 눌리지 않도록 indicatorView의 크기를 full로 할당
-                loadingIndicatorView.frame = (window as AnyObject).frame
-                loadingIndicatorView.color = .white
-                (window as AnyObject).addSubview(loadingIndicatorView)
+                loadingIndicatorView.frame = window.frame
+                loadingIndicatorView.color = .black
+                window.addSubview(loadingIndicatorView)
             }
 
             loadingIndicatorView.startAnimating()

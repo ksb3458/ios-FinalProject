@@ -16,7 +16,6 @@ class HotViewController: UIViewController, UICollectionViewDataSource, UICollect
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        //navigationItem.title = "HOT & NEW"
         let titleLabel = UILabel()
         titleLabel.text = "HOT & NEW"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
