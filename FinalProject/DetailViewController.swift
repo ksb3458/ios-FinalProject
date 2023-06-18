@@ -17,6 +17,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var similarList: [[String]] = []
     var actorAnotherList: [[String]] = []
     var directorAnotherList: [[String]] = []
+    var expandBtnClick : Int = 0
     var extraBtnNum : Int = 0
     var review1Num : Int = 0
     var review2Num : Int = 0
@@ -26,6 +27,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var str : String?
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     
+    @IBOutlet weak var loadingBlackView: UIView!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var overviewText: UITextView!
@@ -76,6 +78,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         actorScrollView.delegate = self
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             LoadingView.hideLoading()
+            self.loadingBlackView.isHidden = true
             self.initReviewState()
         }
     }
@@ -391,16 +394,17 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func touchExpandButton(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        //sender.isSelected = !sender.isSelected
         
-        if sender.isSelected {
+        if expandBtnClick % 2 == 0 {
             overviewText.text = str
             overviewText.textContainer.maximumNumberOfLines = 0
             overviewText.invalidateIntrinsicContentSize()
             overviewText.translatesAutoresizingMaskIntoConstraints = true
             overviewText.sizeToFit()
             overviewText.isScrollEnabled = false
-        } else {
+        }
+        if expandBtnClick % 2 == 1 {
             // 접기
             overviewText.text = str
             overviewText.textContainer.maximumNumberOfLines = 3
@@ -408,8 +412,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             overviewText.translatesAutoresizingMaskIntoConstraints = false
             overviewText.sizeToFit()
             overviewText.isScrollEnabled = true
-
         }
+        expandBtnClick += 1
     }
     
     private func expandExtraText() {
@@ -428,7 +432,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         attributedString.addAttribute(.foregroundColor, value: green, range: range0)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 21, weight: .semibold), range: range0)
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle2, range: range0)
-        let range1 = (originalString as NSString).range(of: "원제")
+        let range1 = (originalString as NSString).range(of: ">\n원제")
         attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range1)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range1)
         let range2 = (originalString as NSString).range(of: "상태")

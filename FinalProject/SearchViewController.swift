@@ -5,6 +5,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var movieList: [[String]] = []
     var actorList: [[String]] = []
     var crewList: [[String]] = []
+    var searchList: [String] = []
     var searchName = 0 //0:영화 1:배우
     var searchField = [Int]()
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
@@ -19,6 +20,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         self.loadMovieFromCSV()
         self.loadCrewFromCSV()
+        self.loadSearchDataFromCSV()
         self.setupPopUpButton()
         tableView.delegate = self
         tableView.dataSource = self
@@ -247,5 +249,34 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @objc func handleTap() {
         self.view.endEditing(true) // 키보드를 숨깁니다.
+    }
+    
+    private func loadSearchDataFromCSV() {
+        let path = Bundle.main.path(forResource: "searchData", ofType: "csv")!
+        parseSearchDataAt(url: URL(fileURLWithPath: path))
+    }
+    
+    private func parseSearchDataAt(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            let dataEncoded = String(data: data, encoding: .utf8)
+            if let dataArr = dataEncoded?.components(separatedBy: ",") {
+                for item in dataArr {
+                    searchList.append(item)
+                }
+            }
+        } catch {
+            print("Error reading CSV file")
+        }
+    }
+    
+    func saveSearchData() {
+        var newData : String = textField.text!
+        do {
+            let path = Bundle.main.path(forResource: "searchData", ofType: "csv")!
+            try newData.write(to: URL(fileURLWithPath: path), atomically: true, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
+        } catch(_) {
+            print("error")
+        }
     }
 }

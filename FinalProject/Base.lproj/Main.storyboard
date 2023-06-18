@@ -1111,6 +1111,12 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="hwx-Wa-ckh"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="IXM-pQ-aDk"/>
                             </scrollView>
+                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-Md-JU7">
+                                <rect key="frame" x="0.0" y="-12" width="393" height="854"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YcO-pC-q7h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1131,6 +1137,7 @@
                         <outlet property="genreLabel" destination="UGP-by-NDV" id="ZMa-8V-wh2"/>
                         <outlet property="labelLine" destination="86t-Yg-ueq" id="Avc-6l-nrk"/>
                         <outlet property="labelLine2" destination="nhs-6J-iwh" id="yaS-Ag-eFd"/>
+                        <outlet property="loadingBlackView" destination="lJY-Md-JU7" id="idK-Ej-SNw"/>
                         <outlet property="overviewBtn" destination="mEi-2w-sAm" id="FKB-vO-fq3"/>
                         <outlet property="overviewText" destination="qzY-Qh-hlN" id="xKG-ka-eaE"/>
                         <outlet property="posterImageView" destination="yId-yR-obU" id="R0R-gD-VZk"/>
@@ -1285,11 +1292,10 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-1"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" barStyle="black" translucent="NO" id="DoK-A3-ZrA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="DoK-A3-ZrA">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
