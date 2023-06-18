@@ -22,6 +22,8 @@
 		5887A8582A3EF36C00A294ED /* star-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5887A8532A3EF36C00A294ED /* star-2.png */; };
 		5887A85A2A3EF36C00A294ED /* ONChTJ8G8OcorQ0yrnfG7z8-pP_KAYujufEKlfqIfID-zaXvP-uk7YwD86uPR3B0uiS7NsffsmW5ekmqcbyOYxa9JaW5yTUZm9NSR7iqKRdQTLsyg2jM7tIOHNpoG2zoRl55qjypqXC8JYmm6hZQ2Q.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5887A8552A3EF36C00A294ED /* ONChTJ8G8OcorQ0yrnfG7z8-pP_KAYujufEKlfqIfID-zaXvP-uk7YwD86uPR3B0uiS7NsffsmW5ekmqcbyOYxa9JaW5yTUZm9NSR7iqKRdQTLsyg2jM7tIOHNpoG2zoRl55qjypqXC8JYmm6hZQ2Q.svg */; };
 		5887A85B2A3EF36C00A294ED /* age-limit.png in Resources */ = {isa = PBXBuildFile; fileRef = 5887A8562A3EF36C00A294ED /* age-limit.png */; };
+		5887A85D2A3EFB2900A294ED /* star_empty-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5887A85C2A3EFB2900A294ED /* star_empty-2.png */; };
+		5887A85F2A3EFD2400A294ED /* star_half-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5887A85E2A3EFD2400A294ED /* star_half-2.png */; };
 		58914DF82A31B67F007965F1 /* CSVTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */; };
 		58914E002A31D2C1007965F1 /* movies_metadata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58914DFF2A31D2C1007965F1 /* movies_metadata.csv */; };
 		589B40AE2A381076006DB5E1 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40AD2A381076006DB5E1 /* star_full.png */; };
@@ -84,6 +86,8 @@
 		5887A8532A3EF36C00A294ED /* star-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-2.png"; sourceTree = "<group>"; };
 		5887A8552A3EF36C00A294ED /* ONChTJ8G8OcorQ0yrnfG7z8-pP_KAYujufEKlfqIfID-zaXvP-uk7YwD86uPR3B0uiS7NsffsmW5ekmqcbyOYxa9JaW5yTUZm9NSR7iqKRdQTLsyg2jM7tIOHNpoG2zoRl55qjypqXC8JYmm6hZQ2Q.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ONChTJ8G8OcorQ0yrnfG7z8-pP_KAYujufEKlfqIfID-zaXvP-uk7YwD86uPR3B0uiS7NsffsmW5ekmqcbyOYxa9JaW5yTUZm9NSR7iqKRdQTLsyg2jM7tIOHNpoG2zoRl55qjypqXC8JYmm6hZQ2Q.svg"; sourceTree = "<group>"; };
 		5887A8562A3EF36C00A294ED /* age-limit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "age-limit.png"; sourceTree = "<group>"; };
+		5887A85C2A3EFB2900A294ED /* star_empty-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_empty-2.png"; sourceTree = "<group>"; };
+		5887A85E2A3EFD2400A294ED /* star_half-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_half-2.png"; sourceTree = "<group>"; };
 		58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVTableViewCell.swift; sourceTree = "<group>"; };
 		58914DFF2A31D2C1007965F1 /* movies_metadata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = movies_metadata.csv; path = ../../../Downloads/movies_metadata.csv; sourceTree = "<group>"; };
 		589B40AD2A381076006DB5E1 /* star_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_full.png; sourceTree = "<group>"; };
@@ -210,7 +214,9 @@
 				58B2C4DD2A3E1DD000642A63 /* crewData.csv */,
 				589B40B92A384688006DB5E1 /* starData.csv */,
 				589B40AD2A381076006DB5E1 /* star_full.png */,
+				5887A85C2A3EFB2900A294ED /* star_empty-2.png */,
 				589B40AF2A381081006DB5E1 /* star_half.png */,
+				5887A85E2A3EFD2400A294ED /* star_half-2.png */,
 				589B40B12A381092006DB5E1 /* star_empty.png */,
 				588626E52A3AB3430019DBCE /* poster_sample.jpg */,
 				58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */,
@@ -309,7 +315,9 @@
 				58AF9B6F2A3EB58E00E8BFB9 /* ufo-3.png in Resources */,
 				588626E62A3AB3430019DBCE /* poster_sample.jpg in Resources */,
 				58AF9B532A3E9BA500E8BFB9 /* logo2.png in Resources */,
+				5887A85D2A3EFB2900A294ED /* star_empty-2.png in Resources */,
 				58AF9B592A3E9D6000E8BFB9 /* Splash3.png in Resources */,
+				5887A85F2A3EFD2400A294ED /* star_half-2.png in Resources */,
 				58AF9B712A3EB58E00E8BFB9 /* skull-2.png in Resources */,
 				5887A85B2A3EF36C00A294ED /* age-limit.png in Resources */,
 				58B2C4DE2A3E1DD000642A63 /* crewData.csv in Resources */,

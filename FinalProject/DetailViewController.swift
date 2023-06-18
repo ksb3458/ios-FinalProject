@@ -255,10 +255,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                     }
                     else if 0 < value && value < 0.5 {
                         value -= 0.5
-                        starImageViews[i].image = UIImage(named: "star_half")
+                        starImageViews[i].image = UIImage(named: "star_half-2")
                     }
                     else {
-                        starImageViews[i].image = UIImage(named: "star_empty")
+                        starImageViews[i].image = UIImage(named: "star_empty-2")
                     }
                 }
                 break
@@ -298,7 +298,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     func setRatingImageView() {
         for i in 0..<5 {
             let imageView = UIImageView()
-            imageView.image = UIImage(named: "star_empty")
+            imageView.image = UIImage(named: "star_empty-2")
             imageView.tag = i
             let xPos = stackView.frame.width / 5 * CGFloat(i)
             let yPos = 0 * CGFloat(i)
@@ -313,6 +313,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             let label = UILabel()
             if i == 23 {label.text = String(movieInfo[i].dropFirst(1).dropLast(1))}
             else { label.text = ", " + String(movieInfo[i].dropFirst(1).dropLast(1))}
+            label.textColor = UIColor.lightGray
             actorStackView.addArrangedSubview(label)
         }
     }
@@ -336,10 +337,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             }
             else if 0 < value && value < 0.5 {
                 value -= 0.5
-                starImageViews[i].image = UIImage(named: "star_half")
+                starImageViews[i].image = UIImage(named: "star_half-2")
             }
             else {
-                starImageViews[i].image = UIImage(named: "star_empty")
+                starImageViews[i].image = UIImage(named: "star_empty-2")
             }
         }
     }
@@ -418,11 +419,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let paragraphStyle2 = NSMutableParagraphStyle()
         paragraphStyle2.lineSpacing = 15
         
-        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .regular), range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
         let range0 = (originalString as NSString).range(of: "추가 정보")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: range0)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range0)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 21, weight: .semibold), range: range0)
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle2, range: range0)
         let range1 = (originalString as NSString).range(of: "원제")
@@ -453,9 +454,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let originalString = "추가 정보    V"
         let attributedString = NSMutableAttributedString(string: originalString)
         let range0 = (originalString as NSString).range(of: "추가 정보")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .regular), range: NSRange(location: 0, length: attributedString.length))
-        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: range0)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range0)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 21, weight: .semibold), range: range0)
         
         extraText.attributedText = attributedString
@@ -496,7 +497,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         attributedString.addAttribute(.foregroundColor, value: UIColor.systemGray, range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .regular), range: NSRange(location: 0, length: attributedString.length))
         let range0 = (originalString as NSString).range(of: reviewList[index][0])
-        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: range0)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range0)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 17, weight: .semibold), range: range0)
         
         review.attributedText = attributedString
@@ -510,7 +511,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     private func shrinkReview(review : UITextView, index : Int) {
         let originalString = reviewList[index][0]
         let attributedString = NSMutableAttributedString(string: originalString)
-        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 17, weight: .semibold), range: NSRange(location: 0, length: attributedString.length))
         
         review.attributedText = attributedString
@@ -603,6 +604,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
             label.tag = i
             label.isUserInteractionEnabled = true
+            label.textColor = .white
             //label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
             
             actorAnotherView.addSubview(imageView)
@@ -644,6 +646,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
             label.tag = i
             label.isUserInteractionEnabled = true
+            label.textColor = .white
             //label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
             
             directorAnotherView.addSubview(imageView)
@@ -694,6 +697,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
             label.tag = i - 1
             label.isUserInteractionEnabled = true
+            label.textColor = .white
             //label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewHotTapped)))
             
             similarView.addSubview(imageView)
