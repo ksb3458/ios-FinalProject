@@ -1,6 +1,6 @@
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate  {
 
     var movieList: [[String]] = []
     var actorList: [[String]] = []
@@ -23,6 +23,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 150
+        textField.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        tapGesture.delegate = self
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     private func loadMovieFromCSV() {
@@ -234,5 +239,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     viewController.movieName = movieList[searchField[selectdeIndex]][1]
             }
         }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.becomeFirstResponder()
+    }
+    
+    @objc func handleTap() {
+        self.view.endEditing(true) // 키보드를 숨깁니다.
     }
 }
