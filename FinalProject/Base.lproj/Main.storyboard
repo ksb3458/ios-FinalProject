@@ -950,7 +950,7 @@
                                                     <constraint firstAttribute="height" constant="39" id="MZ1-ug-O7o"/>
                                                     <constraint firstAttribute="width" constant="371" id="zsh-Za-M4Y"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.91536458333333337" green="0.7444462159863946" blue="0.3800660889355742" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.96774022108843538" green="0.84523809523809523" blue="0.57163177771108442" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -1112,7 +1112,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="IXM-pQ-aDk"/>
                             </scrollView>
                             <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-Md-JU7">
-                                <rect key="frame" x="0.0" y="-12" width="393" height="854"/>
+                                <rect key="frame" x="0.0" y="-48" width="393" height="890"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

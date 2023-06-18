@@ -11,16 +11,21 @@ class LoadingView: UIView {
 
     static func showLoading() {
         DispatchQueue.main.async {
-            guard let window = UIApplication.shared.windows.last else { return }
-            window.backgroundColor = .white
+            var window : UIWindow = UIApplication.shared.windows.last!
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let keyWindow = windowScene.windows.first {
+                   keyWindow.backgroundColor = .black
+                window = keyWindow
+            }
+
             let loadingIndicatorView: UIActivityIndicatorView
-            if let existedView = window.subviews.first(where: { $0 is UIActivityIndicatorView } ) as? UIActivityIndicatorView {
+            if let existedView = (window as AnyObject).subviews.first(where: { $0 is UIActivityIndicatorView } ) as? UIActivityIndicatorView {
                 loadingIndicatorView = existedView
             } else {
                 loadingIndicatorView = UIActivityIndicatorView(style: .large)
-                loadingIndicatorView.frame = window.frame
-                loadingIndicatorView.color = .black
-                window.addSubview(loadingIndicatorView)
+                loadingIndicatorView.frame = (window as AnyObject).frame
+                loadingIndicatorView.color = .white
+                (window as AnyObject).addSubview(loadingIndicatorView)
             }
 
             loadingIndicatorView.startAnimating()
