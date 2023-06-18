@@ -111,6 +111,10 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.poster?.image = image
         cell.number?.text = String(indexPath.row + 1)
         cell.title?.text = movieList[indexPath.row][1]
+
+        let time = Int(movieList[indexPath.row][15])
+        let timeData = "\(time!/60)H \(time!%60)M"
+        cell.info?.text = "\(movieList[indexPath.row][13]), \(timeData)"
         return cell
     }
     
