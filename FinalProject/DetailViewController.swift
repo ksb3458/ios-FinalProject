@@ -383,7 +383,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     private func initExpandButton() {
         let lineCount = (overviewText.contentSize.height - overviewText.textContainerInset.top - overviewText.textContainerInset.bottom) / overviewText.font!.lineHeight
-        print(lineCount)
         if lineCount <= 3 {
             overviewBtn.isHidden = true
         }
@@ -676,7 +675,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             data.append(movieList[i][1])
             data.append(String(similarity))
             similarList.append(data)
-            print(similarity)
         }
         similarList = similarList.sorted(by: {$0[1] > $1[1] })
         addSimilarityScrollView()

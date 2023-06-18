@@ -160,8 +160,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     if let text = tfText {
                         for j in 23 ..< movieList[i].count {
                             if movieList[i][j].lowercased().contains(text.lowercased()) {
-                                print(movieList[i][j])
-                                print(movieList[i][1])
                                 searchField.append(i)
                                 break
                             }

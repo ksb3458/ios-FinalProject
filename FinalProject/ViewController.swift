@@ -139,7 +139,6 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         movieList = movieList.sorted(by: {$0[13] > $1[13] })
         for i in 0...20 {
             hotMovieList.append(movieList[i])
-            //print(hotMovieList[i][13])
         }
         movieListInitSet()
         addHotContentScrollView()
