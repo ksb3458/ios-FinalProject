@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         self.addTopContentScrollView()
         self.setPageControl()
         pageControl.pageIndicatorTintColor = UIColor.gray
-        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.currentPageIndicatorTintColor = UIColor.systemGray5
         setupPopUpButton()
         
         scrollView.delegate = self
@@ -110,11 +110,14 @@ class ViewController: UIViewController, UIScrollViewDelegate{
                 let imageView = UIImageView()
                 let xPos = scrollView.frame.width * CGFloat(i)
                 let yPos = scrollView.bounds.height / 5 * CGFloat(j)
-                imageView.frame = CGRect(x: xPos, y: yPos, width: scrollView.bounds.width / 4, height: scrollView.bounds.height / 5)
+                imageView.frame = CGRect(x: xPos, y: yPos, width: scrollView.bounds.width / 6.8, height: scrollView.bounds.height / 5.4)
                 imageView.image = image
                 let label = UILabel()
-                label.frame = CGRect(x: xPos + scrollView.bounds.width / 4, y: yPos, width: scrollView.bounds.width, height: scrollView.bounds.height / 5)
-                label.text = String(i*5 + j + 1)+". "+movieList[i*5 + j][1]
+                label.frame = CGRect(x: xPos + scrollView.bounds.width / 4.85, y: yPos - 17, width: 260, height: scrollView.bounds.height / 5)
+                label.text = String(i*5 + j + 1)+"  "+movieList[i*5 + j][1]
+                label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+                label.textColor = UIColor.white
+                label.lineBreakMode = .byTruncatingTail
                 
                 imageView.tag = i*5 + j
                 imageView.isUserInteractionEnabled = true
@@ -125,7 +128,7 @@ class ViewController: UIViewController, UIScrollViewDelegate{
                 
                 scrollView.addSubview(imageView)
                 scrollView.addSubview(label)
-                scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 3.2
+                scrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 5.43
             }
         }
     }
@@ -151,13 +154,15 @@ class ViewController: UIViewController, UIScrollViewDelegate{
             subview.removeFromSuperview()
         }
         
-        for i in 0 ... 20 {
+        for i in 0 ..< 20 {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i) * 120, y: 0, width: hotScrollView.bounds.width / 3, height: hotScrollView.bounds.height / 8 * 7)
+            imageView.frame = CGRect(x: CGFloat(i) * 115, y: 0, width: hotScrollView.bounds.width / 3.5, height: hotScrollView.bounds.height / 8 * 6.8)
             imageView.image = image
             let label = UILabel()
-            label.frame = CGRect(x: CGFloat(i) * 120, y: 136, width: imageView.bounds.width - 10, height: hotScrollView.bounds.height / 5)
+            label.frame = CGRect(x: CGFloat(i) * 115, y: 132, width: imageView.bounds.width - 10, height: hotScrollView.bounds.height / 3.5)
             label.text = hotMovieList[i][1]
+            label.font = UIFont.systemFont(ofSize: 13)
+            label.textColor = UIColor.white
             
             imageView.tag = i
             imageView.isUserInteractionEnabled = true
@@ -168,7 +173,7 @@ class ViewController: UIViewController, UIScrollViewDelegate{
             
             hotScrollView.addSubview(imageView)
             hotScrollView.addSubview(label)
-            hotScrollView.contentSize.width = imageView.frame.width * CGFloat(i)
+            hotScrollView.contentSize.width = imageView.frame.width * CGFloat(i) * 1.16
         }
     }
     
