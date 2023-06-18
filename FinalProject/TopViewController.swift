@@ -12,9 +12,19 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         self.loadMovieFromCSV()
         self.setupPopUpButton()
+        self.setTitle()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 150
+    }
+    
+    func setTitle() {
+        let titleLabel = UILabel()
+        titleLabel.text = "TOP20"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.sizeToFit()
+        navigationItem.titleView = titleLabel
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "")
     }
     
     private func loadMovieFromCSV() {
@@ -98,7 +108,8 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell") as! TopTableViewCell
         
         cell.poster?.image = image
-        cell.title?.text = String(indexPath.row + 1) + ". " + movieList[indexPath.row][1]
+        cell.number?.text = String(indexPath.row + 1)
+        cell.title?.text = movieList[indexPath.row][1]
         return cell
     }
     

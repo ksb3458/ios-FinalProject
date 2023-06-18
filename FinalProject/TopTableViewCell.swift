@@ -9,6 +9,7 @@ import UIKit
 
 class TopTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var number: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var poster: UIImageView!
     
