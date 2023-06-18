@@ -16,7 +16,7 @@ class LoadingView: UIView {
             var window : UIWindow = UIApplication.shared.windows.last!
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                   let keyWindow = windowScene.windows.first {
-                   keyWindow.backgroundColor = .white
+                   keyWindow.backgroundColor = .black
                 window = keyWindow
             }
             //window.backgroundColor = .white
@@ -27,7 +27,7 @@ class LoadingView: UIView {
                 loadingIndicatorView = UIActivityIndicatorView(style: .large)
                 /// 다른 UI가 눌리지 않도록 indicatorView의 크기를 full로 할당
                 loadingIndicatorView.frame = (window as AnyObject).frame
-                loadingIndicatorView.color = .black
+                loadingIndicatorView.color = .white
                 (window as AnyObject).addSubview(loadingIndicatorView)
             }
 

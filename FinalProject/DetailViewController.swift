@@ -595,10 +595,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     private func addActorScrollView() {
         for i in 0 ..< actorAnotherList.count {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: actorAnotherView.bounds.width / 6.3, height: actorAnotherView.bounds.height / 4 * 3)
+            imageView.frame = CGRect(x: CGFloat(i) * 115 + CGFloat(10*i), y: 0, width: actorAnotherView.bounds.width / 7, height: actorAnotherView.bounds.height / 4 * 3)
             imageView.image = image
             let label = UILabel()
-            label.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: actorAnotherView.bounds.height / 4)
+            label.frame = CGRect(x: CGFloat(i) * 115 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: actorAnotherView.bounds.height / 4)
             label.text = actorAnotherList[i][1]
             
             imageView.tag = i
@@ -611,7 +611,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             
             actorAnotherView.addSubview(imageView)
             actorAnotherView.addSubview(label)
-            actorScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+            actorScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1) * 1.1
         }
     }
     
@@ -637,10 +637,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         for i in 0 ..< directorAnotherList.count {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 0, width: directorAnotherView.bounds.width / 4, height: directorAnotherView.bounds.height / 4 * 3)
+            imageView.frame = CGRect(x: CGFloat(i) * 115 + CGFloat(10*i), y: 0, width: directorAnotherView.bounds.width / 4.5, height: directorAnotherView.bounds.height / 4 * 3)
             imageView.image = image
             let label = UILabel()
-            label.frame = CGRect(x: CGFloat(i) * 120 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: directorAnotherView.bounds.height / 4)
+            label.frame = CGRect(x: CGFloat(i) * 115 + CGFloat(10*i), y: 136, width: imageView.bounds.width - 10, height: directorAnotherView.bounds.height / 4)
             label.text = directorAnotherList[i][1]
             
             imageView.tag = i
@@ -688,10 +688,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     private func addSimilarityScrollView() {
         for i in 1 ..< 10 {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: CGFloat(i - 1) * 120 + CGFloat(10*(i-1)), y: 0, width: similarView.bounds.width / 6.3, height: similarView.bounds.height / 4 * 3)
+            imageView.frame = CGRect(x: CGFloat(i - 1) * 115 + CGFloat(10*(i-1)), y: 0, width: similarView.bounds.width / 7, height: similarView.bounds.height / 4 * 3)
             imageView.image = image
             let label = UILabel()
-            label.frame = CGRect(x: CGFloat(i - 1) * 120 + CGFloat(10*(i-1)), y: 136, width: imageView.bounds.width - 10, height: similarView.bounds.height / 4)
+            label.frame = CGRect(x: CGFloat(i - 1) * 115 + CGFloat(10*(i-1)), y: 136, width: imageView.bounds.width - 10, height: similarView.bounds.height / 4)
             label.text = similarList[i][0]
             
             imageView.tag = i - 1
@@ -704,7 +704,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             
             similarView.addSubview(imageView)
             similarView.addSubview(label)
-            similarScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+            similarScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 5)
         }
     }
 
