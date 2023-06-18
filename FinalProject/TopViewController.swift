@@ -4,6 +4,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     var movieList: [[String]] = []
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
+    let bgColor = UIColor(red: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dropButton: UIButton!
@@ -106,7 +107,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TopTableViewCell") as! TopTableViewCell
-        
+        cell.backgroundColor = bgColor
         cell.poster?.image = image
         cell.number?.text = String(indexPath.row + 1)
         cell.title?.text = movieList[indexPath.row][1]
