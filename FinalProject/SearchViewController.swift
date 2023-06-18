@@ -20,7 +20,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         self.loadMovieFromCSV()
         self.loadCrewFromCSV()
-        self.loadSearchDataFromCSV()
         self.setupPopUpButton()
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,8 +27,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         textField.delegate = self
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        tapGesture.delegate = self
-        self.view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
     }
     
     private func loadMovieFromCSV() {
@@ -142,54 +140,50 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func searchBtn(_ sender: UIButton) {
+        if(textField.text == " " || (textField.text?.count) == 0) { makeAlert() }
+        else { search() }
+    }
+    
+    func search() {
         searchField.removeAll()
         
         if searchName == 0 {
-            if(textField.text == " " || (textField.text?.count) == 0) { makeAlert() }
-            else {
-                let tfText: String? = textField.text
-                for i in 0 ..< movieList.count {
-                    if let text = tfText {
-                        if movieList[i][1].lowercased().contains(text.lowercased()) {
-                            searchField.append(i)
-                        }
+            let tfText: String? = textField.text
+            for i in 0 ..< movieList.count {
+                if let text = tfText {
+                    if movieList[i][1].lowercased().contains(text.lowercased()) {
+                        searchField.append(i)
                     }
                 }
-                tableView.reloadData()
             }
+            tableView.reloadData()
         }
         
         if searchName == 1 {
-            if(textField.text == " " || (textField.text?.count) == 0) { makeAlert() }
-            else {
-                let tfText: String? = textField.text
-                for i in 0 ..< movieList.count {
-                    if let text = tfText {
-                        for j in 23 ..< movieList[i].count {
-                            if movieList[i][j].lowercased().contains(text.lowercased()) {
-                                searchField.append(i)
-                                break
-                            }
+            let tfText: String? = textField.text
+            for i in 0 ..< movieList.count {
+                if let text = tfText {
+                    for j in 23 ..< movieList[i].count {
+                        if movieList[i][j].lowercased().contains(text.lowercased()) {
+                            searchField.append(i)
+                            break
                         }
                     }
                 }
-                tableView.reloadData()
             }
+            tableView.reloadData()
         }
         
         if searchName == 2 {
-            if(textField.text == " " || (textField.text?.count) == 0) { makeAlert() }
-            else {
-                let tfText: String? = textField.text
-                for i in 0 ..< movieList.count {
-                    if let text = tfText {
-                        if movieList[i][22].lowercased().contains(text.lowercased()) {
-                            searchField.append(i)
-                        }
+            let tfText: String? = textField.text
+            for i in 0 ..< movieList.count {
+                if let text = tfText {
+                    if movieList[i][22].lowercased().contains(text.lowercased()) {
+                        searchField.append(i)
                     }
                 }
-                tableView.reloadData()
             }
+            tableView.reloadData()
         }
     }
     
@@ -243,40 +237,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.becomeFirstResponder()
-    }
-    
-    @objc func handleTap() {
-        self.view.endEditing(true) // 키보드를 숨깁니다.
-    }
-    
-    private func loadSearchDataFromCSV() {
-        let path = Bundle.main.path(forResource: "searchData", ofType: "csv")!
-        parseSearchDataAt(url: URL(fileURLWithPath: path))
-    }
-    
-    private func parseSearchDataAt(url: URL) {
-        do {
-            let data = try Data(contentsOf: url)
-            let dataEncoded = String(data: data, encoding: .utf8)
-            if let dataArr = dataEncoded?.components(separatedBy: ",") {
-                for item in dataArr {
-                    searchList.append(item)
-                }
-            }
-        } catch {
-            print("Error reading CSV file")
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.view != textField {
+            textField.resignFirstResponder()
+        } else {
+            textField.becomeFirstResponder()
         }
     }
     
-    func saveSearchData() {
-        var newData : String = textField.text!
-        do {
-            let path = Bundle.main.path(forResource: "searchData", ofType: "csv")!
-            try newData.write(to: URL(fileURLWithPath: path), atomically: true, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
-        } catch(_) {
-            print("error")
-        }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            search()
+            return true
     }
 }
