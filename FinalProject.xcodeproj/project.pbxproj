@@ -55,6 +55,8 @@
 		58AF9B782A3EB58E00E8BFB9 /* film-strip.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AF9B6A2A3EB58E00E8BFB9 /* film-strip.png */; };
 		58AF9B792A3EB58E00E8BFB9 /* ufo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AF9B6B2A3EB58E00E8BFB9 /* ufo-2.png */; };
 		58AF9B7A2A3EB58E00E8BFB9 /* moon-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AF9B6C2A3EB58E00E8BFB9 /* moon-2.png */; };
+		58AF9B7C2A3EC0DA00E8BFB9 /* shrek.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AF9B7B2A3EC0DA00E8BFB9 /* shrek.png */; };
+		58AF9B7E2A3EC11E00E8BFB9 /* cinema.png in Resources */ = {isa = PBXBuildFile; fileRef = 58AF9B7D2A3EC11E00E8BFB9 /* cinema.png */; };
 		58B2C4DE2A3E1DD000642A63 /* crewData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58B2C4DD2A3E1DD000642A63 /* crewData.csv */; };
 		9507B56D4B25F55EE031EC6A /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9BDD3C822D4810B932F6EA /* Pods_FinalProject.framework */; };
 /* End PBXBuildFile section */
@@ -111,6 +113,8 @@
 		58AF9B6A2A3EB58E00E8BFB9 /* film-strip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "film-strip.png"; sourceTree = "<group>"; };
 		58AF9B6B2A3EB58E00E8BFB9 /* ufo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ufo-2.png"; sourceTree = "<group>"; };
 		58AF9B6C2A3EB58E00E8BFB9 /* moon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moon-2.png"; sourceTree = "<group>"; };
+		58AF9B7B2A3EC0DA00E8BFB9 /* shrek.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shrek.png; sourceTree = "<group>"; };
+		58AF9B7D2A3EC11E00E8BFB9 /* cinema.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cinema.png; sourceTree = "<group>"; };
 		58B2C4DD2A3E1DD000642A63 /* crewData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crewData.csv; sourceTree = "<group>"; };
 		687336E1412F8786B3F87AE0 /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		8F9B106952CFAEE91615AA94 /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 		58AF9B5E2A3EB57900E8BFB9 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				58AF9B7B2A3EC0DA00E8BFB9 /* shrek.png */,
 				58AF9B682A3EB58E00E8BFB9 /* alien.png */,
 				58AF9B652A3EB58E00E8BFB9 /* family-2.png */,
 				58AF9B602A3EB58E00E8BFB9 /* family-3.png */,
@@ -218,6 +223,7 @@
 				58AF9B642A3EB58E00E8BFB9 /* hot-air-balloon.png */,
 				58AF9B622A3EB58E00E8BFB9 /* hot.png */,
 				58AF9B6C2A3EB58E00E8BFB9 /* moon-2.png */,
+				58AF9B7D2A3EC11E00E8BFB9 /* cinema.png */,
 				58AF9B5F2A3EB58E00E8BFB9 /* shooting.png */,
 				58AF9B632A3EB58E00E8BFB9 /* skull-2.png */,
 				58AF9B662A3EB58E00E8BFB9 /* skull.png */,
@@ -310,6 +316,7 @@
 				58AF9B6D2A3EB58E00E8BFB9 /* shooting.png in Resources */,
 				589B40B22A381092006DB5E1 /* star_empty.png in Resources */,
 				58AF9B7A2A3EB58E00E8BFB9 /* moon-2.png in Resources */,
+				58AF9B7E2A3EC11E00E8BFB9 /* cinema.png in Resources */,
 				5873FB732A2D05A300E1E637 /* Assets.xcassets in Resources */,
 				58AF9B742A3EB58E00E8BFB9 /* skull.png in Resources */,
 				589B40BA2A384688006DB5E1 /* starData.csv in Resources */,
@@ -319,6 +326,7 @@
 				58AF9B762A3EB58E00E8BFB9 /* alien.png in Resources */,
 				58AF9B792A3EB58E00E8BFB9 /* ufo-2.png in Resources */,
 				58AF9B572A3E9BE400E8BFB9 /* Splash.png in Resources */,
+				58AF9B7C2A3EC0DA00E8BFB9 /* shrek.png in Resources */,
 				58AF9B732A3EB58E00E8BFB9 /* family-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
