@@ -802,7 +802,7 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86t-Yg-ueq">
                                                 <rect key="frame" x="0.0" y="466" width="393" height="2"/>
-                                                <color key="backgroundColor" red="0.33333333329999998" green="0.74117647060000003" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="393" id="ARw-gO-5au"/>
                                                     <constraint firstAttribute="height" constant="2" id="qUC-Es-Ny4"/>
@@ -813,7 +813,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5s-Nu-2Bb">
                                                 <rect key="frame" x="0.0" y="534" width="393" height="2"/>
-                                                <color key="backgroundColor" red="0.33333333329999998" green="0.74117647060000003" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="Nx5-Xs-wKv"/>
                                                     <constraint firstAttribute="width" constant="393" id="pAu-wM-noC"/>
@@ -824,7 +824,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLu-z9-taZ">
                                                 <rect key="frame" x="0.0" y="871" width="393" height="2"/>
-                                                <color key="backgroundColor" red="0.33333333329999998" green="0.74117647060000003" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="LHk-je-4ls"/>
                                                     <constraint firstAttribute="width" constant="393" id="pZ2-DO-V9f"/>
@@ -840,7 +840,7 @@
                                                     <constraint firstAttribute="height" constant="39" id="gTT-wS-Ezl"/>
                                                     <constraint firstAttribute="width" constant="371" id="jez-me-1Fo"/>
                                                 </constraints>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -851,7 +851,7 @@
                                                     <constraint firstAttribute="width" constant="371" id="gmj-LT-55V"/>
                                                     <constraint firstAttribute="height" constant="39" id="hbX-QP-0Ie"/>
                                                 </constraints>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="1" green="1" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -862,7 +862,7 @@
                                                     <constraint firstAttribute="width" constant="371" id="a7x-QF-Boi"/>
                                                     <constraint firstAttribute="height" constant="39" id="vx2-C5-pcQ"/>
                                                 </constraints>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="1" green="0.84032206632653061" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -950,7 +950,7 @@
                                                     <constraint firstAttribute="height" constant="39" id="MZ1-ug-O7o"/>
                                                     <constraint firstAttribute="width" constant="371" id="zsh-Za-M4Y"/>
                                                 </constraints>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.91536458333333337" green="0.7444462159863946" blue="0.3800660889355742" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -1011,7 +1011,7 @@
                                                     <constraint firstAttribute="width" constant="371" id="j5i-Ox-8ZN"/>
                                                     <constraint firstAttribute="height" constant="39" id="skY-Eu-8c3"/>
                                                 </constraints>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.78431372549019607" green="0.83921568627450982" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>

@@ -418,28 +418,29 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         paragraphStyle.lineSpacing = 8
         let paragraphStyle2 = NSMutableParagraphStyle()
         paragraphStyle2.lineSpacing = 15
+        let green = UIColor(red: 152/255, green: 223/255, blue: 175/255, alpha: 1.0)
         
-        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.foregroundColor, value: UIColor.systemGray, range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .regular), range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
         let range0 = (originalString as NSString).range(of: "추가 정보")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range0)
+        attributedString.addAttribute(.foregroundColor, value: green, range: range0)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 21, weight: .semibold), range: range0)
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle2, range: range0)
         let range1 = (originalString as NSString).range(of: "원제")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range1)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range1)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range1)
         let range2 = (originalString as NSString).range(of: "상태")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range2)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range2)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range2)
         let range3 = (originalString as NSString).range(of: "원어")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range3)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range3)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range3)
         let range4 = (originalString as NSString).range(of: "제작비")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range4)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range4)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range4)
         let range5 = (originalString as NSString).range(of: "수익")
-        attributedString.addAttribute(.foregroundColor, value: UIColor.red, range: range5)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range5)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 18, weight: .semibold), range: range5)
         
         extraText.attributedText = attributedString
@@ -451,12 +452,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func shrinkExtraText() {
+        let green = UIColor(red: 152/255, green: 223/255, blue: 175/255, alpha: 1.0)
         let originalString = "추가 정보    V"
         let attributedString = NSMutableAttributedString(string: originalString)
         let range0 = (originalString as NSString).range(of: "추가 정보")
         attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 16, weight: .regular), range: NSRange(location: 0, length: attributedString.length))
-        attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: range0)
+        attributedString.addAttribute(.foregroundColor, value: green, range: range0)
         attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 21, weight: .semibold), range: range0)
         
         extraText.attributedText = attributedString
