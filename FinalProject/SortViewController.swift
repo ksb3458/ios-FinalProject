@@ -7,8 +7,8 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
     var collectionList: [[String]] = []
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     
-    @IBOutlet weak var dropButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!    
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var dropButton: UIButton! 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -21,13 +21,15 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func setTitle() {
-        switch(viewTitle) {
-        case "Hot" : titleLabel.text = "Hot & New"
-        default:
-            titleLabel.text = viewTitle
-            getCollectionData()
-            collectionView.reloadData()
-        }
+        let titleLabel = UILabel()
+        titleLabel.text = viewTitle
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.sizeToFit()
+        navigationItem.titleView = titleLabel
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "")
+        
+        getCollectionData()
+        collectionView.reloadData()
     }
     
     func setupPopUpButton() {
@@ -58,10 +60,20 @@ class SortViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func getCollectionData() {
         for i in 0..<movieList.count {
-            if(movieList[i][3].contains(viewTitle)) {
+            if((movieList[i][3].lowercased()).contains(viewTitle.lowercased())) {
                 collectionList.append(movieList[i])
             }
         }
+        setCountLabel()
+    }
+    
+    func setCountLabel() {
+        let green = UIColor(red: 85/255, green: 189/255, blue: 103/255, alpha: 1.0)
+        let originalString = "총 \(collectionList.count)개 작품"
+        let attributedText = NSMutableAttributedString(string: originalString)
+        let range = (originalString as NSString).range(of: "\(collectionList.count)")
+        attributedText.addAttribute(.foregroundColor, value: green, range: range)
+        countLabel.attributedText = attributedText
     }
 
     private func parseCSVAt(url: URL) {

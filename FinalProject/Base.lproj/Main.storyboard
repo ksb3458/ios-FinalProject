@@ -448,9 +448,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDK-nj-ZYm">
-                                <rect key="frame" x="305" y="146" width="64" height="30"/>
+                                <rect key="frame" x="303" y="59" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <menu key="menu" id="vRa-0v-zvG">
                                     <children>
@@ -463,58 +463,44 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="▼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-U5-iZY">
-                                <rect key="frame" x="357" y="152" width="12" height="18"/>
+                                <rect key="frame" x="357" y="65" width="12" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="정렬 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVB-su-t9N">
-                                <rect key="frame" x="268" y="152" width="37" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSJ-I1-WPa">
-                                <rect key="frame" x="95" y="82" width="210" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p7f-gc-7nF">
-                                <rect key="frame" x="23" y="184" width="346" height="583"/>
+                                <rect key="frame" x="12" y="96" width="361" height="681"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ozZ-ca-Ijv">
-                                    <size key="itemSize" width="106" height="185"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="5" id="ozZ-ca-Ijv">
+                                    <size key="itemSize" width="117" height="194"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SortCollectionViewCell" reuseIdentifier="CollectCell" id="fgI-El-GAD" customClass="SortCollectionViewCell" customModule="FinalProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="106" height="185"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="194"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1eF-vN-PL7">
-                                            <rect key="frame" x="0.0" y="0.0" width="106" height="185"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5O5-Az-Rrk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="159"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="172"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4k-qz-M3U">
-                                                    <rect key="frame" x="8" y="160" width="97" height="21"/>
+                                                    <rect key="frame" x="0.0" y="175" width="112" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" systemColor="systemBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="106" height="185"/>
+                                        <size key="customSize" width="117" height="194"/>
                                         <connections>
                                             <outlet property="imageView" destination="5O5-Az-Rrk" id="0L4-tP-pQQ"/>
                                             <outlet property="label" destination="Y4k-qz-M3U" id="A5I-Ma-HCS"/>
@@ -527,15 +513,22 @@
                                     <outlet property="delegate" destination="f6u-EI-q9e" id="zcA-vg-4lW"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 200개 작품" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-E9-pkZ">
+                                <rect key="frame" x="13" y="64" width="103" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="systemGray6Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zIx-EJ-a9s"/>
-                        <color key="backgroundColor" red="0.19607841970000001" green="0.19607841970000001" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="oav-PP-WoJ"/>
                     <connections>
                         <outlet property="collectionView" destination="p7f-gc-7nF" id="wf9-Nq-ZTM"/>
+                        <outlet property="countLabel" destination="bc6-E9-pkZ" id="AyU-TG-tyh"/>
                         <outlet property="dropButton" destination="XDK-nj-ZYm" id="qb0-Ci-RAK"/>
-                        <outlet property="titleLabel" destination="CSJ-I1-WPa" id="k4M-JZ-s9R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvd-ws-nud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -553,7 +546,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yH2-gg-RDe">
                                 <rect key="frame" x="16" y="59" width="361" height="793"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="5" id="PkG-W5-rxI">
                                     <size key="itemSize" width="117" height="194"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -573,7 +566,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCs-fl-wpa">
-                                                    <rect key="frame" x="0.0" y="176" width="112" height="21"/>
+                                                    <rect key="frame" x="0.0" y="175" width="112" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -1435,7 +1428,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="a2R-hc-BZ1"/>
+        <segue reference="pi4-c7-8He"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
@@ -1469,6 +1462,9 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

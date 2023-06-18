@@ -208,25 +208,25 @@ class ViewController: UIViewController, UIScrollViewDelegate{
         goToViewController(controller: "TopViewController")
     }
     @IBAction func animationBtn(_ sender: Any) {
-        goToSortViewController(controller: "SortViewController", id: "Animation")
+        goToSortViewController(controller: "SortViewController", id: "ANIMATION")
     }
     @IBAction func actionBtn(_ sender: Any) {
-        goToSortViewController(controller: "SortViewController", id: "Action")
+        goToSortViewController(controller: "SortViewController", id: "ACTION")
     }
     @IBAction func adventureBtn(_ sender: Any) {
-        goToSortViewController(controller: "SortViewController", id: "Adventure")
+        goToSortViewController(controller: "SortViewController", id: "ADVENTURE")
     }
     @IBAction func thrillerBtn(_ sender: Any) {
-        goToSortViewController(controller: "SortViewController", id: "Thriller")
+        goToSortViewController(controller: "SortViewController", id: "THRILLER")
     }
     @IBAction func fantasyBtn(_ sender: Any) {
-        goToSortViewController(controller: "SortViewController", id: "Fantasy")
+        goToSortViewController(controller: "SortViewController", id: "FANTASY")
     }
     @IBAction func familyBtn(_ sender: Any) {
-        goToSortViewController(controller: "SortViewController", id: "Family")
+        goToSortViewController(controller: "SortViewController", id: "FAMILY")
     }
     @IBAction func dramaBtn(_ sender: Any) {
-        goToSortViewController(controller: "SortViewController", id: "Drama")
+        goToSortViewController(controller: "SortViewController", id: "DRAMA")
     }
     @IBAction func hotBtn(_ sender: Any) {
         goToViewController(controller: "HotViewController")
