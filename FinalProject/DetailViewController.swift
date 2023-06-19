@@ -78,7 +78,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.shrinkExtraText()
         self.getReview()
         actorScrollView.delegate = self
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.loadingBlackView.isHidden = true
             self.UIIndicator.isHidden = true
             LoadingView.hideLoading()

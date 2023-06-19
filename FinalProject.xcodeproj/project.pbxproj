@@ -23,7 +23,6 @@
 		5887A85F2A3EFD2400A294ED /* star_half-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5887A85E2A3EFD2400A294ED /* star_half-2.png */; };
 		5887A8612A3F151C00A294ED /* searchData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5887A8602A3F151C00A294ED /* searchData.csv */; };
 		58914DF82A31B67F007965F1 /* CSVTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */; };
-		58914E002A31D2C1007965F1 /* movies_metadata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58914DFF2A31D2C1007965F1 /* movies_metadata.csv */; };
 		5892761C2A3FECF200D7F23D /* Splash3-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5892761B2A3FECF200D7F23D /* Splash3-2.png */; };
 		589B40AE2A381076006DB5E1 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40AD2A381076006DB5E1 /* star_full.png */; };
 		589B40B02A381081006DB5E1 /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40AF2A381081006DB5E1 /* star_half.png */; };
@@ -86,7 +85,6 @@
 		5887A85E2A3EFD2400A294ED /* star_half-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_half-2.png"; sourceTree = "<group>"; };
 		5887A8602A3F151C00A294ED /* searchData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = searchData.csv; sourceTree = "<group>"; };
 		58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVTableViewCell.swift; sourceTree = "<group>"; };
-		58914DFF2A31D2C1007965F1 /* movies_metadata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = movies_metadata.csv; path = ../../../Downloads/movies_metadata.csv; sourceTree = "<group>"; };
 		5892761B2A3FECF200D7F23D /* Splash3-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash3-2.png"; sourceTree = "<group>"; };
 		589B40AD2A381076006DB5E1 /* star_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_full.png; sourceTree = "<group>"; };
 		589B40AF2A381081006DB5E1 /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_half.png; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 				5873FB722A2D05A300E1E637 /* Assets.xcassets */,
 				5873FB742A2D05A300E1E637 /* LaunchScreen.storyboard */,
 				5873FB772A2D05A300E1E637 /* Info.plist */,
-				58914DFF2A31D2C1007965F1 /* movies_metadata.csv */,
 				58AC51B92A34CE1200768E53 /* movies_metadata2.csv */,
 				586B16FD2A3A0910004BF51C /* movies_metadata3.csv */,
 				589B81572A3C25B40077E2F1 /* actor_metadata.csv */,
@@ -327,7 +324,6 @@
 				58B2C4DE2A3E1DD000642A63 /* crewData.csv in Resources */,
 				58AF9B772A3EB58E00E8BFB9 /* family.png in Resources */,
 				58AC51BA2A34CE1200768E53 /* movies_metadata2.csv in Resources */,
-				58914E002A31D2C1007965F1 /* movies_metadata.csv in Resources */,
 				586B16FE2A3A0910004BF51C /* movies_metadata3.csv in Resources */,
 				589B40AE2A381076006DB5E1 /* star_full.png in Resources */,
 				58AF9B702A3EB58E00E8BFB9 /* hot.png in Resources */,
