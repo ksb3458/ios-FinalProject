@@ -1145,7 +1145,6 @@
                         <outlet property="extraText" destination="Q9x-gE-Q0F" id="pJd-xE-tb0"/>
                         <outlet property="genreLabel" destination="UGP-by-NDV" id="ZMa-8V-wh2"/>
                         <outlet property="labelLine" destination="86t-Yg-ueq" id="Avc-6l-nrk"/>
-                        <outlet property="labelLine2" destination="nhs-6J-iwh" id="yaS-Ag-eFd"/>
                         <outlet property="loadingBlackView" destination="lJY-Md-JU7" id="idK-Ej-SNw"/>
                         <outlet property="overviewBtn" destination="mEi-2w-sAm" id="FKB-vO-fq3"/>
                         <outlet property="overviewText" destination="qzY-Qh-hlN" id="xKG-ka-eaE"/>
@@ -1161,6 +1160,8 @@
                         <outlet property="stackView" destination="sug-ET-wCD" id="QwB-ur-YzW"/>
                         <outlet property="timeLabel" destination="A0w-ua-KFK" id="UfS-pi-3cG"/>
                         <outlet property="titleLabel" destination="WWT-fk-rHH" id="DP3-6u-Ljv"/>
+                        <outlet property="wholeScrollView" destination="hO8-3z-mpr" id="hkk-Yp-Jqp"/>
+                        <outlet property="wholeView" destination="nhs-6J-iwh" id="Nji-Be-4Ux"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOW-Hm-IRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

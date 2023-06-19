@@ -24,6 +24,7 @@
 		5887A8612A3F151C00A294ED /* searchData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5887A8602A3F151C00A294ED /* searchData.csv */; };
 		58914DF82A31B67F007965F1 /* CSVTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */; };
 		58914E002A31D2C1007965F1 /* movies_metadata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58914DFF2A31D2C1007965F1 /* movies_metadata.csv */; };
+		5892761C2A3FECF200D7F23D /* Splash3-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5892761B2A3FECF200D7F23D /* Splash3-2.png */; };
 		589B40AE2A381076006DB5E1 /* star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40AD2A381076006DB5E1 /* star_full.png */; };
 		589B40B02A381081006DB5E1 /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40AF2A381081006DB5E1 /* star_half.png */; };
 		589B40B22A381092006DB5E1 /* star_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 589B40B12A381092006DB5E1 /* star_empty.png */; };
@@ -86,6 +87,7 @@
 		5887A8602A3F151C00A294ED /* searchData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = searchData.csv; sourceTree = "<group>"; };
 		58914DF72A31B67F007965F1 /* CSVTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVTableViewCell.swift; sourceTree = "<group>"; };
 		58914DFF2A31D2C1007965F1 /* movies_metadata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = movies_metadata.csv; path = ../../../Downloads/movies_metadata.csv; sourceTree = "<group>"; };
+		5892761B2A3FECF200D7F23D /* Splash3-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash3-2.png"; sourceTree = "<group>"; };
 		589B40AD2A381076006DB5E1 /* star_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_full.png; sourceTree = "<group>"; };
 		589B40AF2A381081006DB5E1 /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_half.png; sourceTree = "<group>"; };
 		589B40B12A381092006DB5E1 /* star_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_empty.png; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		5873FB682A2D05A200E1E637 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				5892761A2A3FECBF00D7F23D /* logo */,
 				58AF9B5E2A3EB57900E8BFB9 /* Icon */,
 				5873FB692A2D05A200E1E637 /* AppDelegate.swift */,
 				5873FB6B2A2D05A200E1E637 /* SceneDelegate.swift */,
@@ -194,11 +197,6 @@
 				589B81652A3CF2950077E2F1 /* TopTableViewCell.swift */,
 				589B40B72A3820CE006DB5E1 /* DetailViewController.swift */,
 				5869CA302A3AEEEA00A920E3 /* LoadingView.swift */,
-				58AF9B5C2A3EA1D400E8BFB9 /* logo.png */,
-				58AF9B512A3E9BA500E8BFB9 /* logo2.png */,
-				58AF9B552A3E9BE400E8BFB9 /* Splash.png */,
-				58AF9B542A3E9BE400E8BFB9 /* Splash2.png */,
-				58AF9B582A3E9D6000E8BFB9 /* Splash3.png */,
 				5873FB6F2A2D05A200E1E637 /* Main.storyboard */,
 				5873FB722A2D05A300E1E637 /* Assets.xcassets */,
 				5873FB742A2D05A300E1E637 /* LaunchScreen.storyboard */,
@@ -220,6 +218,19 @@
 				58AC51BB2A34D03700768E53 /* CSVTableViewController.swift */,
 			);
 			path = FinalProject;
+			sourceTree = "<group>";
+		};
+		5892761A2A3FECBF00D7F23D /* logo */ = {
+			isa = PBXGroup;
+			children = (
+				58AF9B5C2A3EA1D400E8BFB9 /* logo.png */,
+				58AF9B512A3E9BA500E8BFB9 /* logo2.png */,
+				58AF9B552A3E9BE400E8BFB9 /* Splash.png */,
+				58AF9B542A3E9BE400E8BFB9 /* Splash2.png */,
+				58AF9B582A3E9D6000E8BFB9 /* Splash3.png */,
+				5892761B2A3FECF200D7F23D /* Splash3-2.png */,
+			);
+			path = logo;
 			sourceTree = "<group>";
 		};
 		58AF9B5E2A3EB57900E8BFB9 /* Icon */ = {
@@ -327,6 +338,7 @@
 				5887A8612A3F151C00A294ED /* searchData.csv in Resources */,
 				5873FB762A2D05A300E1E637 /* LaunchScreen.storyboard in Resources */,
 				58AF9B5D2A3EA1D400E8BFB9 /* logo.png in Resources */,
+				5892761C2A3FECF200D7F23D /* Splash3-2.png in Resources */,
 				58AF9B562A3E9BE400E8BFB9 /* Splash2.png in Resources */,
 				58AF9B6D2A3EB58E00E8BFB9 /* shooting.png in Resources */,
 				589B40B22A381092006DB5E1 /* star_empty.png in Resources */,

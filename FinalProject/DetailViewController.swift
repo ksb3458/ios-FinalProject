@@ -28,11 +28,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     
     @IBOutlet weak var loadingBlackView: UIView!
+    @IBOutlet weak var wholeView: UIView!
+    @IBOutlet weak var wholeScrollView: UIScrollView!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var overviewText: UITextView!
     @IBOutlet weak var labelLine: UILabel!
-    @IBOutlet weak var labelLine2: UIView!
     @IBOutlet weak var overviewBtn: UIButton!
     @IBOutlet weak var extraText: UITextView!
     
@@ -496,6 +497,19 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         shrinkReview(review: review5, index: 4)
     }
     
+    func updateScrollViewContentSize() {
+        let contentSize = wholeView.frame.size
+        wholeScrollView.contentSize = contentSize
+    }
+
+    func changeContentViewSize() {
+        let viewSize = review1.intrinsicContentSize
+        let width = wholeView.frame.width
+        let height = wholeView.frame.height + viewSize.height
+        wholeView.frame.size = CGSize(width: width, height: height)
+        updateScrollViewContentSize()
+    }
+    
     private func expandReview(review : UITextView, index : Int) {
         let originalString = reviewList[index][0] + "\n" + reviewList[index][1]
         let attributedString = NSMutableAttributedString(string: originalString)
@@ -512,6 +526,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         review.translatesAutoresizingMaskIntoConstraints = true
         review.sizeToFit()
         review.isScrollEnabled = false
+        changeContentViewSize()
     }
     
     private func shrinkReview(review : UITextView, index : Int) {
