@@ -10,6 +10,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var searchField = [Int]()
     var image = UIImage(imageLiteralResourceName: "poster_sample.jpg")
     var starImageViews: [UIImageView] = []
+    var inputText: String = ""
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var dropButton: UIButton!
@@ -141,14 +142,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func searchBtn(_ sender: UIButton) {
         if(textField.text == " " || (textField.text?.count) == 0) { makeAlert() }
-        else { search() }
+        else {
+            search()
+        }
     }
     
     func search() {
         searchField.removeAll()
-        
         if searchName == 0 {
-            let tfText: String? = textField.text
+            let tfText: String? = inputText
             for i in 0 ..< movieList.count {
                 if let text = tfText {
                     if movieList[i][1].lowercased().contains(text.lowercased()) {
@@ -160,7 +162,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         if searchName == 1 {
-            let tfText: String? = textField.text
+            let tfText: String? = inputText
             for i in 0 ..< movieList.count {
                 if let text = tfText {
                     for j in 23 ..< movieList[i].count {
@@ -175,7 +177,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         if searchName == 2 {
-            let tfText: String? = textField.text
+            let tfText: String? = inputText
             for i in 0 ..< movieList.count {
                 if let text = tfText {
                     if movieList[i][22].lowercased().contains(text.lowercased()) {
@@ -246,7 +248,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //}
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            search()
-            return true
+        let currentText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+        inputText = currentText
+        search()
+        return true
     }
 }
